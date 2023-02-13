@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Admin from "./components/admin";
 import Main from "./components/main";
-import Signin from "./components/main/Signin";
+import Login from "./components/main/Login";
 import Signup from "./components/main/Signup";
 import Home from "./components/main/Home";
 import UserAuth from "./auth/UserAuth";
@@ -43,7 +43,7 @@ function App() {
 
             <Route element={<Main />} path="main">
               <Route element={<Home />} path="home" />
-              <Route element={<Signin />} path="signin" />
+              <Route element={<Login />} path="login" />
               <Route element={<Signup />} path="signup" />
             </Route>
 

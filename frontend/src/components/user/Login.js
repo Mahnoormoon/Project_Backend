@@ -1,7 +1,7 @@
 import { Formik } from "formik";
 import React from 'react'
 
-const Signup = () => {
+const Login = () => {
   const userSubmit = (formdata) => {
     console.log(formdata);
   }
@@ -81,25 +81,12 @@ const Signup = () => {
                             Password
                           </label>
                         </div>
-                        {/* Checkbox */}
-                        <div className="form-check d-flex justify-content-center mb-4">
-                          <input
-                            className="form-check-input me-2"
-                            type="checkbox"
-                            defaultValue=""
-                            id="form2Example33"
-                            defaultChecked=""
-                          />
-                          <label className="form-check-label" htmlFor="form2Example33">
-                            Subscribe to our newsletter
-                          </label>
-                        </div>
                         {/* Submit button */}
                         <button
                           type="submit"
                           className="btn btn-primary btn-block mb-4"
                         >
-                          Signup
+                          Login
                         </button>
                         {/* Register buttons */}
                         <div className="text-center">
@@ -128,6 +115,7 @@ const Signup = () => {
                           >
                             <i className="fab fa-github" />
                           </button>
+                          <a>Forgot Password</a>
                         </div>
                       </form>
                     ) }
@@ -137,7 +125,7 @@ const Signup = () => {
             </div>
             <div className="col-lg-6 mb-5 mb-lg-0">
               <img
-                src="C:\Users\acer\Desktop\ToDoCafe\Project_ToDoCafe\frontend\public\main\Signupimg.jpgs"
+                src="C:\Users\acer\Desktop\ToDoCafe\Project_ToDoCafe\frontend\public\main\Loginimg.jpg"
                 className="w-100 rounded-4 shadow-4"
                 alt=""
               />
@@ -150,4 +138,4 @@ const Signup = () => {
     </>
   )
 }
-export default Signup
+export default Login
