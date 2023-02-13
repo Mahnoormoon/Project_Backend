@@ -1,13 +1,14 @@
 const { Schema, model } = require("../connection");
 
-const userSchema = new Schema({
+const widgetSchema = new Schema({
+  id: { type: Int16Array, required: true },
   name: { type: String, required: true },
-  email: { type: String, required: true },
-  password: { type: String, required: true },
-  role: { type: String, required: true },
+  category: { type: String, required: true },
+  date: { type: Date, required: true },
+  time: { type: TimeRanges, required: true },
   created_at: Date,
   updated_at: Date,
 });
 
 
-module.exports = model("todo", userSchema);
+module.exports = model("widget", widgetSchema);

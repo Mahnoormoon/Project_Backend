@@ -1,13 +1,13 @@
 const { Schema, model } = require("../connection");
 
-const userSchema = new Schema({
+const studySchema = new Schema({
+  id: { type: Int16Array, required: true },
   name: { type: String, required: true },
-  email: { type: String, required: true },
-  password: { type: String, required: true },
-  role: { type: String, required: true },
+  description: { type: String, required: true },
+  credits: { type: String, required: true },
   created_at: Date,
   updated_at: Date,
 });
 
 
-module.exports = model("todo", userSchema);
+module.exports = model("study", studySchema);
