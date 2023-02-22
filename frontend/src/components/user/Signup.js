@@ -27,7 +27,7 @@ const Signup = () => {
                 }}
               >
                 <div className="card-body p-5 shadow-5 text-center">
-                  <h2 className="fw-bold mb-5">Login Now</h2>
+                  <h2 className="fw-bold mb-5">Signup Now</h2>
                   <Formik initialValues={{ fname: '', lname: '', email: '', password: '' }} onSubmit={userSubmit}>
 
                     {({ values, handleSubmit, handleChange }) => (
