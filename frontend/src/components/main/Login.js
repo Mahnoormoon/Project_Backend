@@ -7,134 +7,53 @@ const Login = () => {
   }
   return (
     <>
-      {/* Section: Design Block */}
-      <section className="text-center text-lg-start">
-        <style
-          dangerouslySetInnerHTML={{
-            __html:
-              "\n    .cascading-right {\n      margin-right: -50px;\n    }\n\n    @media (max-width: 991.98px) {\n      .cascading-right {\n        margin-right: 0;\n      }\n    }\n  "
-          }}
+      <meta charSet="UTF-8" />
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Login Page</title>
+      <link
+        href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
+        rel="stylesheet"
+      />
+      {/* Icon Link*/}
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      />
+      <style
+        dangerouslySetInnerHTML={{
+          __html:
+            "\n    *{\n        font-family: 'Montserrat',sans-serif;\n    }\n    .mycard{\n        /*border:1px solid red;*/\n        width:25%;\n        padding:40px;\n        border-radius: 5px;\n        /*box-shadow:x-offset y-offset blur size color*/\n        box-shadow:2px 2px 4px 3px rgba(0, 0, 0, 0.302);\n        background-color: white;\n        border-left: 25px solid rgb(194, 239, 240);\n    }\n    body{\n        display:flex;\n        justify-content: center;  \n        align-items: center;\n        height: 100vh;\n        margin:0;\n        /* background-color: cadetblue; */\n        /* background-image: linear-gradient(0deg, cadetblue,wheat); */\n        /* background-image: radial-gradient(wheat, #5f9ea0); */\n        /* background-image: url('https://media.istockphoto.com/vectors/template-vector-abstract-orange-diagonal-background-for-business-for-vector-id1299125021?k=20&m=1299125021&s=612x612&w=0&h=YY3ze9BN1LM9zRg2UNtBzhcn_-LpKKp9vEN7EL3eFXo='); */\n        background-repeat: no-repeat;\n        background-size: cover; /*contain for Ist image*/\n        background-position: center;\n        background-image: linear-gradient(0deg,#ffffff93, #ffffff93), url('https://media.istockphoto.com/vectors/realistic-mountains-landscape-morning-wood-panorama-pine-trees-and-vector-id1150481340?k=20&m=1150481340&s=612x612&w=0&h=y_RdS4lPY2p7O_bh1ZhaeLLOOuSLNBaHZFMdmgdQaVE=');\n    }\n    .myinput{\n        display:block;\n        width:100%;\n        box-sizing: border-box;\n        padding: 5px;\n        border-radius: 5px;\n        /* margin-bottom: 20px; */\n        border: no1px solid grey;\n    }\n    /* Pseudo-Classes */\n    .myinput:focus{\n        outline: 1px solid rgb(21, 103, 105);\n        background-color: rgb(194, 239, 240);\n    }\n    .card-title{\n        font-size: 25px;\n        font-weight: bold;\n        text-align: center;\n        font-family: Montserrat;\n        color:white;\n        text-shadow: 2px 2px 4px rgb(138, 194, 196);\n    }\n    .mybtn{\n        width: 100%;\n        padding: 10px;\n        border-radius: 5px;\n        background-color:cadetblue;\n        color:white;\n        font-weight: bold;\n        border: 1px solid rgba(0, 0, 0, 0.397);\n        margin-bottom: 20px;\n        transition-duration: 0.3s;\n    }\n    /* Pseudo-Classes */\n    .mybtn:hover{\n        background-color: rgb(21, 103, 105);\n        color: rgb(185, 225, 226);\n        outline: 1px solid rgb(194, 239, 240);\n    }\n    .link{\n        display: block;\n        text-align: center;\n        text-decoration: none;\n        color:gray;\n    }\n    /* Pseudo-Classes */\n    .link:visited{\n        color: rgb(21, 103, 105);\n    }\n    #logo{\n        width: 60px;\n        height: 60px;\n        /* margin-left: 138px; */\n        margin:auto;\n        display: block;\n    }\n"
+        }}
+      />
+      <div className="mycard">
+        <img
+          id="logo"
+          src=""
+          alt=""
         />
-        {/* Jumbotron */}
-        <div className="container py-4">
-          <div className="row g-0 align-items-center">
-            <div className="col-lg-6 mb-5 mb-lg-0">
-              <div
-                className="card cascading-right"
-                style={{
-                  background: "hsla(0, 0%, 100%, 0.55)",
-                  backdropFilter: "blur(30px)"
-                }}
-              >
-                <div className="card-body p-5 shadow-5 text-center">
-                  <h2 className="fw-bold mb-5">Login Now</h2>
-                  <Formik initialValues={{ fname: '', lname: '', email: '', password: '' }} onSubmit={userSubmit}>
-
-                    {({ values, handleSubmit, handleChange }) => (
-                      <form onSubmit={handleSubmit}>
-                        {/* 2 column grid layout with text inputs for the first and last names */}
-                        <div className="row">
-                          <div className="col-md-6 mb-4">
-                            <div className="form-outline">
-                              <input
-                                type="text"
-                                id="form3Example1"
-                                className="form-control"
-                              />
-                              <label className="form-label" htmlFor="form3Example1">
-                                First Name
-                              </label>
-                            </div>
-                          </div>
-                          <div className="col-md-6 mb-4">
-                            <div className="form-outline">
-                              <input
-                                type="text"
-                                id="form3Example2"
-                                className="form-control"
-                              />
-                              <label className="form-label" htmlFor="form3Example2">
-                                Last Name
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                        {/* Email input */}
-                        <div className="form-outline mb-4">
-                          <input
-                            type="email"
-                            id="form3Example3"
-                            className="form-control"
-                          />
-                          <label className="form-label" htmlFor="form3Example3">
-                            Email Address
-                          </label>
-                        </div>
-                        {/* Password input */}
-                        <div className="form-outline mb-4">
-                          <input
-                            type="password"
-                            id="form3Example4"
-                            className="form-control"
-                          />
-                          <label className="form-label" htmlFor="form3Example4">
-                            Password
-                          </label>
-                        </div>
-                        {/* Submit button */}
-                        <button
-                          type="submit"
-                          className="btn btn-primary btn-block mb-4"
-                        >
-                          Login
-                        </button>
-                        {/* Register buttons */}
-                        <div className="text-center">
-                          <p>or sign up using:</p>
-                          <button
-                            type="button"
-                            className="btn btn-link btn-floating mx-1"
-                          >
-                            <i className="fab fa-facebook-f" />
-                          </button>
-                          <button
-                            type="button"
-                            className="btn btn-link btn-floating mx-1"
-                          >
-                            <i className="fab fa-google" />
-                          </button>
-                          <button
-                            type="button"
-                            className="btn btn-link btn-floating mx-1"
-                          >
-                            <i className="fab fa-twitter" />
-                          </button>
-                          <button
-                            type="button"
-                            className="btn btn-link btn-floating mx-1"
-                          >
-                            <i className="fab fa-github" />
-                          </button>
-                          <a>Forgot Password</a>
-                        </div>
-                      </form>
-                    ) }
-                  </Formik>
-                </div>
+        <p className="card-title">Login To Continue</p>
+        <Formik initialValues={{ email: '', password: '' }} onSubmit={userSubmit}>
+          {({ values, handleSubmit, handleChange }) => (
+            <form onSubmit={handleSubmit}>
+              <div style={{ display: "flex", alignItems: "center", marginBottom: 20 }}>
+                {/* Icon */}
+                <i className="fas fa-user    " /> &nbsp;&nbsp;
+                <input type="text" className="myinput" placeholder="Email Address" />
               </div>
-            </div>
-            <div className="col-lg-6 mb-5 mb-lg-0">
-              <img
-                src="C:\Users\acer\Desktop\ToDoCafe\Project_ToDoCafe\frontend\public\main\Loginimg.jpg"
-                className="w-100 rounded-4 shadow-4"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-        {/* Jumbotron */}
-      </section>
-      {/* Section: Design Block */}
+              <div style={{ display: "flex", alignItems: "center", marginBottom: 20 }}>
+                {/* Icon */}
+                <i className="fas fa-key    " /> &nbsp;&nbsp;
+                <input type="password" className="myinput" placeholder="Password" />
+              </div>
+              <button className="mybtn">Login</button>
+              <a className="link" href="">
+                Forgot Password
+              </a>
+            </form>
+          )}
+        </Formik>
+      </div>
     </>
   )
 }
