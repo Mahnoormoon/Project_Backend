@@ -29,7 +29,7 @@ const Login = () => {
                 }}
               >
                 <div className="card-body p-3 shadow-3 text-center">
-                  <h2 className="heading2 fw-bold mb-3">Login Now</h2>
+                  <h3 className="heading2 fw-bold mb-3">Login Now</h3>
                   <Formik initialValues={{ fname: '', lname: '', email: '', password: '' }} onSubmit={userSubmit}>
 
                     {({ values, handleSubmit, handleChange }) => (
