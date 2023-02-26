@@ -38,17 +38,22 @@ const Header = () => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <NavLink className="nav-link" to="/main/home">
-                Home
+                &nbsp;&nbsp;Home
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/main/aboutus">
-                AboutUs
+              &nbsp;&nbsp;About Us
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/main/contact">
-                Contact
+              &nbsp;&nbsp;Contact Us
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/main/contact">
+              &nbsp;&nbsp;Services
               </NavLink>
             </li>
           </ul>

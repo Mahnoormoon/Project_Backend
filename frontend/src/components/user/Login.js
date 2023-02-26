@@ -1,5 +1,7 @@
 import { Formik } from "formik";
-import React from 'react'
+import React from 'react';
+import Loginimage from"./Loginimg.jpg";
+import "./Login.css";
 
 const Login = () => {
   const userSubmit = (formdata) => {
@@ -8,7 +10,7 @@ const Login = () => {
   return (
     <>
       {/* Section: Design Block */}
-      <section className="text-center text-lg-start">
+      <section className="mainlogin text-center text-lg-start">
         <style
           dangerouslySetInnerHTML={{
             __html:
@@ -16,9 +18,9 @@ const Login = () => {
           }}
         />
         {/* Jumbotron */}
-        <div className="container py-4">
+        <div className="container py-3">
           <div className="row g-0 align-items-center">
-            <div className="col-lg-6 mb-5 mb-lg-0">
+            <div className="col-lg-4 mb-3 mb-lg-0">
               <div
                 className="card cascading-right"
                 style={{
@@ -26,15 +28,15 @@ const Login = () => {
                   backdropFilter: "blur(30px)"
                 }}
               >
-                <div className="card-body p-5 shadow-5 text-center">
-                  <h2 className="fw-bold mb-5">Login Now</h2>
+                <div className="card-body p-3 shadow-3 text-center">
+                  <h2 className="heading2 fw-bold mb-3">Login Now</h2>
                   <Formik initialValues={{ fname: '', lname: '', email: '', password: '' }} onSubmit={userSubmit}>
 
                     {({ values, handleSubmit, handleChange }) => (
                       <form onSubmit={handleSubmit}>
                         {/* 2 column grid layout with text inputs for the first and last names */}
                         <div className="row">
-                          <div className="col-md-6 mb-4">
+                          <div className="col-md-4 mb-2">
                             <div className="form-outline">
                               <input
                                 type="text"
@@ -46,7 +48,7 @@ const Login = () => {
                               </label>
                             </div>
                           </div>
-                          <div className="col-md-6 mb-4">
+                          <div className="col-md-4 mb-2">
                             <div className="form-outline">
                               <input
                                 type="text"
@@ -60,7 +62,7 @@ const Login = () => {
                           </div>
                         </div>
                         {/* Email input */}
-                        <div className="form-outline mb-4">
+                        <div className="form-outline mb-2">
                           <input
                             type="email"
                             id="form3Example3"
@@ -71,7 +73,7 @@ const Login = () => {
                           </label>
                         </div>
                         {/* Password input */}
-                        <div className="form-outline mb-4">
+                        <div className="form-outline mb-2">
                           <input
                             type="password"
                             id="form3Example4"
@@ -84,7 +86,7 @@ const Login = () => {
                         {/* Submit button */}
                         <button
                           type="submit"
-                          className="btn btn-primary btn-block mb-4"
+                          className="btn1 btn-rounded btn-block btn-outline-white mb-2"
                         >
                           Login
                         </button>
@@ -93,28 +95,29 @@ const Login = () => {
                           <p>or sign up using:</p>
                           <button
                             type="button"
-                            className="btn btn-link btn-floating mx-1"
+                            className="btn4 btn-outline-white btn-link btn-floating mx-1"
                           >
                             <i className="fab fa-facebook-f" />
                           </button>
                           <button
                             type="button"
-                            className="btn btn-link btn-floating mx-1"
+                            className="btn4 btn-outline-white btn-link btn-floating mx-1"
                           >
                             <i className="fab fa-google" />
                           </button>
                           <button
                             type="button"
-                            className="btn btn-link btn-floating mx-1"
+                            className="btn4 btn-outline-white btn-link btn-floating mx-1"
                           >
                             <i className="fab fa-twitter" />
                           </button>
                           <button
                             type="button"
-                            className="btn btn-link btn-floating mx-1"
+                            className="btn4 btn-outline-white btn-link btn-floating mx-1"
                           >
                             <i className="fab fa-github" />
-                          </button>
+                          </button><br></br>
+                          <br></br>
                           <a>Forgot Password</a>
                         </div>
                       </form>
@@ -123,9 +126,9 @@ const Login = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6 mb-5 mb-lg-0">
+            <div className="col-lg-4 mb-5 mb-lg-0">
               <img
-                src="C:\Users\acer\Desktop\ToDoCafe\Project_ToDoCafe\frontend\public\main\Loginimg.jpg"
+                src={Loginimage}
                 className="w-100 rounded-4 shadow-4"
                 alt=""
               />
