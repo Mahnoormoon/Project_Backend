@@ -1,9 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./Header.css";
+import logo from './ToDoCafe_Logo.png';
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"></link>
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark">
       {/* Container wrapper */}
       <div className="container">
         {/* Toggle button */}
@@ -23,11 +27,12 @@ const Header = () => {
           {/* Navbar brand */}
           <a className="navbar-brand mt-2 mt-lg-0" href="#">
             <img
-              src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-              height={15}
-              alt="MDB Logo"
+              src={logo}
+              height={40}
+              alt="ToDoCafe' Logo"
               loading="lazy"
             />
+            <h6 className="mt-2"> ToDoCafe'</h6>
           </a>
           {/* Left links */}
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -55,7 +60,7 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <NavLink className="btn btn-outline-white" to="/main/login">
-                Signin
+                Login
               </NavLink>
             </li>
           </ul>
@@ -65,5 +70,5 @@ const Header = () => {
     </nav>
   );
 };
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 export default Header;

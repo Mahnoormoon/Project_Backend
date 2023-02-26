@@ -1,8 +1,10 @@
 import React from "react";
+import "./Footer.css";
+import logo from './ToDoCafe_Logo.png';
 
 const Footer = () => {
   return (
-    <footer className="text-center text-lg-start bg-info text-white">
+    <footer className=" footer text-center text-lg-start text-white">
       {/* Section: Social media */}
       <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         {/* Left */}
@@ -43,12 +45,18 @@ const Footer = () => {
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               {/* Content */}
               <h6 className="text-uppercase fw-bold mb-4">
-                <i className="fas fa-pen me-3" />
-                ToDoCafe'
+                {/*<i className="fas fa-pen me-3" />*/}
+                <img
+              src={logo}
+              height={40}
+              alt="ToDoCafe' Logo"
+              loading="lazy"
+                />
+                &nbsp;&nbsp;ToDoCafe'
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer
-                content.
+                Makes your daily life<br></br>
+                more productive.
               </p>
             </div>
             {/* Grid column */}
@@ -64,6 +72,11 @@ const Footer = () => {
               <p>
                 <a href="#!" className="text-reset">
                   Music Player
+                </a>
+              </p>
+              <p>
+                <a href="#!" className="text-reset">
+                  Study Methods
                 </a>
               </p>
               {/*<p>
@@ -136,7 +149,7 @@ const Footer = () => {
       >
         © 2023 Copyright:
         <a className="text-reset fw-bold" href=" ">
-        &nbsp;&nbsp;ToDoCafe.com
+          &nbsp;&nbsp;ToDoCafe.com
         </a>
       </div>
       {/* Copyright */}
