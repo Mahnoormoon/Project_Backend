@@ -18,13 +18,7 @@ const Footer = () => {
             <i className="fab fa-facebook-f" />
           </a>
           <a href="" className="me-4 text-reset">
-            <i className="fab fa-twitter" />
-          </a>
-          <a href="" className="me-4 text-reset">
             <i className="fab fa-google" />
-          </a>
-          <a href="" className="me-4 text-reset">
-            <i className="fab fa-instagram" />
           </a>
           <a href="" className="me-4 text-reset">
             <i className="fab fa-linkedin" />
@@ -127,7 +121,7 @@ const Footer = () => {
               </p>
               <p>
                 <i className="fas fa-envelope me-3" />
-                info@example.com
+                &nbsp;todocafe1306@gmail.com
               </p>
               <p>
                 <i className="fas fa-phone me-3" /> + 91 8957316901
