@@ -2,7 +2,6 @@ import React from 'react'
 import './Home.css';
 //imported assets
 import homeimage from '../../assets/Homeimg.jpg';
-import todolist from '../../assets/todolist.png';
 import todoicon from './todoicon.webp';
 import musicicon from './musicicon.webp';
 const Home = () => {
