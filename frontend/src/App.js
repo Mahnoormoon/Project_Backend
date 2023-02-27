@@ -5,6 +5,9 @@ import Main from "./components/main";
 import Login from "./components/main/Login";
 import Signup from "./components/main/Signup";
 import Home from "./components/main/Home";
+import About from "./components/main/About";
+import Contact from "./components/main/Contact";
+import Services from "./components/main/Services";
 import UserAuth from "./auth/UserAuth";
 import User from "./components/user";
 import UserProfile from "./components/user/UserProfile";
@@ -43,6 +46,9 @@ function App() {
 
             <Route element={<Main />} path="main">
               <Route element={<Home />} path="home" />
+              <Route element={<About />} path="aboutus" />
+              <Route element={<Contact />} path="contact" />
+              <Route element={<Services />} path="services" />
               <Route element={<Login />} path="login" />
               <Route element={<Signup />} path="signup" />
             </Route>
