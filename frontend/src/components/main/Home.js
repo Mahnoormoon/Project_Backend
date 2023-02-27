@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className='home flex container'>
       <div className="mainText">
-        <h2>Organize Your Work, Study & Life with ToDoCafe'</h2>
+        <h2>Organize your Work, Study & Life with ToDoCafe'</h2>
       </div>
       <div className="homeImages flex">
         <div className="imageDiv">
