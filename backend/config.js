@@ -1,7 +1,7 @@
 
 const api_config = {
     PORT : 5000,
-    DB_URL : 'mongodb+srv://mmm:mmm@cluster0.gvyon.mongodb.net/MERN-template?retryWrites=true&w=majority'
+    DB_URL : 'mongodb+srv://MahnoorMoon:Hopeworld00@cluster0.ee25quv.mongodb.net/ToDoCafe?retryWrites=true&w=majority'
 }
 
 module.exports = api_config;

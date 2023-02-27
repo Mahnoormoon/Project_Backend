@@ -2,10 +2,29 @@ import { Formik } from "formik";
 import React from 'react';
 import Loginimage from"./Loginimg.jpg";
 import "./Login.css";
+import app_config from "../../config";
 
 const Login = () => {
-  const userSubmit = (formdata) => {
+
+  const url = app_config.apiurl;
+
+  const userSubmit = async (formdata) => {
     console.log(formdata);
+    const res = await fetch(url+'/user/auth', {
+      method: 'POST',
+      body : JSON.stringify(formdata),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    })
+
+    console.log(res.status);
+    if(res.status===201){
+      //success alert
+      console.log('login success');
+    }else{
+      // fail alert
+    }
   }
   return (
     <>
@@ -42,6 +61,8 @@ const Login = () => {
                                 type="text"
                                 id="form3Example1"
                                 className="form-control"
+                                value={values.fname}
+                                onChange={handleChange}
                               />
                               <label className="form-label" htmlFor="form3Example1">
                                 First Name
