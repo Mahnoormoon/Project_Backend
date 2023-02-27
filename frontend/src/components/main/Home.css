@@ -1,0 +1,56 @@
+/*home-styling*/
+.home {
+    padding-top: 2rem;
+    text-align: center;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+.mainText {
+    color: #6fa16f;
+    font-weight:700;
+    font-size: 15px;
+    line-height: 1.5rem;
+}
+
+.homeImages {
+    margin: 2rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 5rem;
+}
+
+.imageDiv-fluid {
+    height: auto;
+}
+
+.image {
+    width:-380px;
+    height:380px;
+    border-radius: 7rem;
+}
+
+.todoicon {
+    position:absolute;
+    width:-215px;
+    height:225px;
+    left: 8%;
+    top: -15%;
+}
+.musicicon {
+    position:absolute;
+    width:-215px;
+    height:225px;
+    right: 8%;
+    bottom: -20%;
+}
+.btnn{
+    background-color: #6fa16f;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 0.5rem;
+    width:300px;
+    height:55px;
+}

@@ -1,11 +1,29 @@
 import React from 'react'
-
+import './Home.css';
+//imported assets
+import homeimage from '../../assets/Homeimg.jpg';
+import todolist from '../../assets/todolist.png';
+import todoicon from './todoicon.webp';
+import musicicon from './musicicon.webp';
 const Home = () => {
   return (
-    <div className='home-page'>
-      <h1 className="text-center display-1 fw-bold p-5">
-        
-      </h1>
+    <div className='home flex container'>
+      <div className="mainText">
+        <h2>Organize Your Work, Study & Life!</h2>
+        <h2>Join ToDoCafe'</h2>
+      </div>
+      <div className="homeImages flex">
+        <div className="imageDiv">
+          <img src={homeimage} className='image' />
+        </div>
+        <img src={todoicon} className="todoicon" />
+        <img src={musicicon} className="musicicon" />
+      </div>
+        <button
+          type="submit"
+          className="btnn btn-rounded btn-outline-white mb-4">
+          Get Started <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </button>
     </div>
   )
 }
