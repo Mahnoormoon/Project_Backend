@@ -2,10 +2,29 @@ import { Formik } from "formik";
 import React from 'react';
 import Loginimage from"./Loginimg.jpg";
 import "./Login.css";
+import app_config from "../../config";
 
 const Login = () => {
-  const userSubmit = (formdata) => {
+
+  const url = app_config.apiurl;
+
+  const userSubmit = async (formdata) => {
     console.log(formdata);
+    const res = await fetch(url+'/user/auth', {
+      method: 'POST',
+      body : JSON.stringify(formdata),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    })
+
+    console.log(res.status);
+    if(res.status===201){
+      //success alert
+      console.log('login success');
+    }else{
+      // fail alert
+    }
   }
   return (
     <>
@@ -30,43 +49,18 @@ const Login = () => {
               >
                 <div className="card-body p-3 shadow-3 text-center">
                   <h3 className="heading2 fw-bold mb-3">Login Now</h3>
-                  <Formik initialValues={{ fname: '', lname: '', email: '', password: '' }} onSubmit={userSubmit}>
+                  <Formik initialValues={{ email: '', password: '' }} onSubmit={userSubmit}>
 
                     {({ values, handleSubmit, handleChange }) => (
                       <form onSubmit={handleSubmit}>
-                        {/* 2 column grid layout with text inputs for the first and last names */}
-                        <div className="row">
-                          <div className="col-md-4 mb-2">
-                            <div className="form-outline">
-                              <input
-                                type="text"
-                                id="form3Example1"
-                                className="form-control"
-                              />
-                              <label className="form-label" htmlFor="form3Example1">
-                                First Name
-                              </label>
-                            </div>
-                          </div>
-                          <div className="col-md-4 mb-2">
-                            <div className="form-outline">
-                              <input
-                                type="text"
-                                id="form3Example2"
-                                className="form-control"
-                              />
-                              <label className="form-label" htmlFor="form3Example2">
-                                Last Name
-                              </label>
-                            </div>
-                          </div>
-                        </div>
                         {/* Email input */}
                         <div className="form-outline mb-2">
                           <input
                             type="email"
                             id="form3Example3"
                             className="form-control"
+                            value={values.email}
+                            onChange={handleChange}
                           />
                           <label className="form-label" htmlFor="form3Example3">
                             Email Address
@@ -78,6 +72,8 @@ const Login = () => {
                             type="password"
                             id="form3Example4"
                             className="form-control"
+                            value={values.password}
+                            onChange={handleChange}
                           />
                           <label className="form-label" htmlFor="form3Example4">
                             Password

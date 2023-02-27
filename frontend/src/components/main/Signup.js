@@ -2,14 +2,32 @@ import { Formik } from "formik";
 import React from 'react';
 import Signupimage from "./Signupimg.jpg";
 import "./Signup.css";
+import app_config from "../../config";
 
 const Signup = () => {
-  const userSubmit = (formdata) => {
+
+  const url = app_config.apiurl;
+
+  const userSubmit = async (formdata) => {
     console.log(formdata);
+    const res = await fetch(url + '/user/auth', {
+      method: 'POST',
+      body: JSON.stringify(formdata),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    console.log(res.status);
+    if(res.status===201){
+      //success alert
+      console.log('signup success');
+    }else{
+      // fail alert
+    }
   }
-  return (
-    <>
-      {/* Section: Design Block */}
+    return (
+      <>
+        {/* Section: Design Block */}
         <section className="mainsignup text-center text-lg-start">
           <style
             dangerouslySetInnerHTML={{
@@ -42,6 +60,8 @@ const Signup = () => {
                                   type="text"
                                   id="form3Example1"
                                   className="form-control"
+                                  value={values.fname}
+                                  onChange={handleChange}
                                 />
                                 <label className="form-label" htmlFor="form3Example1">
                                   First Name
@@ -54,6 +74,8 @@ const Signup = () => {
                                   type="text"
                                   id="form3Example2"
                                   className="form-control"
+                                  value={values.lname}
+                                  onChange={handleChange}
                                 />
                                 <label className=" form-label" htmlFor="form3Example2">
                                   Last Name
@@ -67,6 +89,8 @@ const Signup = () => {
                               type="email"
                               id="form3Example3"
                               className="form-control"
+                              value={values.email}
+                              onChange={handleChange}
                             />
                             <label className="form-label" htmlFor="form3Example3">
                               Email Address
@@ -78,6 +102,8 @@ const Signup = () => {
                               type="password"
                               id="form3Example4"
                               className="form-control"
+                              value={values.password}
+                              onChange={handleChange}
                             />
                             <label className="form-label" htmlFor="form3Example4">
                               Password
@@ -148,8 +174,8 @@ const Signup = () => {
           </div>
           {/* Jumbotron */}
         </section >
-      {/* Section: Design Block */}
-    </>
-  )
-}
-export default Signup
+        {/* Section: Design Block */}
+      </>
+    )
+  }
+  export default Signup
