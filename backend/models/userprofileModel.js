@@ -2,7 +2,6 @@ const { Schema, model } = require("../connection");
 const widgetModel = require("./widgetModel");
 
 const userprofileSchema = new Schema({
-  id: { type: Number, required: true },
   username: { type: String, required: true },
   email: { type: String, required: true },
   contact: { type: String, required: true },

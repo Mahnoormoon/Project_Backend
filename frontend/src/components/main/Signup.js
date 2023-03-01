@@ -10,7 +10,7 @@ const Signup = () => {
 
   const userSubmit = async (formdata) => {
     console.log(formdata);
-    const res = await fetch(url + '/user/auth', {
+    const res = await fetch(url + '/user/add', {
       method: 'POST',
       body: JSON.stringify(formdata),
       headers: {

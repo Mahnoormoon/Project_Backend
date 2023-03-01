@@ -1,7 +1,6 @@
 const { Schema, model } = require("../connection");
 
 const todoSchema = new Schema({
-  id: { type: Number, required: true },
   name: { type: String, required: true },
   title: { type: String, required: true },
   description: { type: String, required: true },

@@ -17,6 +17,7 @@ import AdminAuth from "./auth/AdminAuth";
 import UserProvider from "./context/UserProvider";
 import AdminProvider from "./context/AdminProvider";
 import { useState } from "react";
+import MusicListing from "./components/main/MusicListing";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -51,6 +52,7 @@ function App() {
               <Route element={<Services />} path="services" />
               <Route element={<Login />} path="login" />
               <Route element={<Signup />} path="signup" />
+              <Route element={<MusicListing />} path="musiclisting" />
             </Route>
 
             <Route

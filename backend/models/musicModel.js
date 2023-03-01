@@ -1,7 +1,6 @@
 const { Schema, model } = require("../connection");
 
 const musicSchema = new Schema({
-  id: { type: Number, required: true },
   name: { type: String, required: true },
   //duration: { type: TimeRanges, required: true },
   credits: { type: String, required: true },
