@@ -3,12 +3,11 @@ const bcrypt = require("bcrypt");
 const SALT = 10;
 
 const userSchema = new Schema({
-  id: { type: Int16Array, required: true },
+  id: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   fname: { type: String, required: true },
   lname: { type: String, required: true },
-  role: { type: String, required: true },
   created_at: Date,
   updated_at: Date,
 });
