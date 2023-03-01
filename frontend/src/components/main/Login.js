@@ -57,7 +57,7 @@ const Login = () => {
                         <div className="form-outline mb-2">
                           <input
                             type="email"
-                            id="form3Example3"
+                            id="email"
                             className="form-control"
                             value={values.email}
                             onChange={handleChange}
@@ -70,7 +70,7 @@ const Login = () => {
                         <div className="form-outline mb-2">
                           <input
                             type="password"
-                            id="form3Example4"
+                            id="password"
                             className="form-control"
                             value={values.password}
                             onChange={handleChange}

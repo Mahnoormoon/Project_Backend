@@ -58,7 +58,7 @@ const Signup = () => {
                               <div className="form-outline">
                                 <input
                                   type="text"
-                                  id="form3Example1"
+                                  id="fname"
                                   className="form-control"
                                   value={values.fname}
                                   onChange={handleChange}
@@ -72,7 +72,7 @@ const Signup = () => {
                               <div className="form-outline">
                                 <input
                                   type="text"
-                                  id="form3Example2"
+                                  id="lname"
                                   className="form-control"
                                   value={values.lname}
                                   onChange={handleChange}
@@ -87,7 +87,7 @@ const Signup = () => {
                           <div className="form-outline mb-2">
                             <input
                               type="email"
-                              id="form3Example3"
+                              id="email"
                               className="form-control"
                               value={values.email}
                               onChange={handleChange}
@@ -100,7 +100,7 @@ const Signup = () => {
                           <div className="form-outline mb-2">
                             <input
                               type="password"
-                              id="form3Example4"
+                              id="password"
                               className="form-control"
                               value={values.password}
                               onChange={handleChange}
@@ -115,7 +115,7 @@ const Signup = () => {
                               className="form-check-input me-2"
                               type="checkbox"
                               defaultValue=""
-                              id="form2Example33"
+                              id="checkbox"
                               defaultChecked=""
                             />
                             <label className="form-check-label" htmlFor="form2Example33">
