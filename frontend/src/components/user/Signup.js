@@ -65,9 +65,6 @@ const Signup = () => {
                                   value={values.fname}
                                   onChange={handleChange}
                                 />
-                                <label className="form-label" htmlFor="form3Example1">
-                                  {/*First Name*/}
-                                </label>
                               </div>
                             </div>
                             <div className="col-md-4 mb-2">
@@ -80,9 +77,6 @@ const Signup = () => {
                                   value={values.lname}
                                   onChange={handleChange}
                                 />
-                                <label className=" form-label" htmlFor="form3Example2">
-                                  {/*Last Name*/}
-                                </label>
                               </div>
                             </div>
                           </div>
@@ -96,9 +90,6 @@ const Signup = () => {
                               value={values.email}
                               onChange={handleChange}
                             />
-                            <label className="form-label" htmlFor="form3Example3">
-                              {/*Email Address*/}
-                            </label>
                           </div>
                           {/* Password input */}
                           <div className="form-outline mb-2">
@@ -110,9 +101,6 @@ const Signup = () => {
                               value={values.password}
                               onChange={handleChange}
                             />
-                            <label className="form-label" htmlFor="form3Example4">
-                              {/*Password*/}
-                            </label>
                           </div>
                           {/* Checkbox */}
                           <div className="form-check d-flex justify-content-center mb-2">
