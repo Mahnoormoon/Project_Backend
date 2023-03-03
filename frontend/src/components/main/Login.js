@@ -3,6 +3,7 @@ import React from 'react';
 import Loginimage from"./Loginimg.jpg";
 import "./Login.css";
 import app_config from "../../config";
+import { MDBInput } from 'mdb-react-ui-kit';
 
 const Login = () => {
 
@@ -55,10 +56,10 @@ const Login = () => {
                       <form onSubmit={handleSubmit}>
                         {/* Email input */}
                         <div className="form-outline mb-2">
-                          <input
+                          <MDBInput
+                            label="Email Address"
                             type="email"
                             id="email"
-                            className="form-control"
                             value={values.email}
                             onChange={handleChange}
                           />
@@ -68,7 +69,8 @@ const Login = () => {
                         </div>
                         {/* Password input */}
                         <div className="form-outline mb-2">
-                          <input
+                          <MDBInput
+                            label="Password"
                             type="password"
                             id="password"
                             className="form-control"

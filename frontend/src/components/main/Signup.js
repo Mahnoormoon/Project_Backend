@@ -3,6 +3,7 @@ import React from 'react';
 import Signupimage from "./Signupimg.jpg";
 import "./Signup.css";
 import app_config from "../../config";
+import { MDBInput } from 'mdb-react-ui-kit';
 
 const Signup = () => {
 
@@ -56,7 +57,8 @@ const Signup = () => {
                           <div className="row">
                             <div className="col-md-4 mb-2">
                               <div className="form-outline">
-                                <input
+                                <MDBInput
+                                  label="First Name"
                                   type="text"
                                   id="fname"
                                   className="form-control"
@@ -64,13 +66,14 @@ const Signup = () => {
                                   onChange={handleChange}
                                 />
                                 <label className="form-label" htmlFor="form3Example1">
-                                  First Name
+                                  {/*First Name*/}
                                 </label>
                               </div>
                             </div>
                             <div className="col-md-4 mb-2">
                               <div className="form-outline">
-                                <input
+                                <MDBInput
+                                  label="Last Name"
                                   type="text"
                                   id="lname"
                                   className="form-control"
@@ -78,14 +81,15 @@ const Signup = () => {
                                   onChange={handleChange}
                                 />
                                 <label className=" form-label" htmlFor="form3Example2">
-                                  Last Name
+                                  {/*Last Name*/}
                                 </label>
                               </div>
                             </div>
                           </div>
                           {/* Email input */}
                           <div className="form-outline mb-2">
-                            <input
+                            <MDBInput
+                              label="Email Address"
                               type="email"
                               id="email"
                               className="form-control"
@@ -93,12 +97,13 @@ const Signup = () => {
                               onChange={handleChange}
                             />
                             <label className="form-label" htmlFor="form3Example3">
-                              Email Address
+                              {/*Email Address*/}
                             </label>
                           </div>
                           {/* Password input */}
                           <div className="form-outline mb-2">
-                            <input
+                            <MDBInput
+                              label="Password"
                               type="password"
                               id="password"
                               className="form-control"
@@ -106,7 +111,7 @@ const Signup = () => {
                               onChange={handleChange}
                             />
                             <label className="form-label" htmlFor="form3Example4">
-                              Password
+                              {/*Password*/}
                             </label>
                           </div>
                           {/* Checkbox */}
