@@ -51,11 +51,13 @@ const ManageToDo = () => {
                     <tr style={{backgroundColor:"#9c3353", color:"white"}}>
                          <th></th>
                          {/*change according to the todopage*/}
-                        <th>FirstName</th>
-                        <th>LastName</th>
-                        <th>Email</th>
-                        <th>Password</th>
+                        <th>UserName</th>
+                        <th>ToDo Category</th>
+                        <th>ToDo Title</th>
+                        <th>Todo Description</th>
+                        <th>ToDo Date</th>
                         <th>Created_At</th>
+                        <th>Added_At</th>
                         <th>Updated_At</th>
                     </tr>
                 </thead>
@@ -64,11 +66,12 @@ const ManageToDo = () => {
                         todoList.map( (user) => (
                             <tr >
                         {/*change according to the todopage*/}
-                        <td>user.fname</td>
-                        <td>user.lname</td>
-                        <td>user.email</td>
-                        <td>user.password</td>
+                        <td>user.name</td>
+                        <td>user.category</td>
+                        <td>user.title</td>
+                        <td>user.description</td>
                         <td>user.created_at</td>
+                        <td>user.added_at</td>
                         <td>user.updated_at</td>
                                 <td>
                                     <button className='btn btn-dark' style={{backgroundColor:"#9c3353"}} onClick={() => deleteUser(user._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
