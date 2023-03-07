@@ -2,8 +2,8 @@ import React from 'react'
 
 const MusicPlayer = () => {
     return (
-        <div className="container d-flex mx-auto align-items-center">
-            <div className="container py-5 text-center mx-auto">
+        <div className="container text-center">
+            <div className="container py-5">
                 <div className="card py-3 align-items-center" style={{ width: "20rem" }}>
                     <img
                         src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp"
@@ -11,24 +11,17 @@ const MusicPlayer = () => {
                         style={{ width: 180, height: 180 }}
                         alt="Music Cover Image"
                     />
-                    <div className="card-body align-center">
-                        <p className="card-text-center">
+                    <div className="card-body">
+                        <p className="">
                             Music Title
                         </p>
-                        <p className="card-text-center">
+                        <p className="">
                             Artist Name
                         </p>
                     </div>
-                    <div className="mt-0 align-center">
-                        <div className="progress">
-                            <div
-                                className="progress-bar bg-success"
-                                role="progressbar"
-                                style={{ width: "55%" }}
-                                aria-valuenow={75}
-                                aria-valuemin={0}
-                                aria-valuemax={100}
-                            />
+                    <div className="text-center">
+                        <div>
+                        <audio style={{width: '150%'}} src={''} controls></audio>
                         </div>
                         <br></br>
                         <a
