@@ -63,9 +63,6 @@ const Login = () => {
                             value={values.email}
                             onChange={handleChange}
                           />
-                          <label className="form-label" htmlFor="form3Example3">
-                            Email Address
-                          </label>
                         </div>
                         {/* Password input */}
                         <div className="form-outline mb-2">
@@ -77,9 +74,6 @@ const Login = () => {
                             value={values.password}
                             onChange={handleChange}
                           />
-                          <label className="form-label" htmlFor="form3Example4">
-                            Password
-                          </label>
                         </div>
                         {/* Submit button */}
                         <button

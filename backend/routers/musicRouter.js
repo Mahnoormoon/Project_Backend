@@ -21,7 +21,7 @@ router.post("/add", (req, res) => {
     });
 });
 
-router.post("/auth", (req, res) => {
+{/*router.post("/auth", (req, res) => {
   Model.findOne({ email: req.body.email })
     .then((result) => {
       if (result) {
@@ -52,7 +52,7 @@ router.post("/auth", (req, res) => {
   //   console.error("Error saving user data", err);
   //   res.status(500).send("Error saving user data");
   // });
-});
+  */}
 
 router.get("/getall", (req, res) => {
   Model.find()

@@ -1,13 +1,14 @@
 const { Schema, model } = require("../connection");
 
 const musicSchema = new Schema({
-  name: { type: String, required: true },
-  artist: { type: String, required: true },
-  duration: { type: String, required: true },
-  credits: { type: String, required: true },
+  mtitle: { type: String, required: true },
+  aname: { type: String, required: true },
+  mcredits: { type: String, required: true },
+  mduration: { type: String, required: true },
+  mimage: { type: String, required: true },
   //playlist: { type: String, required: true },
   added_at: Date,
-  updated_at: Date,
+  updated_at: Date
 });
 
 
