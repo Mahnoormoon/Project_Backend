@@ -24,10 +24,10 @@ const AddMusic = () => {
         }
     }
     return (
-        <div className="containerr d-flex align-items-center">
-            <div className="container py-5">
-                <div className="card py-4 align-items-center" style={{ width: "20rem" }}>
-                    <h4 className="heading1">Add Music Form</h4>
+        <div className="containerr py-3">
+            <div className="container py-3 d-flex align-items-center">
+                <div className="card py-3 align-items-center" style={{ width: "20rem" }}>
+                    <h4 className="heading1">Add Music Here</h4>
                     <div className="form-outline px-4 py-4 mb-2">
                         <Formik initialValues={{ mtitle: '', aname: '', mcredits: '', maudio: '', mimage: '' }} onSubmit={musicSubmit}>
 
@@ -37,7 +37,7 @@ const AddMusic = () => {
                                         label="Music Title"
                                         type="text"
                                         id="mtitle"
-                                        className="form-control mt-2 mb-2"
+                                        className="form-control mb-2"
                                         value={values.mtitle}
                                         onChange={handleChange}
                                     />
@@ -76,7 +76,7 @@ const AddMusic = () => {
                                     {/* Submit button */}
                                     <button
                                         type="submit"
-                                        className="btn2 btn-block mt-1 btn-rounded btn-outline-white mt-2 mb-2">
+                                        className="btn2 btn-block mt-1 btn-rounded btn-outline-white mt-2">
                                         Click to Add
                                     </button>
                                 </form>
