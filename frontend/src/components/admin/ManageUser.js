@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import app_config from '../../config';
 
 const ManageUser = () => {
 
     const [userList, setUserList] = useState([]);
+    const url = app_config.apiurl;
 
     const getDataFromBackend = async () => {
         // send request 
-        const res= await fetch('http://localhost:3001/user/getall');
+        const res= await fetch(url+'/user/getall');
 
         // accessing data from response
         const data = await res.json();
@@ -26,7 +28,7 @@ const ManageUser = () => {
     
     const deleteUser = async (id) => {
         console.log(id);
-        const res = await fetch('http://localhost:3001/user/delete/'+id, {
+        const res = await fetch(url+'/user/delete/'+id, {
             method : 'DELETE'
         })
 
@@ -53,7 +55,6 @@ const ManageUser = () => {
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
-                        <th>Password</th>
                         <th>Created_At</th>
                         <th>Updated_At</th>
                     </tr>
@@ -62,12 +63,11 @@ const ManageUser = () => {
                     {
                         userList.map( (user) => (
                             <tr >
-                        <td>user.fname</td>
-                        <td>user.lname</td>
-                        <td>user.email</td>
-                        <td>user.password</td>
-                        <td>user.created_at</td>
-                        <td>user.updated_at</td>
+                        <td>{user.fname}</td>
+                        <td>{user.lname}</td>
+                        <td>{user.email}</td>
+                        <td>{new Date(user.created_at).toLocaleDateString()}</td>
+                        <td>{new Date(user.updated_at).toLocaleDateString()}</td>
                                 <td>
                                     <button className='btn btn-dark' style={{backgroundColor:"#9c3353"}} onClick={() => deleteUser(user._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
                                 </td>

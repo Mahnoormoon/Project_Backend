@@ -9,6 +9,7 @@ const reminderRouter = require('./routers/reminderRouter');
 const todoRouter = require('./routers/todoRouter');
 const studyRouter = require('./routers/studyRouter');
 const widgetRouter = require('./routers/widgetRouter');
+const utilRouter = require('./routers/utils');
 const cors = require('cors');
 const { PORT } = require('./config');
 
@@ -30,6 +31,10 @@ app.use('/reminder', reminderRouter);
 app.use('/todo', todoRouter);
 app.use('/study', studyRouter);
 app.use('/widget', widgetRouter);
+app.use('/util', utilRouter);
+
+
+app.use(express.static('./static/uploads'));
 
 app.get('/', (req, res) => {
     console.log('Request at index');

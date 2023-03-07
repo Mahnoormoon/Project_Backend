@@ -4,10 +4,12 @@ import Loginimage from"./Loginimg.jpg";
 import "./Login.css";
 import app_config from "../../config";
 import { MDBInput } from 'mdb-react-ui-kit';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
   const url = app_config.apiurl;
+  const navigate = useNavigate();
 
   const userSubmit = async (formdata) => {
     console.log(formdata);
@@ -21,8 +23,17 @@ const Login = () => {
 
     console.log(res.status);
     if(res.status===201){
+      const userdata = (await res.json()).result;
       //success alert
-      console.log('login success');
+      console.log(userdata);
+      if(userdata.isAdmin){
+        sessionStorage.setItem("admin", JSON.stringify(userdata));
+        navigate("/admin/addmusic");
+      }else{
+        sessionStorage.setItem("user", JSON.stringify(userdata));
+        navigate("/user/profile");
+      }
+      
     }else{
       // fail alert
     }

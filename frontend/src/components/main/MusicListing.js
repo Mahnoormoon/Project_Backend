@@ -1,6 +1,52 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import app_config from '../../config';
 
 const MusicListing = () => {
+
+    const [musicList, setMusicList] = useState([]);
+    const url = app_config.apiurl;
+
+    const getDataFromBackend = async () => {
+        // send request 
+        const res= await fetch(url+'/music/getall');
+
+        // accessing data from response
+        const musicdata = (await res.json()).result;
+
+        console.log(musicdata);
+        setMusicList(musicdata);
+
+    };
+
+    useEffect(() => {
+     
+        getDataFromBackend();
+
+    }, []);
+
+    const displayMusic = () => {
+        return musicList.map((music) => (
+            <li className="list-group-item d-flex justify-content-between align-items-center">
+                        <div className="d-flex align-items-center">
+                            <img
+                                src={ url+'/'+music.mimage}
+                                alt=""
+                                style={{ width: 45, height: 45 }}
+                                className="rounded-circle"
+                            />
+                            <div className="ms-3">
+                                <p className="fw-bold mb-1">Artist Name</p>
+                                <p className="text-muted mb-0">Music Title</p>
+                            </div>
+                        </div>
+                            <audio style={{width: '60%'}} src={url+'/'+music.maudio} controls></audio>
+                        <a className="btn btn-link btn-rounded btn-sm" href="#" role="button">
+                            Play
+                        </a>
+                    </li>
+        ))
+    }
+
     return (
         <header>
             <div
@@ -23,176 +69,7 @@ const MusicListing = () => {
             </div>
             <div>
                 <ul className="list-group list-group-light">
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                        <div className="d-flex align-items-center">
-                            <img
-                                src=""
-                                alt=""
-                                style={{ width: 45, height: 45 }}
-                                className="rounded-circle"
-                            />
-                            <div className="ms-3">
-                                <p className="fw-bold mb-1">Artist Name</p>
-                                <p className="text-muted mb-0">Music Title</p>
-                            </div>
-                        </div>
-                        <a className="btn btn-link btn-rounded btn-sm" href="#" role="button">
-                            Play
-                        </a>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                        <div className="d-flex align-items-center">
-                            <img
-                                src=""
-                                className="rounded-circle"
-                                alt=""
-                                style={{ width: 45, height: 45 }}
-                            />
-                            <div className="ms-3">
-                                <p className="fw-bold mb-1">Artist Name</p>
-                                <p className="text-muted mb-0">Music Title</p>
-                            </div>
-                        </div>
-                        <a className="btn btn-link btn-rounded btn-sm" href="#" role="button">
-                            Play
-                        </a>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                        <div className="d-flex align-items-center">
-                            <img
-                                src=""
-                                className="rounded-circle"
-                                alt=""
-                                style={{ width: 45, height: 45 }}
-                            />
-                            <div className="ms-3">
-                                <p className="fw-bold mb-1">Artist Name</p>
-                                <p className="text-muted mb-0">Music Title</p>
-                            </div>
-                        </div>
-                        <a className="btn btn-link btn-rounded btn-sm" href="#" role="button">
-                            Play
-                        </a>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                        <div className="d-flex align-items-center">
-                            <img
-                                src=""
-                                className="rounded-circle"
-                                alt=""
-                                style={{ width: 45, height: 45 }}
-                            />
-                            <div className="ms-3">
-                                <p className="fw-bold mb-1">Artist Name</p>
-                                <p className="text-muted mb-0">Music Title</p>
-                            </div>
-                        </div>
-                        <a className="btn btn-link btn-rounded btn-sm" href="#" role="button">
-                            Play
-                        </a>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                        <div className="d-flex align-items-center">
-                            <img
-                                src=""
-                                className="rounded-circle"
-                                alt=""
-                                style={{ width: 45, height: 45 }}
-                            />
-                            <div className="ms-3">
-                                <p className="fw-bold mb-1">Artist Name</p>
-                                <p className="text-muted mb-0">Music Title</p>
-                            </div>
-                        </div>
-                        <a className="btn btn-link btn-rounded btn-sm" href="#" role="button">
-                            Play
-                        </a>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                        <div className="d-flex align-items-center">
-                            <img
-                                src=""
-                                className="rounded-circle"
-                                alt=""
-                                style={{ width: 45, height: 45 }}
-                            />
-                            <div className="ms-3">
-                                <p className="fw-bold mb-1">Artist Name</p>
-                                <p className="text-muted mb-0">Music Title</p>
-                            </div>
-                        </div>
-                        <a className="btn btn-link btn-rounded btn-sm" href="#" role="button">
-                            Play
-                        </a>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                        <div className="d-flex align-items-center">
-                            <img
-                                src=""
-                                className="rounded-circle"
-                                alt=""
-                                style={{ width: 45, height: 45 }}
-                            />
-                            <div className="ms-3">
-                                <p className="fw-bold mb-1">Artist Name</p>
-                                <p className="text-muted mb-0">Music Title</p>
-                            </div>
-                        </div>
-                        <a className="btn btn-link btn-rounded btn-sm" href="#" role="button">
-                            Play
-                        </a>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                        <div className="d-flex align-items-center">
-                            <img
-                                src=""
-                                className="rounded-circle"
-                                alt=""
-                                style={{ width: 45, height: 45 }}
-                            />
-                            <div className="ms-3">
-                                <p className="fw-bold mb-1">Artist Name</p>
-                                <p className="text-muted mb-0">Music Title</p>
-                            </div>
-                        </div>
-                        <a className="btn btn-link btn-rounded btn-sm" href="#" role="button">
-                            Play
-                        </a>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                        <div className="d-flex align-items-center">
-                            <img
-                                src=""
-                                className="rounded-circle"
-                                alt=""
-                                style={{ width: 45, height: 45 }}
-                            />
-                            <div className="ms-3">
-                                <p className="fw-bold mb-1">Artist Name</p>
-                                <p className="text-muted mb-0">Music Title</p>
-                            </div>
-                        </div>
-                        <a className="btn btn-link btn-rounded btn-sm" href="#" role="button">
-                            Play
-                        </a>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                        <div className="d-flex align-items-center">
-                            <img
-                                src=""
-                                className="rounded-circle"
-                                alt=""
-                                style={{ width: 45, height: 45 }}
-                            />
-                            <div className="ms-3">
-                                <p className="fw-bold mb-1">Artist Name</p>
-                                <p className="text-muted mb-0">Music Title</p>
-                            </div>
-                        </div>
-                        <a className="btn btn-link btn-rounded btn-sm" href="#" role="button">
-                            Play
-                        </a>
-                    </li>
+                    {displayMusic()}
                 </ul>
             </div>
         </header>

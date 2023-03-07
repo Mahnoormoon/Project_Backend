@@ -26,6 +26,8 @@ import ManageToDo from "./components/admin/ManageToDo";
 import ManageStudyMethods from "./components/admin/ManageStudyMethods";
 import ManageMusic from "./components/admin/ManageMusic";
 import ManageReminder from "./components/admin/ManageReminder";
+import UserAuth from "./auth/UserAuth";
+import AdminAuth from "./auth/AdminAuth";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -44,13 +46,14 @@ function App() {
             <Route element={<Navigate to="/main/home" />} path="/" />
             <Route
               element={
-                // <AdminAuth>
-                // </AdminAuth>
-                <Admin />
+                <AdminAuth>
+                  <Admin />
+                </AdminAuth>
               }
               path="admin"
             >
               <Route element={<AdminProfile />} path="profile" />
+              <Route element={<ManageUser />} path="manageuser" />
               <Route element={<AddMusic />} path="addmusic" />
             </Route>
 
@@ -74,9 +77,9 @@ function App() {
 
             <Route
               element={
-                // <UserAuth>
-                // </UserAuth>
-                <User />
+                <UserAuth>
+                  <User />
+                </UserAuth>
               }
               path="user"
             >

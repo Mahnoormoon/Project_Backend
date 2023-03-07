@@ -4,10 +4,11 @@ const SALT = 10;
 
 const userSchema = new Schema({
   fname: { type: String, required: true },
-  lname: { type: String, required: true },
+  lname: { type: String },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  contact: { type: String, required: true },
+  contact: { type: String },
+  isAdmin: { type: Boolean, default: false },
   created_at: Date,
   updated_at: Date,
 });
