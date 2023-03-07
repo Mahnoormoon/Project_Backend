@@ -3,6 +3,8 @@ import { Formik } from "formik";
 import "./AddMusic.css";
 import { MDBInput } from "mdb-react-ui-kit";
 import app_config from "../../config";
+import Swal from 'sweetalert2';
+
 const AddMusic = () => {
   const url = app_config.apiurl;
   const [selImage, setSelImage] = useState("");
@@ -22,9 +24,18 @@ const AddMusic = () => {
     console.log(res.status);
     if (res.status === 201) {
       //success alert
+      Swal.fire(
+        'Music Added!',
+        'success'
+      )
       console.log("Music Added");
     } else {
       // fail alert
+      Swal.fire(
+        'Oops...',
+        'Error Adding Music!',
+        'error'
+      )
     }
   };
 

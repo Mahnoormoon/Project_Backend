@@ -4,6 +4,7 @@ import Signupimage from "./Signupimg.jpg";
 import "./Signup.css";
 import app_config from "../../config";
 import { MDBInput } from 'mdb-react-ui-kit';
+import Swal from 'sweetalert2';
 
 const Signup = () => {
 
@@ -21,9 +22,18 @@ const Signup = () => {
     console.log(res.status);
     if(res.status===201){
       //success alert
+      Swal.fire(
+        'Hurray!',
+        'Signup Successful',
+        'success'
+      )
       console.log('signup success');
     }else{
       // fail alert
+      Swal.fire(
+        'Signup Unsuccessful',
+        'error'
+      )
     }
   }
     return (

@@ -3,6 +3,7 @@ import React from 'react';
 import Loginimage from"./Loginimg.jpg";
 import "./Login.css";
 import app_config from "../../config";
+import Swal from 'sweetalert2';
 import { MDBInput } from 'mdb-react-ui-kit';
 
 const Login = () => {
@@ -22,9 +23,18 @@ const Login = () => {
     console.log(res.status);
     if(res.status===201){
       //success alert
+      Swal.fire(
+        'Hurray!',
+        'Login Successful',
+        'success'
+      )
       console.log('login success');
     }else{
       // fail alert
+      Swal.fire(
+        'Signup Unsuccessful',
+        'error'
+      )
     }
   }
   return (

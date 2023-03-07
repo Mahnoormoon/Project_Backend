@@ -4,6 +4,7 @@ import Loginimage from"./Loginimg.jpg";
 import "./Login.css";
 import app_config from "../../config";
 import { MDBInput } from 'mdb-react-ui-kit';
+import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -25,6 +26,11 @@ const Login = () => {
     if(res.status===201){
       const userdata = (await res.json()).result;
       //success alert
+      Swal.fire(
+        'Hurray!',
+        'Login Successful',
+        'success'
+      )
       console.log(userdata);
       if(userdata.isAdmin){
         sessionStorage.setItem("admin", JSON.stringify(userdata));
@@ -36,6 +42,10 @@ const Login = () => {
       
     }else{
       // fail alert
+      Swal.fire(
+        'Signup Unsuccessful',
+        'error'
+      )
     }
   }
   return (
