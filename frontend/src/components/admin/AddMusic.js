@@ -18,7 +18,7 @@ const AddMusic = () => {
         console.log(res.status);
         if (res.status === 201) {
             //success alert
-            console.log('music added');
+            console.log('Music Added');
         } else {
             // fail alert
         }
