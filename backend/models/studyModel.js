@@ -1,9 +1,9 @@
 const { Schema, model } = require("../connection");
 
 const studySchema = new Schema({
-  name: { type: String, required: true },
-  description: { type: String, required: true },
-  credits: { type: String, required: true },
+  sname: { type: String, required: true },
+  sdescription: { type: String, required: true },
+  scredits: { type: String, required: true },
   created_at: Date,
   updated_at: Date,
 });

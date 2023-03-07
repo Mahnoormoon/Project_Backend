@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
-
+import app_config from '../../config';
 const ManageStudyMethods = () => {
 
     const [studymethodList, setStudymethodList] = useState([]);
-
+    const url = app_config.apiurl;
     const getDataFromBackend = async () => {
         // send request 
-        const res= await fetch('http://localhost:3001/study/getall');
+        const res= await fetch(url+'/study/getall');
 
         // accessing data from response
         const data = await res.json();
@@ -26,13 +26,13 @@ const ManageStudyMethods = () => {
     
     const deleteUser = async (id) => {
         console.log(id);
-        const res = await fetch('http://localhost:3001/study/delete/'+id, {
+        const res = await fetch(url+'/study/getall'+id, {
             method : 'DELETE'
         })
 
         if(res.status===200){
             getDataFromBackend();
-            toast.success('User Deleted Successfully!!');
+            toast.success('Study Method Deleted Successfully!!');
         }
     }
 
@@ -40,7 +40,7 @@ const ManageStudyMethods = () => {
     <div>
         <header className='py-5'>
             <div className="container">
-                <h1 className='display-3 fw-bold  text-center' style={{color:"#9c3353"}}>Manage Study Methods Data</h1>
+                <h1 className='display-3 fw-bold  text-center' style={{color:"#5f8b5f"}}>Manage Study Methods Data</h1>
             </div>
         </header>
 
@@ -48,11 +48,11 @@ const ManageStudyMethods = () => {
 
         <table class="table table-striped table-hover">
                 <thead >
-                    <tr style={{backgroundColor:"#9c3353", color:"white"}}>
+                    <tr style={{backgroundColor:"#5f8b5f", color:"white"}}>
                          <th></th>
                         <th>Study Method Name</th>
-                        <th>Description</th>
-                        <th>Credits</th>
+                        <th>Full Description</th>
+                        <th>Study Method Credits</th>
                         <th>Created_At</th>
                         <th>Updated_At</th>
                     </tr>
@@ -61,13 +61,13 @@ const ManageStudyMethods = () => {
                     {
                         studymethodList.map( (user) => (
                             <tr >
-                        <td>user.name</td>
-                        <td>user.description</td>
-                        <td>user.credits</td>
-                        <td>user.created_at</td>
-                        <td>user.updated_at</td>
+                        <td>{user.sname}</td>
+                        <td>{user.sdescription}</td>
+                        <td>{user.scredits}</td>
+                        <td>{new Date(user.created_at).toLocaleDateString()}</td>
+                        <td>{new Date(user.updated_at).toLocaleDateString()}</td>
                                 <td>
-                                    <button className='btn btn-dark' style={{backgroundColor:"#9c3353"}} onClick={() => deleteUser(user._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
+                                    <button className='btn btn-dark' style={{backgroundColor:"#5f8b5f"}} onClick={() => deleteUser(user._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
                                 </td>
                             </tr>
                         ))

@@ -54,6 +54,11 @@ function App() {
             >
               <Route element={<AdminProfile />} path="profile" />
               <Route element={<ManageUser />} path="manageuser" />
+              <Route element={<ManageUserProfile />} path="manageuserprofile" />
+              <Route element={<ManageToDo />} path="managetodo" />
+              <Route element={<ManageStudyMethods />} path="managestudymethods" />
+              <Route element={<ManageMusic />} path="managemusic" />
+              <Route element={<ManageReminder />} path="managereminder" />
               <Route element={<AddMusic />} path="addmusic" />
             </Route>
 
@@ -64,15 +69,8 @@ function App() {
               <Route element={<Services />} path="services" />
               <Route element={<Login />} path="login" />
               <Route element={<Signup />} path="signup" />
-              <Route element={<AddMusic />} path="addmusic" />
               <Route element={<MusicListing />} path="musiclisting" />
               <Route element={<MusicPlayer />} path="musicplayer" />
-              <Route element={<ManageUser />} path="manageuser" />
-              <Route element={<ManageUserProfile />} path="manageuserprofile" />
-              <Route element={<ManageToDo />} path="managetodo" />
-              <Route element={<ManageStudyMethods />} path="managestudymethods" />
-              <Route element={<ManageMusic />} path="managemusic" />
-              <Route element={<ManageReminder />} path="managereminder" />
             </Route>
 
             <Route

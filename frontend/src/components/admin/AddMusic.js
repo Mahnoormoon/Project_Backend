@@ -73,6 +73,8 @@ const AddMusic = () => {
                 mcredits: "",
                 maudio: "",
                 mimage: "",
+                created_at: new Date(), 
+                updated_at: new Date()
               }}
               onSubmit={musicSubmit}
             >

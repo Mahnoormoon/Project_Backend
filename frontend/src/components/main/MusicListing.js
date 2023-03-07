@@ -32,7 +32,7 @@ const MusicListing = () => {
                                 src={ url+'/'+music.mimage}
                                 alt=""
                                 style={{ width: 45, height: 45 }}
-                                className="rounded-circle"
+                                className="square"
                             />
                             <div className="ms-3">
                                 <p className="fw-bold mb-1">Artist Name</p>
@@ -46,7 +46,6 @@ const MusicListing = () => {
                     </li>
         ))
     }
-
     return (
         <header>
             <div

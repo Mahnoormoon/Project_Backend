@@ -42,7 +42,7 @@ const ManageUser = () => {
     <div>
         <header className='py-5'>
             <div className="container">
-                <h1 className='display-3 fw-bold  text-center' style={{color:"#9c3353"}}>Manage User Data</h1>
+                <h1 className='display-3 fw-bold  text-center' style={{color:"#5f8b5f"}}>Manage User Data</h1>
             </div>
         </header>
 
@@ -50,7 +50,7 @@ const ManageUser = () => {
 
         <table class="table table-striped table-hover">
                 <thead >
-                    <tr style={{backgroundColor:"#9c3353", color:"white"}}>
+                    <tr style={{backgroundColor:"#5f8b5f", color:"white"}}>
                          <th></th>
                         <th>First Name</th>
                         <th>Last Name</th>
@@ -69,7 +69,7 @@ const ManageUser = () => {
                         <td>{new Date(user.created_at).toLocaleDateString()}</td>
                         <td>{new Date(user.updated_at).toLocaleDateString()}</td>
                                 <td>
-                                    <button className='btn btn-dark' style={{backgroundColor:"#9c3353"}} onClick={() => deleteUser(user._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
+                                    <button className='btn btn-dark' style={{backgroundColor:"#5f8b5f"}} onClick={() => deleteUser(user._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
                                 </td>
                             </tr>
                         ))

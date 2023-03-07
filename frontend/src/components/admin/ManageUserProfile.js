@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import app_config from '../../config';
 
 const ManageUserProfile = () => {
 
     const [userprofileList, setUserprofileList] = useState([]);
+    const url = app_config.apiurl;
 
     const getDataFromBackend = async () => {
         // send request 
-        const res= await fetch('http://localhost:3001/userprofile/getall');
+        const res= await fetch(url+'/userprofile/getall');
 
         // accessing data from response
         const data = await res.json();
@@ -26,7 +28,7 @@ const ManageUserProfile = () => {
     
     const deleteUser = async (id) => {
         console.log(id);
-        const res = await fetch('http://localhost:3001/userprofile/delete/'+id, {
+        const res = await fetch(url+'/userprofile/getall'+id, {
             method : 'DELETE'
         })
 
@@ -40,7 +42,7 @@ const ManageUserProfile = () => {
     <div>
         <header className='py-5'>
             <div className="container">
-                <h1 className='display-3 fw-bold  text-center' style={{color:"#9c3353"}}>Manage User Profile Data</h1>
+                <h1 className='display-3 fw-bold  text-center' style={{color:"#5f8b5f"}}>Manage User Profile Data</h1>
             </div>
         </header>
 
@@ -48,15 +50,15 @@ const ManageUserProfile = () => {
 
         <table class="table table-striped table-hover">
                 <thead >
-                    <tr style={{backgroundColor:"#9c3353", color:"white"}}>
+                    <tr style={{backgroundColor:"#5f8b5f", color:"white"}}>
                          <th></th>
                          {/*change according to the userprofile*/}
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Password</th>
-                        <th>Created_At</th>
-                        <th>Updated_At</th>
+                        <td>Created_at</td>
+                        <td>Updated_at</td>
                     </tr>
                 </thead>
                 <tbody style={{backgroundColor:"white"}}>
@@ -64,14 +66,14 @@ const ManageUserProfile = () => {
                         userprofileList.map( (user) => (
                             <tr >
                         {/*change according to the userprofile*/}
-                        <td>user.fname</td>
-                        <td>user.lname</td>
-                        <td>user.email</td>
-                        <td>user.password</td>
-                        <td>user.created_at</td>
-                        <td>user.updated_at</td>
+                        <td>{user.fname}</td>
+                        <td>{user.lname}</td>
+                        <td>{user.email}</td>
+                        <td>{user.password}</td>
+                        <td>{new Date(user.created_at).toLocaleDateString()}</td>
+                        <td>{new Date(user.updated_at).toLocaleDateString()}</td>
                                 <td>
-                                    <button className='btn btn-dark' style={{backgroundColor:"#9c3353"}} onClick={() => deleteUser(user._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
+                                    <button className='btn btn-dark' style={{backgroundColor:"#5f8b5f"}} onClick={() => deleteUser(user._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
                                 </td>
                             </tr>
                         ))
@@ -80,7 +82,6 @@ const ManageUserProfile = () => {
             </table>
 
         </div>
-
 
     </div>
   )
