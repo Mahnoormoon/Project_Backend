@@ -35,7 +35,7 @@ const MusicListing = () => {
                                 className="square"
                             />
                             <div className="ms-3">
-                                <p className="fw-bold mb-1">Artist Name</p>
+                                <p className="fw-bold mb-1">{music.aname}</p>
                                 <p className="text-muted mb-0">Music Title</p>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ const MusicListing = () => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className='container'>
                 <ul className="list-group list-group-light">
                     {displayMusic()}
                 </ul>

@@ -31,6 +31,8 @@ import ManageMusic from "./components/admin/ManageMusic";
 import ManageReminder from "./components/admin/ManageReminder";
 import UserAuth from "./auth/UserAuth";
 import AdminAuth from "./auth/AdminAuth";
+import ListStudyMethods from "./components/main/ListStudyMethods";
+import StudyMethodPage from "./components/main/StudyMethodPage";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -76,6 +78,8 @@ function App() {
               <Route element={<Login />} path="login" />
               <Route element={<Signup />} path="signup" />
               <Route element={<MusicListing />} path="musiclisting" />
+              <Route element={<ListStudyMethods />} path="studylisting" />
+              <Route element={<StudyMethodPage />} path="studymethod/:id" />
               <Route element={<MusicPlayer />} path="musicplayer" />
               <Route element={<ProfileForm />} path="profileform" />
             </Route>
