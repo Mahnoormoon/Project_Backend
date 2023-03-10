@@ -17,7 +17,9 @@ import NotFound from "./components/NotFound";
 import UserProvider from "./context/UserProvider";
 import AdminProvider from "./context/AdminProvider";
 import { useState } from "react";
+
 import AddMusic from "./components/admin/AddMusic";
+import AddStudyMethods from "./components/admin/AddStudyMethods";
 import MusicListing from "./components/main/MusicListing";
 import MusicPlayer from "./components/main/MusicPlayer";
 import ManageUser from "./components/admin/ManageUser";
@@ -53,6 +55,8 @@ function App() {
               path="admin"
             >
               <Route element={<AdminProfile />} path="profile" />
+              <Route element={<Login />} path="login" />
+              <Route element={<Signup />} path="signup" />
               <Route element={<ManageUser />} path="manageuser" />
               <Route element={<ManageUserProfile />} path="manageuserprofile" />
               <Route element={<ManageToDo />} path="managetodo" />
@@ -60,6 +64,7 @@ function App() {
               <Route element={<ManageMusic />} path="managemusic" />
               <Route element={<ManageReminder />} path="managereminder" />
               <Route element={<AddMusic />} path="addmusic" />
+              <Route element={<AddStudyMethods />} path="addstudymethods" />
             </Route>
 
             <Route element={<Main />} path="main">
