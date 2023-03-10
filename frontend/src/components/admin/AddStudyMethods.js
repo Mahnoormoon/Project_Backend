@@ -32,7 +32,7 @@ const AddStudyMethods = () => {
             Swal.fire(
                 'Oops...',
                 'Error Adding Study Method',
-                'error'
+                'Error'
             )
         }
     }
