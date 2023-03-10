@@ -22,6 +22,7 @@ import AddMusic from "./components/admin/AddMusic";
 import AddStudyMethods from "./components/admin/AddStudyMethods";
 import MusicListing from "./components/main/MusicListing";
 import MusicPlayer from "./components/main/MusicPlayer";
+import ProfileForm from "./components/main/ProfileForm";
 import ManageUser from "./components/admin/ManageUser";
 import ManageUserProfile from "./components/admin/ManageUserProfile";
 import ManageToDo from "./components/admin/ManageToDo";
@@ -76,6 +77,7 @@ function App() {
               <Route element={<Signup />} path="signup" />
               <Route element={<MusicListing />} path="musiclisting" />
               <Route element={<MusicPlayer />} path="musicplayer" />
+              <Route element={<ProfileForm />} path="profileform" />
             </Route>
 
             <Route
