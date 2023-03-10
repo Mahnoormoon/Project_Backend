@@ -19,9 +19,9 @@ router.post("/uploadfile", myStorage.single("myfile"), (req, res) => {
 
 const initMail = () => {
   return new SMTPClient({
-    user: "investupwithus@gmail.com",
-    password: "zrfdrttirfdhslti",
-    host: "smtp.gmail.com",
+    user: "investupwithus@gmail.com",  //change to your own email id
+    password: "zrfdrttirfdhslti",  //change to your own email id
+    host: "smtp.gmail.com", 
     ssl: true,
   });
 };
@@ -31,7 +31,7 @@ const sendMail = (to, subject, text) => {
   client.send(
     {
       text: text,
-      from: "investupwithus@gmail.com",
+      from: "investupwithus@gmail.com",  //change to your own email id
       to: to,
 
       cc: "",
