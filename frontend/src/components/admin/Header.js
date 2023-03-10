@@ -69,9 +69,6 @@ const Header = () => {
           <li>
             <a class="dropdown-item" href="/admin/addstudymethods">Study Methods</a>
           </li>
-          <li>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
         </ul>
       </li>
           </ul>
