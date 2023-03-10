@@ -31,11 +31,11 @@ const AddMusic = () => {
       console.log("Music Added");
     } else {
       // fail alert
-      Swal.fire(
-        'Oops...',
-        'Error Adding Music!',
-        'error'
-      )
+      Swal.fire({
+        icon:'error',
+        title:'OOOPS',
+        text:'Try again'
+      })
     }
   };
 

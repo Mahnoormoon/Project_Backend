@@ -67,10 +67,7 @@ const Header = () => {
             <Link class="dropdown-item" to="/main/musiclisting">Music</Link>
           </li>
           <li>
-            <a class="dropdown-item" href="#">Another action</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">Study Methods</a>
           </li>
         </ul>
       </li>

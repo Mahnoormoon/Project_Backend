@@ -34,7 +34,7 @@ const Login = () => {
       Swal.fire(
         'Signup Unsuccessful',
         'error'
-      )
+    )
     }
   }
   return (
