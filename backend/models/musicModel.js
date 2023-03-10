@@ -6,7 +6,6 @@ const musicSchema = new Schema({
   mcredits: { type: String, required: true },
   maudio: { type: String, required: true },
   mimage: { type: String, required: true },
-  //playlist: { type: String, required: true },
   added_at: Date,
   updated_at: Date
 });
