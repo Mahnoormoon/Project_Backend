@@ -37,7 +37,7 @@ const Login = () => {
         navigate("/admin/addmusic");
       }else{
         sessionStorage.setItem("user", JSON.stringify(userdata));
-        navigate("/user/profile");
+        navigate("/user/profileform");
       }
       
     }else{

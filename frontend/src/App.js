@@ -93,6 +93,7 @@ function App() {
               path="user"
             >
               <Route path="profile" element={<UserProfile />} />
+              <Route path="profileform" element={<ProfileForm />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

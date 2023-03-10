@@ -4,7 +4,7 @@ import app_config from '../../config';
 
 const ListStudyMethods = () => {
 
-    const [methodList, setMethodList] = useState([]);
+    const [studymethodList, setStudymethodList] = useState([]);
     const url = app_config.apiurl;
 
     const getDataFromBackend = async () => {
@@ -15,7 +15,7 @@ const ListStudyMethods = () => {
         const data = (await res.json()).result;
 
         console.log(data);
-        setMethodList(data);
+        setStudymethodList(data);
 
     };
 
@@ -26,7 +26,7 @@ const ListStudyMethods = () => {
     }, []);
 
     const displayStudy = () => {
-        return methodList.map((method) => (
+        return studymethodList.map((method) => (
             <div className='col-md-3'>
                 <div className="card">
                     <div className="card-body">
