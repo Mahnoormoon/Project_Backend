@@ -108,12 +108,12 @@ const ProfileForm = () => {
                     value={values.pemail}
                     onChange={handleChange}
                   />
-                    <label>Add Description/Bio</label>
-                    <input
+                  <MDBInput
+                    label="Description/Bio"
                     type="textarea"
-                    id="pdescription"
+                    id="mcredits"
                     className="form-control mt-2 mb-2"
-                    value={values.pdescription}
+                    value={values.mcredits}
                     onChange={handleChange}
                   />
                   <MDBInput
