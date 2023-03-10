@@ -43,7 +43,8 @@ const Login = () => {
     }else{
       // fail alert
       Swal.fire(
-        ' Unsuccessful',
+        'Oops...',
+        'Login Unsuccessful',
         'error'
       )
     }
