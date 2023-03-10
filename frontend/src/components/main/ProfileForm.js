@@ -25,10 +25,10 @@ const ProfileForm = () => {
     if (res.status === 201) {
       //success alert
       Swal.fire(
-        'Profile Created!',
+        'Added to Profile!',
         'success'
       )
-      console.log("Profile Created");
+      console.log("Added to Profile");
     } else {
       // fail alert
       Swal.fire(
@@ -81,6 +81,7 @@ const ProfileForm = () => {
               initialValues={{
                 pusername: "",
                 pemail: "",
+                pdescription: "",
                 pcontact: "",
                 mheader: "",
                 mimage: "",
