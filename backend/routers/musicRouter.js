@@ -4,7 +4,7 @@ const router = express.Router();
 const Model = require("../models/musicModel");
 
 router.get("/", (req, res) => {
-  console.log("Request at user index");
+  console.log("Request at music index");
   res.status(299).send("MusicRouter Working Perfectly!!");
 });
 

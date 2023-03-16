@@ -4,7 +4,7 @@ const router = express.Router();
 const Model = require("../models/studyModel");
 
 router.get("/", (req, res) => {
-  console.log("Request at user index");
+  console.log("Request at study index");
   res.status(299).send("StudyRouter Working Perfectly!!");
 });
 
@@ -16,8 +16,8 @@ router.post("/add", (req, res) => {
       res.status(201).json({ status: "success", result });
     })
     .catch((err) => {
-      console.error("Error saving user data", err);
-      res.status(500).send("Error saving user data");
+      console.error("Error saving study method data", err);
+      res.status(500).send("Error saving study method data");
     });
 });
 

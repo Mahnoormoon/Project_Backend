@@ -35,7 +35,7 @@ const StudyMethodPage = () => {
     }
 
   return (
-    <div>
+    <div className='container p-5'>
         {showStudyMethod()}
     </div>
   )
