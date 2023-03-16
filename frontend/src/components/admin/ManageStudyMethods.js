@@ -24,7 +24,7 @@ const ManageStudyMethods = () => {
 
     }, []);
     
-    const deleteUser = async (id) => {
+    const deleteStudy = async (id) => {
         console.log(id);
         const res = await fetch(url+'/study/getall'+id, {
             method : 'DELETE'
@@ -32,7 +32,7 @@ const ManageStudyMethods = () => {
 
         if(res.status===200){
             getDataFromBackend();
-            toast.success('Study Method Deleted Successfully!!');
+            toast.success('Study Method Data Deleted Successfully!!');
         }
     }
 
@@ -59,15 +59,15 @@ const ManageStudyMethods = () => {
                 </thead>
                 <tbody style={{backgroundColor:"white"}}>
                     {
-                        studymethodList.map( (user) => (
+                        studymethodList.map( (study) => (
                             <tr >
-                        <td>{user.sname}</td>
-                        <td>{user.sdescription}</td>
-                        <td>{user.scredits}</td>
-                        <td>{new Date(user.created_at).toLocaleDateString()}</td>
-                        <td>{new Date(user.updated_at).toLocaleDateString()}</td>
+                        <td>{study.sname}</td>
+                        <td>{study.sdescription}</td>
+                        <td>{study.scredits}</td>
+                        <td>{new Date(study.created_at).toLocaleDateString()}</td>
+                        <td>{new Date(study.updated_at).toLocaleDateString()}</td>
                                 <td>
-                                    <button className='btn btn-dark' style={{backgroundColor:"#5f8b5f"}} onClick={() => deleteUser(user._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
+                                    <button className='btn btn-dark' style={{backgroundColor:"#5f8b5f"}} onClick={() => deleteStudy(study._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
                                 </td>
                             </tr>
                         ))

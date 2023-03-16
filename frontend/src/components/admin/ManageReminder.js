@@ -24,7 +24,7 @@ const ManageReminder = () => {
 
     }, []);
     
-    const deleteUser = async (id) => {
+    const deleteReminder = async (id) => {
         console.log(id);
         const res = await fetch(url+'/reminder/getall'+id, {
             method : 'DELETE'
@@ -32,7 +32,7 @@ const ManageReminder = () => {
 
         if(res.status===200){
             getDataFromBackend();
-            toast.success('Reminder Deleted Successfully!!');
+            toast.success('Reminder Data Deleted Successfully!!');
         }
     }
 
@@ -60,16 +60,16 @@ const ManageReminder = () => {
                 </thead>
                 <tbody style={{backgroundColor:"white"}}>
                     {
-                        reminderList.map( (user) => (
+                        reminderList.map( (reminder) => (
                             <tr >
                         {/*change according to the reminderpage*/}
-                        <td>{user.rname}</td>
-                        <td>{user.rtime}</td>
-                        <td>{user.rdate}</td>
-                        <td>{new Date(user.created_at).toLocaleDateString()}</td>
-                        <td>{new Date(user.updated_at).toLocaleDateString()}</td>
+                        <td>{reminder.rname}</td>
+                        <td>{reminder.rtime}</td>
+                        <td>{reminder.rdate}</td>
+                        <td>{new Date(reminder.created_at).toLocaleDateString()}</td>
+                        <td>{new Date(reminder.updated_at).toLocaleDateString()}</td>
                                 <td>
-                                    <button className='btn btn-dark' style={{backgroundColor:"#5f8b5f"}} onClick={() => deleteUser(user._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
+                                    <button className='btn btn-dark' style={{backgroundColor:"#5f8b5f"}} onClick={() => deleteReminder(reminder._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
                                 </td>
                             </tr>
                         ))

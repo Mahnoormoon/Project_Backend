@@ -25,7 +25,7 @@ const ManageToDo = () => {
 
     }, []);
     
-    const deleteUser = async (id) => {
+    const deleteTodo = async (id) => {
         console.log(id);
         const res = await fetch(url+'/todo/getall'+id, {
             method : 'DELETE'
@@ -33,7 +33,7 @@ const ManageToDo = () => {
 
         if(res.status===200){
             getDataFromBackend();
-            toast.success('ToDo Deleted Successfully!!');
+            toast.success('ToDo Data Deleted Successfully!!');
         }
     }
 
@@ -64,17 +64,17 @@ const ManageToDo = () => {
                 </thead>
                 <tbody style={{backgroundColor:"white"}}>
                     {
-                        todoList.map( (user) => (
+                        todoList.map( (todo) => (
                             <tr >
                         {/*change according to the todopage*/}
-                        <td>{user.name}</td>
-                        <td>{user.category}</td>
-                        <td>{user.title}</td>
-                        <td>{user.description}</td>
-                        <td>{new Date(user.created_at).toLocaleDateString()}</td>
-                        <td>{new Date(user.updated_at).toLocaleDateString()}</td>
+                        <td>{todo.name}</td>
+                        <td>{todo.category}</td>
+                        <td>{todo.title}</td>
+                        <td>{todo.description}</td>
+                        <td>{new Date(todo.created_at).toLocaleDateString()}</td>
+                        <td>{new Date(todo.updated_at).toLocaleDateString()}</td>
                                 <td>
-                                    <button className='btn btn-dark' style={{backgroundColor:"#5f8b5f"}} onClick={() => deleteUser(user._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
+                                    <button className='btn btn-dark' style={{backgroundColor:"#5f8b5f"}} onClick={() => deleteTodo(todo._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
                                 </td>
                             </tr>
                         ))

@@ -26,7 +26,7 @@ const ManageMusic = () => {
 
     }, []);
     
-    const deleteUser = async (id) => {
+    const deleteMusic = async (id) => {
         console.log(id);
         const res = await fetch(url+'/music/getall'+id, {
             method : 'DELETE'
@@ -63,17 +63,17 @@ const ManageMusic = () => {
                 </thead>
                 <tbody style={{backgroundColor:"white"}}>
                     {
-                        musiclistenList.map( (user) => (
+                        musiclistenList.map( (music) => (
                             <tr >
-                        <td>{user.mtitle}</td>
-                        <td>{user.aname}</td>
-                        <td>{user.mcredits}</td>
-                        <td>{user.maudio}</td>
-                        <td>{user.mimage}</td>
-                        <td>{new Date(user.created_at).toLocaleDateString()}</td>
-                        <td>{new Date(user.updated_at).toLocaleDateString()}</td>
+                        <td>{music.mtitle}</td>
+                        <td>{music.aname}</td>
+                        <td>{music.mcredits}</td>
+                        <td>{music.maudio}</td>
+                        <td>{music.mimage}</td>
+                        <td>{new Date(music.created_at).toLocaleDateString()}</td>
+                        <td>{new Date(music.updated_at).toLocaleDateString()}</td>
                                 <td>
-                                    <button className='btn btn-dark' style={{backgroundColor:"#5f8b5f"}} onClick={() => deleteUser(user._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
+                                    <button className='btn btn-dark' style={{backgroundColor:"#5f8b5f"}} onClick={() => deleteMusic(music._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>
                                 </td>
                             </tr>
                         ))

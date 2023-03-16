@@ -25,6 +25,7 @@ const ProfileForm = () => {
     if (res.status === 201) {
       //success alert
       Swal.fire(
+        'Hurray!',
         'Added to Profile!',
         'success'
       )
@@ -83,8 +84,8 @@ const ProfileForm = () => {
                 pemail: "",
                 pdescription: "",
                 pcontact: "",
-                mheader: "",
-                mimage: "",
+                pheader: "",
+                pimage: "",
                 created_at: new Date(), 
                 updated_at: new Date()
               }}
