@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import app_config from '../../config';
+import Musicbg from"./musiclistbg.jpg";
 
 const MusicListing = () => {
 
@@ -49,14 +50,11 @@ const MusicListing = () => {
     return (
         <header>
             <div
-                className="p-5 text-center bg-image"
-                style={{
-                    backgroundImage:
-                        'url("https://mdbcdn.b-cdn.net/img/new/slides/041.webp")',
-                    height: 400
-                }}
+                className="p-1 text-center bg-image"
+                style={{height:400}}
             >
-                <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}>
+                <img src={Musicbg}></img>
+                <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}>
                     <div className="d-flex justify-content-center align-items-center h-100">
                         <div className="text-white">
                             <h1 className="mb-3">Listen ToDoCafe' Study Music</h1>
