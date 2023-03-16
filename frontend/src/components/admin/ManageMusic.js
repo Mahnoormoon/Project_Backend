@@ -42,7 +42,7 @@ const ManageMusic = () => {
     <div>
         <header className='py-5'>
             <div className="container">
-                <h1 className='display-3 fw-bold  text-center' style={{color:"#5f8b5f"}}>Manage All Music Data</h1>
+                <h1 className='display-3 fw-bold  text-center' style={{color:"#5f8b5f"}}>Manage Music Data</h1>
             </div>
         </header>
 

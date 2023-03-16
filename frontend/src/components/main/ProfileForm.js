@@ -8,11 +8,10 @@ import Swal from 'sweetalert2';
 const ProfileForm = () => {
   const url = app_config.apiurl;
   const [selImage, setSelImage] = useState("");
-  const [selFile, setSelFile] = useState("");
-
+  
   const userprofileSubmit = async (formdata) => {
-    formdata.maudio = selFile;
-    formdata.mimage = selImage;
+    formdata.pheader = selImage;
+    formdata.pimage = selImage;
     console.log(formdata);
     const res = await fetch(url + "/userprofile/add", {
       method: "POST",
@@ -40,20 +39,6 @@ const ProfileForm = () => {
     }
   };
 
-  const uploadFile = (e) => {
-    const file = e.target.files[0];
-    setSelFile(file.name);
-    const fd = new FormData();
-    fd.append("myfile", file);
-    fetch(url + "/util/uploadfile", {
-      method: "POST",
-      body: fd,
-    }).then((res) => {
-      if (res.status === 200) {
-        console.log("file uploaded");
-      }
-    });
-  };
   const uploadImage = (e) => {
     const file = e.target.files[0];
     setSelImage(file.name);
@@ -129,7 +114,7 @@ const ProfileForm = () => {
                   <input
                     type="file"
                     className="form-control mt-2 mb-2"
-                    onChange={uploadFile}
+                    onChange={uploadImage}
                   />
                   <label>Add Profile Picture</label>
                   <input
