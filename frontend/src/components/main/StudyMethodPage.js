@@ -9,8 +9,6 @@ const StudyMethodPage = () => {
     const [studyMethodData, setStudyMethodData] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    // console.log(id);
-
     const fetchStudyMethod = async () => {
         setLoading(true);
         const res = await fetch(url+'/study/getbyid/'+id);
@@ -22,7 +20,6 @@ const StudyMethodPage = () => {
     useEffect(() => {
       fetchStudyMethod();
     }, [])
-    
 
     const showStudyMethod = () => {
         if(!loading && studyMethodData){
@@ -33,11 +30,42 @@ const StudyMethodPage = () => {
             <h1>Loading ... </h1>
         }
     }
+    const showStudyMethodDescription = () => {
+        if(!loading && studyMethodData){
+            return <div className='container'>
+                {studyMethodData.sdescription}
+            </div>
+        }else{
+            <h1>Loading ... </h1>
+        }
+    }
 
   return (
-    <div className='container p-5'>
-        {showStudyMethod()}
+    <div className="containerr py-3">
+    <div className="container py-3 d-flex align-items-center">
+      <div
+        className="card py-3 align-items-center"
+        style={{ width: "200rem" }}
+      >
+        <h4 className="heading1">{showStudyMethod()}</h4>
+        <div className="form-outline px-4 py-4 mb-2">
+          {showStudyMethodDescription()}
+        </div>
+      </div>
     </div>
+    <div className="container py-3 d-flex align-items-center">
+      <div
+        className="card py-3 align-items-center"
+        style={{ width: "200rem" }}
+      >
+        <h4 className="heading1">{showStudyMethod()}</h4>
+        <div className="form-outline px-4 py-4 mb-2">
+          {showStudyMethodDescription()}
+        </div>
+      </div>
+    </div>
+  </div>
+    
   )
 }
 

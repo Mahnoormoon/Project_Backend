@@ -9,7 +9,7 @@ const ListStudyMethods = () => {
 
     const getDataFromBackend = async () => {
         // send request 
-        const res= await fetch(url+'/study/getall');
+        const res = await fetch(url + '/study/getall');
 
         // accessing data from response
         const data = (await res.json()).result;
@@ -20,34 +20,34 @@ const ListStudyMethods = () => {
     };
 
     useEffect(() => {
-     
+
         getDataFromBackend();
 
     }, []);
 
     const displayStudy = () => {
         return studymethodList.map((method) => (
-            <div className='col-md-3'>
-                <div className="card">
-                    <div className="card-body">
-                        <h4>{method.stitle}</h4>
-                        <Link className='btn btn-primary' to={'/main/studymethod/'+method._id}>View</Link>
-                    </div>
+            <div className="container py-3 px-3 d-flex align-items-center">
+                <div
+                    className="card py-3 px-3 align-items-center"
+                    style={{ width: "20rem", height: "10rem"}}
+                >
+                    <h4 className="heading1">{method.stitle}</h4>
+                    <Link className='btn btn2' to={'/main/studymethod/' + method._id}>View</Link>
                 </div>
             </div>
         ))
     }
-
-  return (
-    <div>
-        <div></div>
-        <div className='container'>
-            <div className="row">
-                {displayStudy()}
+    return (
+        <div>
+            <div></div>
+            <div className='containerr'>
+                <div className="column">
+                    {displayStudy()}
+                </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default ListStudyMethods
