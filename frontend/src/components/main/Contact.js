@@ -59,7 +59,7 @@ const Contact = () => {
               >
                 <div className="card-body p-3 shadow-3 text-center">
                   <h3 className="heading2 fw-bold mb-3">Contact Us</h3>
-                  <Formik initialValues={{ cname: '', cemail: '', cmesssage: '', added_at: new Date(), updated_at: new Date() }} onSubmit={contactSubmit}>
+                  <Formik initialValues={{ cname: '', cemail: '', cmessage: '', added_at: new Date(), updated_at: new Date() }} onSubmit={contactSubmit}>
 
                     {({ values, handleSubmit, handleChange }) => (
                       <form onSubmit={handleSubmit}>
