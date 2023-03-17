@@ -1,5 +1,5 @@
 import React from 'react'
-import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
+import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import ProfileIcon from './ProfileIcon.png';
 import { DemoItem, DateCalendar, TimeClock } from '@mui/x-date-pickers';
 const UserProfile = () => {
@@ -62,20 +62,33 @@ const UserProfile = () => {
                   <MDBCol className="mb-2 w-100 rounded-3">
                     {/*Weather Widget*/}
                     ...
-                    <>
-                      {/* weather widget start */}
-                      <a target="_blank" href="https://www.booked.net/weather/puerto-plata-18151">
-                        <img
-                          src="https://w.bookcdn.com/weather/picture/26_18151_1_1_95a5a6_250_7f8c8d_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=38217&domid=w209&anc_id=43870"
-                          alt="booked.net"
+                    <MDBCard
+                      className="bg-dark text-white"
+                      style={{ borderRadius: "40px" }}
+                    >
+                      <div className="bg-image" style={{ borderRadius: "35px" }}>
+                        <MDBCardImage
+                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/draw1.webp"
+                          className="card-img"
+                          alt="weather"
                         />
-                      </a>
-                      {/* weather widget end */}
-                    </>
-
+                        <div
+                          className="mask"
+                          style={{ backgroundColor: "rgba(190, 216, 232, .5)" }}
+                        ></div>
+                      </div>
+                      <div className="card-img-overlay text-dark p-5">
+                        <MDBTypography tag="h4" className="mb-0">Juneau, Alaska, US</MDBTypography>
+                        <p className="display-2 my-3">1.28°C</p>
+                        <p className="mb-2">
+                          Feels Like: <strong>-1.08 °C</strong>
+                        </p>
+                        <MDBTypography tag="h5">Snowy</MDBTypography>
+                      </div>
+                    </MDBCard>
                   </MDBCol>
                 </MDBRow>
-                <MDBCardBody className="text-black p-4">
+                <MDBCardBody className="text-black p-4 mt-10">
                   <MDBRow className="g-2 p-2">
                     <MDBCol className="mb-2 w-100 rounded-3">
                       <div className="mb-3">
