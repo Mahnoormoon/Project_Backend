@@ -34,7 +34,7 @@ const Login = () => {
       console.log(userdata);
       if(userdata.isAdmin){
         sessionStorage.setItem("admin", JSON.stringify(userdata));
-        navigate("/admin/addmusic");
+        navigate("/admin/profile");
       }else{
         sessionStorage.setItem("user", JSON.stringify(userdata));
         navigate("/user/profile");
