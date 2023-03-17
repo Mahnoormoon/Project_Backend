@@ -29,6 +29,7 @@ import ManageToDo from "./components/admin/ManageToDo";
 import ManageStudyMethods from "./components/admin/ManageStudyMethods";
 import ManageMusic from "./components/admin/ManageMusic";
 import ManageReminder from "./components/admin/ManageReminder";
+import ManageContact from "./components/admin/ManageContact";
 import UserAuth from "./auth/UserAuth";
 import AdminAuth from "./auth/AdminAuth";
 import ListStudyMethods from "./components/main/ListStudyMethods";
@@ -66,6 +67,7 @@ function App() {
               <Route element={<ManageStudyMethods />} path="managestudymethods" />
               <Route element={<ManageMusic />} path="managemusic" />
               <Route element={<ManageReminder />} path="managereminder" />
+              <Route element={<ManageContact />} path="managecontact" />
               <Route element={<AddMusic />} path="addmusic" />
               <Route element={<AddStudyMethods />} path="addstudymethods" />
             </Route>

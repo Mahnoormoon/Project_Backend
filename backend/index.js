@@ -9,6 +9,7 @@ const reminderRouter = require('./routers/reminderRouter');
 const todoRouter = require('./routers/todoRouter');
 const studyRouter = require('./routers/studyRouter');
 const widgetRouter = require('./routers/widgetRouter');
+const contactRouter = require('./routers/contactRouter');
 const utilRouter = require('./routers/utils');
 const cors = require('cors');
 const { PORT } = require('./config');
@@ -31,6 +32,7 @@ app.use('/reminder', reminderRouter);
 app.use('/todo', todoRouter);
 app.use('/study', studyRouter);
 app.use('/widget', widgetRouter);
+app.use('/contact', contactRouter);
 app.use('/util', utilRouter);
 
 
