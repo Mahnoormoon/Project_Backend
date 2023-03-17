@@ -31,6 +31,7 @@ const Signup = () => {
     }else{
       // fail alert
       Swal.fire(
+        'Oops...',
         'Signup Unsuccessful',
         'error'
       )

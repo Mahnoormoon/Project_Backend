@@ -3,12 +3,14 @@ import React from 'react';
 import Loginimage from"./Loginimg.jpg";
 import "./Login.css";
 import app_config from "../../config";
-import Swal from 'sweetalert2';
 import { MDBInput } from 'mdb-react-ui-kit';
+import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
   const url = app_config.apiurl;
+  const navigate = useNavigate();
 
   const userSubmit = async (formdata) => {
     console.log(formdata);
@@ -22,19 +24,29 @@ const Login = () => {
 
     console.log(res.status);
     if(res.status===201){
+      const userdata = (await res.json()).result;
       //success alert
       Swal.fire(
         'Hurray!',
         'Login Successful',
         'success'
       )
-      console.log('login success');
+      console.log(userdata);
+      if(userdata.isAdmin){
+        sessionStorage.setItem("admin", JSON.stringify(userdata));
+        navigate("/admin/profile");
+      }else{
+        sessionStorage.setItem("user", JSON.stringify(userdata));
+        navigate("/user/profileform");
+      }
+      
     }else{
       // fail alert
       Swal.fire(
-        'Signup Unsuccessful',
+        'Oops...',
+        'Login Unsuccessful',
         'error'
-    )
+      )
     }
   }
   return (
@@ -70,7 +82,6 @@ const Login = () => {
                             label="Email Address"
                             type="email"
                             id="email"
-                            className="form-control"
                             value={values.email}
                             onChange={handleChange}
                           />
