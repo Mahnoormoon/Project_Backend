@@ -73,6 +73,7 @@ function App() {
             </Route>
 
             <Route element={<Main />} path="main">
+
               <Route element={<Home />} path="home" />
               <Route element={<About />} path="aboutus" />
               <Route element={<Contact />} path="contact" />

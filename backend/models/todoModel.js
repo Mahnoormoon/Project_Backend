@@ -10,5 +10,4 @@ const todoSchema = new Schema({
   updated_at: Date,
 });
 
-
 module.exports = model("todo", todoSchema);
