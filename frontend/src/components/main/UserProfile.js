@@ -2,6 +2,9 @@ import React from 'react'
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import ProfileIcon from './ProfileIcon.png';
 import { DemoItem, DateCalendar, TimeClock } from '@mui/x-date-pickers';
+import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
+import dayjs from 'dayjs';
+
 const UserProfile = () => {
   return (
     <div className="gradient-custom-2" style={{ backgroundColor: '#c3f1c38e' }}>
@@ -49,7 +52,9 @@ const UserProfile = () => {
                     {/*Calendar Widget*/}
                     ...
                     <DemoItem label="disabled">
-                      <DateCalendar defaultValue={[dayjs('2022-04-17')]} disabled />
+                      {/* <DateCalendar defaultValue={[dayjs('2022-04-17')]} disabled /> */}
+                      {/* <DateCalendar /> */}
+                      <StaticDatePicker defaultValue={dayjs('2022-04-17')} />
                     </DemoItem>
                   </MDBCol>
                   <MDBCol className="mb-2 w-100 rounded-3">

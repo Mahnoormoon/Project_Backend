@@ -1,6 +1,9 @@
 import React from 'react'
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import ProfileIcon from './ProfileIcon.png';
+import dayjs from 'dayjs';
+import { LocalizationProvider, StaticDatePicker, StaticTimePicker } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 //import {DemoItem, DateCalendar} from '@mui/x-date-pickers';
 const UserProfile = () => {
   return (
@@ -44,16 +47,21 @@ const UserProfile = () => {
                     <MDBCardText className="font-italic mb-1">Show Reminders Here...</MDBCardText>
                   </div>
                 </div>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <MDBRow>
                   <MDBCol className="mb-2">
                     {/*Calendar Widget*/}
                     ...
-                    {/*<DemoItem label="disabled">
-                      <DateCalendar defaultValue={[dayjs('2022-04-17')]} disabled />
-                    </DemoItem>*/}
+                    {/* <DemoItem label="disabled">
+                    </DemoItem> */}
+                    
+
+                      <StaticDatePicker />
+                    
                   </MDBCol>
                   <MDBCol className="mb-2 w-100 rounded-3">
                     {/*Clock Widget*/}
+                    <StaticTimePicker />
                     ...
                   </MDBCol>
                   <MDBCol className="mb-2 w-100 rounded-3">
@@ -61,6 +69,7 @@ const UserProfile = () => {
                     ...
                   </MDBCol>
                 </MDBRow>
+                </LocalizationProvider>
                 <MDBCardBody className="text-black p-4">
                   <MDBRow className="g-2 p-2">
                     <MDBCol className="mb-2 w-100 rounded-3">
