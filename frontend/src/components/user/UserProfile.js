@@ -10,6 +10,26 @@ import app_config from '../../config';
 
 const UserProfile = () => {
 
+  const [userprofileList, setUserprofileList] = useState([]);
+
+  const getDataFromBackend = async () => {
+      // send request 
+      const res= await fetch(url+'/userprofile/getall');
+
+      // accessing data from response
+      const userprofiledata = (await res.json()).result;
+
+      console.log(userprofiledata);
+      setUserprofileList(userprofiledata);
+
+  };
+
+  useEffect(() => {
+   
+      getDataFromBackend();
+
+  }, []);
+
   const { data, isLoading, errorMessage } = useOpenWeather({
     key: '842c8cc564a613435cd7c464948dca54',
     lat: '48.137154',
@@ -71,7 +91,6 @@ const UserProfile = () => {
       <h1>Loading ... </h1>
     }
   }
-
   return (
     <div className="gradient-custom-2" style={{ backgroundColor: '#c3f1c38e' }}>
       <MDBContainer className="py-5 h-100">
