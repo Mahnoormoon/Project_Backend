@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import ProfileIcon from './ProfileIcon.png';
-//import dayjs from 'dayjs';
 import { LocalizationProvider, StaticDatePicker, StaticTimePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import ReactWeather, { useOpenWeather } from 'react-open-weather';
