@@ -23,7 +23,7 @@ const ListStudyMethods = () => {
 
         getDataFromBackend();
 
-    }, []);
+    }, );
 
     const displayStudy = () => {
         return studymethodList.map((method) => (
