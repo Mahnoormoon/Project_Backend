@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
-import "./ProfileForm.css";
+import "./EditProfile.css";
 import { MDBInput } from "mdb-react-ui-kit";
 import app_config from "../../config";
 import Swal from 'sweetalert2';
 
-const ProfileForm = () => {
+const EditProfile = () => {
   const url = app_config.apiurl;
   const [selImage, setSelImage] = useState("");
 
-  const userprofileSubmit = async (formdata) => {
-    formdata.pheader = selImage;
-    formdata.pimage = selImage;
+  const edituserprofileSubmit = async (formdata) => {
+    formdata.eheader = selImage;
+    formdata.eimage = selImage;
     console.log(formdata);
-    const res = await fetch(url + "/userprofile/add", {
+    const res = await fetch(url + "/edituserprofile/add", {
       method: "POST",
       body: JSON.stringify(formdata),
       headers: {
@@ -24,21 +24,22 @@ const ProfileForm = () => {
     if (res.status === 201) {
       //success alert
       Swal.fire(
-        'Added to Profile!',
+        'Hurray!',
+        'Profile Changes Successful!',
         'success'
       )
-      console.log("Added to Profile");
+      console.log("Profile Edited");
     } else {
       // fail alert
       Swal.fire(
         'Oops...',
-        'Error Adding to Profile!',
+        'Error in Profile Changes!',
         'error'
       )
     }
   };
 
-  const uploadImage = (e) => {
+  const reuploadImage = (e) => {
     const file = e.target.files[0];
     setSelImage(file.name);
     const fd = new FormData();
@@ -48,7 +49,7 @@ const ProfileForm = () => {
       body: fd,
     }).then((res) => {
       if (res.status === 200) {
-        console.log("file uploaded");
+        console.log("file reuploaded");
       }
     });
   };
@@ -60,75 +61,73 @@ const ProfileForm = () => {
           className="card py-3 align-items-center"
           style={{ width: "20rem" }}
         >
-          <h4 className="heading1">Create Your Profile</h4>
+          <h4 className="heading1">Edit Your Profile</h4>
           <div className="form-outline px-4 py-4 mb-2">
             <Formik
               initialValues={{
-                pusername: "",
-                pemail: "",
-                pdescription: "",
-                pcontact: "",
-                pheader: "",
-                pimage: "",
-                created_at: new Date(), 
+                eusername: "",
+                eemail: "",
+                edescription: "",
+                econtact: "",
+                eheader: "",
+                eimage: "",
+                edited_at: new Date(), 
                 updated_at: new Date()
               }}
-              onSubmit={userprofileSubmit}
+              onSubmit={edituserprofileSubmit}
             >
               {({ values, handleSubmit, handleChange }) => (
                 <form onSubmit={handleSubmit}>
                   <MDBInput
-                    label="Your Username"
+                    label="Edit Your Username"
                     type="text"
-                    id="pusername"
+                    id="eusername"
                     className="form-control mb-2"
-                    value={values.pusername}
+                    value={values.eusername}
                     onChange={handleChange}
                   />
                   <MDBInput
-                    label="Email Address"
-                    type="email"
-                    id="pemail"
+                    label="Edit Email Address"
+                    type="eemail"
+                    id="eemail"
                     className="form-control mt-2 mb-2"
-                    value={values.pemail}
+                    value={values.eemail}
                     onChange={handleChange}
                   />
-                    <label>Add Description/Bio</label>
-                    <input
+                  <MDBInput
+                    label="Edit Description/Bio"
                     type="textarea"
-                    id="pdescription"
+                    id="edescription"
                     className="form-control mt-2 mb-2"
-                    value={values.pdescription}
+                    value={values.edescription}
                     onChange={handleChange}
                   />
                   <MDBInput
-                    label="Contact"
+                    label="Edit Contact"
                     type="text"
-                    id="pcontact"
+                    id="econtact"
                     className="form-control mt-2 mb-2"
-                    value={values.pcontact}
+                    value={values.econtact}
                     onChange={handleChange}
                   />
-                  <label>Add Profile Header</label>
+                  <label>Edit Profile Header</label>
                   <input
                     type="file"
-                    id="pheader"
                     className="form-control mt-2 mb-2"
-                    onChange={uploadImage}
+                    onChange={reuploadImage}
                   />
-                  <label>Add Profile Picture</label>
+                  <label>Edit Profile Picture</label>
                   <input
                     type="file"
-                    id="pimage"
                     className="form-control mt-2 mb-2"
-                    onChange={uploadImage}
+                    onChange={reuploadImage}
                   />
                   {/* Submit button */}
                   <button
                     type="submit"
                     className="btn2 btn-block mt-1 btn-rounded btn-outline-white mt-2"
                   >
-                    Click to Create
+                    Click to Edit Changes
                   </button>
                 </form>
               )}
@@ -139,4 +138,4 @@ const ProfileForm = () => {
     </div>
   );
 };
-export default ProfileForm;
+export default EditProfile;

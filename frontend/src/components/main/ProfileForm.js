@@ -97,9 +97,9 @@ const ProfileForm = () => {
                   <MDBInput
                     label="Description/Bio"
                     type="textarea"
-                    id="mcredits"
+                    id="pdescription"
                     className="form-control mt-2 mb-2"
-                    value={values.mcredits}
+                    value={values.pdescription}
                     onChange={handleChange}
                   />
                   <MDBInput

@@ -23,6 +23,7 @@ import AddStudyMethods from "./components/admin/AddStudyMethods";
 import MusicListing from "./components/main/MusicListing";
 import MusicPlayer from "./components/main/MusicPlayer";
 import ProfileForm from "./components/main/ProfileForm";
+import EditProfile from "./components/main/EditProfile";
 import ManageUser from "./components/admin/ManageUser";
 import ManageUserProfile from "./components/admin/ManageUserProfile";
 import ManageToDo from "./components/admin/ManageToDo";
@@ -85,6 +86,7 @@ function App() {
               <Route element={<StudyMethodPage />} path="studymethod/:id" />
               <Route element={<MusicPlayer />} path="musicplayer" />
               <Route element={<ProfileForm />} path="profileform" />
+              <Route element={<EditProfile />} path="editprofile" />
             </Route>
 
             <Route
@@ -97,6 +99,7 @@ function App() {
             >
               <Route path="profile" element={<UserProfile />} />
               <Route path="profileform" element={<ProfileForm />} />
+              <Route path="editprofile" element={<EditProfile />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

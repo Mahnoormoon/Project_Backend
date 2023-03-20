@@ -1,11 +1,20 @@
 import React from 'react'
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import ProfileIcon from './ProfileIcon.png';
-import { DemoItem, DateCalendar, TimeClock } from '@mui/x-date-pickers';
+import { DemoItem, StaticDatePicker, TimeClock } from '@mui/x-date-pickers';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
+import ReactWeather, { useOpenWeather } from 'react-open-weather';
 import dayjs from 'dayjs';
 
 const UserProfile = () => {
+  const { data, isLoading, errorMessage } = useOpenWeather({
+    key: '842c8cc564a613435cd7c464948dca54',
+    lat: '48.137154',
+    lon: '11.576124',
+    lang: 'en',
+    unit: 'metric', // values are (metric, standard, imperial)
+  });
+
   return (
     <div className="gradient-custom-2" style={{ backgroundColor: '#c3f1c38e' }}>
       <MDBContainer className="py-5 h-100">
@@ -50,19 +59,26 @@ const UserProfile = () => {
                 <MDBRow>
                   <MDBCol className="mb-2">
                     {/*Calendar Widget*/}
-                    ...
                     <DemoItem label="disabled">
-                      {/* <DateCalendar defaultValue={[dayjs('2022-04-17')]} disabled /> */}
-                      {/* <DateCalendar /> */}
-                      <StaticDatePicker defaultValue={dayjs('2022-04-17')} />
+                      <StaticDatePicker defaultValue={dayjs('2023-03-21')} />
                     </DemoItem>
                   </MDBCol>
                   <MDBCol className="mb-2 w-100 rounded-3">
-                    {/*Clock Widget*/}
-                    ...
+                    {/*Time Clock Widget*/}
                     <DemoItem label="disabled">
                       <TimeClock />
                     </DemoItem>
+                  </MDBCol>
+                  <MDBCol className="mb-2">
+                    <ReactWeather
+                      isLoading={isLoading}
+                      errorMessage={errorMessage}
+                      data={data}
+                      lang="en"
+                      locationLabel="Lucknow"
+                      unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
+                      showForecast
+                    />
                   </MDBCol>
                 </MDBRow>
                 <MDBCardBody className="text-black p-4 mt-10">
