@@ -93,10 +93,9 @@ const UserProfile = () => {
               </div>
               <div className="text-black" style={{ backgroundColor: '#f8f9fa' }}>
                 <div className="ms-4" style={{ marginTop: '100px' }}>
-                  {/*User Details*/}
-                  <MDBTypography tag="h4">{showUsername()}</MDBTypography>
-                  <MDBTypography tag="h6">{showEmail()}</MDBTypography>
-                  <MDBTypography tag="h6">{showContact()}</MDBTypography>
+                  <MDBTypography tag="h4">Username{showUsername()}</MDBTypography>
+                  <MDBTypography tag="h6">Email{showEmail()}</MDBTypography>
+                  <MDBTypography tag="h6">Contact{showContact()}</MDBTypography>
                 </div>
               </div>
               <MDBCardBody className="text-black p-4">
