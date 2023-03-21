@@ -28,7 +28,7 @@ const UserProfile = () => {
    
       getDataFromBackend();
 
-  }, []);
+  }, );
 
   const { data, isLoading, errorMessage } = useOpenWeather({
     key: '842c8cc564a613435cd7c464948dca54',
@@ -42,10 +42,11 @@ const UserProfile = () => {
   const url = app_config.apiurl;
   const [userProfileData, setUserprofileData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
   const fetchUserProfile = async () => {
     setLoading(true);
-    const res = await fetch(url + '/userprofile/getbyid/' + id);
+    const res = await fetch(url + '/userprofile/getbyid/' + currentUser._id);
     const data = (await res.json()).result;
     setUserprofileData(data);
     setLoading(false);
@@ -55,7 +56,7 @@ const UserProfile = () => {
     fetchUserProfile();
   }, )
 
-  const showUsername = () => {
+  {/*const showUsername = () => {
     if (!loading && userProfileData) {
       return <div className='container'>
         {userProfileData.pusername}
@@ -64,7 +65,7 @@ const UserProfile = () => {
       <h1>Loading ... </h1>
     }
   }
-  const showEmail = () => {
+ const showEmail = () => {
     if (!loading && userProfileData) {
       return <div className='container'>
         {userProfileData.pemail}
@@ -90,7 +91,7 @@ const UserProfile = () => {
     } else {
       <h1>Loading ... </h1>
     }
-  }
+  }*/}
   return (
     <div className="gradient-custom-2" style={{ backgroundColor: '#c3f1c38e' }}>
       <MDBContainer className="py-5 h-100">
@@ -111,9 +112,9 @@ const UserProfile = () => {
               </div>
               <div className="text-black" style={{ backgroundColor: '#f8f9fa' }}>
                 <div className="ms-4" style={{ marginTop: '100px' }}>
-                  <MDBTypography tag="h4">Username{showUsername()}</MDBTypography>
-                  <MDBTypography tag="h6">Email{showEmail()}</MDBTypography>
-                  <MDBTypography tag="h6">Contact{showContact()}</MDBTypography>
+                  <MDBTypography tag="h4">{currentUser.fname}</MDBTypography>
+                  <MDBTypography tag="h6">{currentUser.email}</MDBTypography>
+                  <MDBTypography tag="h6">{currentUser.contact}</MDBTypography>
                 </div>
               </div>
               <MDBCardBody className="text-black p-4">
@@ -121,7 +122,7 @@ const UserProfile = () => {
                   {/*User Description*/}
                   <p className="lead fw-normal mb-2">Description/Bio</p>
                   <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                    <MDBCardText className="font-italic mb-1">{showUserProfileDescription()}</MDBCardText>
+                    <MDBCardText className="font-italic mb-1">My Description...</MDBCardText>
                   </div>
                 </div>
                 <div className="mb-3">

@@ -8,13 +8,15 @@ import Swal from 'sweetalert2';
 const ProfileForm = () => {
   const url = app_config.apiurl;
   const [selImage, setSelImage] = useState("");
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+  console.log(currentUser);
 
   const userprofileSubmit = async (formdata) => {
-    formdata.pheader = selImage;
-    formdata.pimage = selImage;
+    formdata.header = selImage;
+    formdata.image = selImage;
     console.log(formdata);
-    const res = await fetch(url + "/userprofile/add", {
-      method: "POST",
+    const res = await fetch(url + "/user/update", {
+      method: "PUT",
       body: JSON.stringify(formdata),
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +29,10 @@ const ProfileForm = () => {
         'Hurray!',
         'Added to Profile!',
         'success'
-      )
+      );
+      const data = await res.json();
+      sessionStorage.setItem('user', JSON.stringify(data))
+
       console.log("Added to Profile");
     } else {
       // fail alert
@@ -64,16 +69,7 @@ const ProfileForm = () => {
           <h4 className="heading1">Create Your Profile</h4>
           <div className="form-outline px-4 py-4 mb-2">
             <Formik
-              initialValues={{
-                pusername: "",
-                pemail: "",
-                pdescription: "",
-                pcontact: "",
-                pheader: "",
-                pimage: "",
-                created_at: new Date(), 
-                updated_at: new Date()
-              }}
+              initialValues={currentUser}
               onSubmit={userprofileSubmit}
             >
               {({ values, handleSubmit, handleChange }) => (
@@ -81,33 +77,33 @@ const ProfileForm = () => {
                   <MDBInput
                     label="Your Username"
                     type="text"
-                    id="pusername"
+                    id="username"
                     className="form-control mb-2"
-                    value={values.pusername}
+                    value={values.fname}
                     onChange={handleChange}
                   />
                   <MDBInput
                     label="Email Address"
                     type="email"
-                    id="pemail"
+                    id="email"
                     className="form-control mt-2 mb-2"
-                    value={values.pemail}
+                    value={values.email}
                     onChange={handleChange}
                   />
                   <MDBInput
                     label="Description/Bio"
                     type="textarea"
-                    id="pdescription"
+                    id="description"
                     className="form-control mt-2 mb-2"
-                    value={values.pdescription}
+                    value={values.description}
                     onChange={handleChange}
                   />
                   <MDBInput
                     label="Contact"
                     type="text"
-                    id="pcontact"
+                    id="contact"
                     className="form-control mt-2 mb-2"
-                    value={values.pcontact}
+                    value={values.contact}
                     onChange={handleChange}
                   />
                   <label>Add Profile Header</label>
