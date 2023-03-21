@@ -15,7 +15,7 @@ const ProfileForm = () => {
     formdata.header = selImage;
     formdata.image = selImage;
     console.log(formdata);
-    const res = await fetch(url + "/user/update", {
+    const res = await fetch(url + "/user/update/"+currentUser._id, {
       method: "PUT",
       body: JSON.stringify(formdata),
       headers: {
@@ -23,7 +23,7 @@ const ProfileForm = () => {
       },
     });
     console.log(res.status);
-    if (res.status === 201) {
+    if (res.status === 200) {
       //success alert
       Swal.fire(
         'Hurray!',
@@ -31,7 +31,7 @@ const ProfileForm = () => {
         'success'
       );
       const data = await res.json();
-      sessionStorage.setItem('user', JSON.stringify(data))
+      sessionStorage.setItem('user', JSON.stringify(data.result))
 
       console.log("Added to Profile");
     } else {

@@ -10,26 +10,6 @@ import app_config from '../../config';
 
 const UserProfile = () => {
 
-  const [userprofileList, setUserprofileList] = useState([]);
-
-  const getDataFromBackend = async () => {
-      // send request 
-      const res= await fetch(url+'/userprofile/getall');
-
-      // accessing data from response
-      const userprofiledata = (await res.json()).result;
-
-      console.log(userprofiledata);
-      setUserprofileList(userprofiledata);
-
-  };
-
-  useEffect(() => {
-   
-      getDataFromBackend();
-
-  }, );
-
   const { data, isLoading, errorMessage } = useOpenWeather({
     key: '842c8cc564a613435cd7c464948dca54',
     lat: '48.137154',
@@ -46,7 +26,7 @@ const UserProfile = () => {
 
   const fetchUserProfile = async () => {
     setLoading(true);
-    const res = await fetch(url + '/userprofile/getbyid/' + currentUser._id);
+    const res = await fetch(url + '/user/getbyid/' + currentUser._id);
     const data = (await res.json()).result;
     setUserprofileData(data);
     setLoading(false);
@@ -56,42 +36,6 @@ const UserProfile = () => {
     fetchUserProfile();
   }, )
 
-  {/*const showUsername = () => {
-    if (!loading && userProfileData) {
-      return <div className='container'>
-        {userProfileData.pusername}
-      </div>
-    } else {
-      <h1>Loading ... </h1>
-    }
-  }
- const showEmail = () => {
-    if (!loading && userProfileData) {
-      return <div className='container'>
-        {userProfileData.pemail}
-      </div>
-    } else {
-      <h1>Loading ... </h1>
-    }
-  }
-  const showContact = () => {
-    if (!loading && userProfileData) {
-      return <div className='container'>
-        {userProfileData.pcontact}
-      </div>
-    } else {
-      <h1>Loading ... </h1>
-    }
-  }
-  const showUserProfileDescription = () => {
-    if (!loading && userProfileData) {
-      return <div className='container'>
-        {userProfileData.pdescription}
-      </div>
-    } else {
-      <h1>Loading ... </h1>
-    }
-  }*/}
   return (
     <div className="gradient-custom-2" style={{ backgroundColor: '#c3f1c38e' }}>
       <MDBContainer className="py-5 h-100">
@@ -122,7 +66,7 @@ const UserProfile = () => {
                   {/*User Description*/}
                   <p className="lead fw-normal mb-2">Description/Bio</p>
                   <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                    <MDBCardText className="font-italic mb-1">My Description...</MDBCardText>
+                    <MDBCardText className="font-italic mb-1">{currentUser.description}</MDBCardText>
                   </div>
                 </div>
                 <div className="mb-3">
