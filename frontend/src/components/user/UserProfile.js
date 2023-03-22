@@ -4,19 +4,21 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCar
 import ProfileIcon from './ProfileIcon.png';
 import { LocalizationProvider, StaticDatePicker, StaticTimePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import ReactWeather, { useOpenWeather } from 'react-open-weather';
 import app_config from '../../config';
 
 
 const UserProfile = () => {
 
-  const { data, isLoading, errorMessage } = useOpenWeather({
-    key: '842c8cc564a613435cd7c464948dca54',
-    lat: '48.137154',
-    lon: '11.576124',
-    lang: 'en',
-    unit: 'metric', // values are (metric, standard, imperial)
-  });
+  const [theme, setTheme] = useState('light');
+
+  const themeData = {
+    light: {
+      btn: 'dark'
+    },
+    dark: {
+      btn: 'light'
+    }
+  }
 
   const { id } = useParams();
   const url = app_config.apiurl;
@@ -34,22 +36,28 @@ const UserProfile = () => {
 
   useEffect(() => {
     fetchUserProfile();
-  }, )
+  },)
 
   return (
     <div className="gradient-custom-2" style={{ backgroundColor: '#c3f1c38e' }}>
+      <button color="light"  onClick={e => setTheme('light')}>
+        Light
+      </button>
+      <button color="dark" onClick={e => setTheme('dark')}>
+        Dark
+      </button>
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
           <MDBCol lg="12" xl="7">
             <MDBCard>
               {/*Profile Header*/}
-              <div className="rounded-top text-white d-flex flex-row" style={{ backgroundImage: ' ', height: '200px' }}>
+              <div className="rounded-top text-white d-flex flex-row" style={{ backgroundImage: `url("${url}/${currentUser.image}")`, height: '200px' }}>
                 <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
                   {/*Profile Picture*/}
-                  <MDBCardImage src={ProfileIcon}
+                  <MDBCardImage src={url + '/' + currentUser.image}
                     alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '1' }} />
                   {/*Profile Editor*/}
-                  <MDBBtn outline color="link" style={{ height: '36px', overflow: 'visible' }}>
+                  <MDBBtn color={themeData[theme].btn} style={{ height: '36px', overflow: 'visible' }}>
                     Edit profile
                   </MDBBtn>
                 </div>
@@ -88,15 +96,6 @@ const UserProfile = () => {
                     </MDBCol>
                     <MDBCol className="mb-2 w-10 rounded-3">
                       {/*Weather Widget*/}
-                      <ReactWeather
-                        isLoading={isLoading}
-                        errorMessage={errorMessage}
-                        data={data}
-                        lang="en"
-                        locationLabel="Lucknow"
-                        unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
-                        showForecast
-                      />
                     </MDBCol>
                   </MDBRow>
                 </LocalizationProvider>
