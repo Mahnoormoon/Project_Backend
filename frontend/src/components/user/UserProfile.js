@@ -17,6 +17,9 @@ const UserProfile = () => {
     },
     dark: {
       btn: 'light'
+    },
+    primary: {
+      btn: 'primary'
     }
   }
 
