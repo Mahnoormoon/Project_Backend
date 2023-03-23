@@ -53,17 +53,6 @@ const StudyMethodPage = () => {
         </div>
       </div>
     </div>
-    <div className="container py-3 d-flex align-items-center">
-      <div
-        className="card py-3 align-items-center"
-        style={{ width: "200rem" }}
-      >
-        <h4 className="heading1">{showStudyMethod()}</h4>
-        <div className="form-outline px-4 py-4 mb-2">
-          {showStudyMethodDescription()}
-        </div>
-      </div>
-    </div>
   </div>
     
   )

@@ -41,9 +41,6 @@ const MusicListing = () => {
                             </div>
                         </div>
                             <audio style={{width: '60%'}} src={url+'/'+music.maudio} controls></audio>
-                        <a className="btn btn-link btn-rounded btn-sm" href="#" role="button">
-                            Play
-                        </a>
                     </li>
         ))
     }

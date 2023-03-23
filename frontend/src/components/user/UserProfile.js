@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import { LocalizationProvider, StaticDatePicker, StaticTimePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import app_config from '../../config';
-
 
 const UserProfile = () => {
 
@@ -12,13 +11,28 @@ const UserProfile = () => {
 
   const themeData = {
     light: {
-      btn: 'dark'
+      btn: 'light',
     },
     dark: {
-      btn: 'light'
+      btn: 'dark',
     },
     primary: {
-      btn: 'primary'
+      btn: 'primary',
+    },
+    secondary: {
+      btn: 'secondary',
+    },
+    success: {
+      btn: 'success',
+    },
+    danger: {
+      btn: 'danger',
+    },
+    warning: {
+      btn: 'warning',
+    },
+    info: {
+      btn: 'info',
     }
   }
 
@@ -41,12 +55,30 @@ const UserProfile = () => {
   },)
 
   return (
-    <div className="gradient-custom-2" style={{ backgroundColor: '#c3f1c38e' }}>
-      <button color="light"  onClick={e => setTheme('light')}>
+    <div color={themeData[theme].bg} className="gradient-custom-2">
+      <button color="light" onClick={e => setTheme('light')}>
         Light
       </button>
       <button color="dark" onClick={e => setTheme('dark')}>
         Dark
+      </button>
+      <button color="primary" onClick={e => setTheme('primary')}>
+        Primary
+      </button>
+      <button color="secondary" onClick={e => setTheme('secondary')}>
+        Secondary
+      </button>
+      <button color="success" onClick={e => setTheme('success')}>
+        Success
+      </button>
+      <button color="danger" onClick={e => setTheme('danger')}>
+        Danger
+      </button>
+      <button color="warning" onClick={e => setTheme('warning')}>
+        Warning
+      </button>
+      <button color="info" onClick={e => setTheme('info')}>
+        Info
       </button>
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
@@ -57,7 +89,7 @@ const UserProfile = () => {
                 <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
                   {/*Profile Picture*/}
                   <MDBCardImage src={url + '/' + currentUser.image}
-                    alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '1' }} />
+                    alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '10' }} />
                   {/*Profile Editor*/}
                   <MDBBtn color={themeData[theme].btn} style={{ height: '36px', overflow: 'visible' }}>
                     Edit profile
@@ -106,16 +138,18 @@ const UserProfile = () => {
                     <MDBCol className="mb-2 w-100 rounded-3">
                       <div className="mb-3">
                         <p className="lead fw-normal mb-2">Go To :</p>
-                        <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                          <MDBBtn className="ms-4" outline color="link" style={{ height: '36px', overflow: 'visible' }}>
+                        <div className="p-4" color={themeData[theme].div}>
+                          {/*<MDBBtn className="ms-4" outline color={themeData[theme].btn} style={{ height: '36px', overflow: 'visible' }}>
                             My ToDo
                           </MDBBtn>
-                          <MDBBtn className="ms-4" outline color="link" style={{ height: '36px', overflow: 'visible' }}>
+                          <MDBBtn className="ms-4" outline color={themeData[theme].btn} style={{ height: '36px', overflow: 'visible' }}>
                             Music Player
-                          </MDBBtn>
-                          <MDBBtn className="ms-4" outline color="link" style={{ height: '36px', overflow: 'visible' }}>
+                          </MDBBtn>*/}
+                          <MDBBtn className="ms-4" outline color={themeData[theme].btn} style={{ height: '36px', overflow: 'visible' }}>
                             Study Methods
                           </MDBBtn>
+                          <Link color={themeData[theme].btn} className='btn btn2' to={'/main/musiclisting/' + currentUser._id}>Music Player</Link>
+                          <Link color={themeData[theme].btn} className='btn' to={'/main/studylisting/' + currentUser._id}>Study Methods</Link>
                         </div>
                       </div>
                     </MDBCol>
