@@ -11,28 +11,37 @@ const UserProfile = () => {
 
   const themeData = {
     light: {
-      btn: 'light',
+      btn: 'dark',
+      bg: '#fff',
+      text: '#fff'
     },
     dark: {
-      btn: 'dark',
+      btn: 'light',
+      bg: '#222'
     },
     primary: {
       btn: 'primary',
+      bg: '#9FA6B2'
     },
     secondary: {
       btn: 'secondary',
+      bg: '#3B71CA'
     },
     success: {
       btn: 'success',
+      bg: '#14A44D'
     },
     danger: {
       btn: 'danger',
+      bg: '#DC4C64'
     },
     warning: {
       btn: 'warning',
+      bg: '#E4A11B'
     },
     info: {
       btn: 'info',
+      bg: '#54B4D3'
     }
   }
 
@@ -55,7 +64,7 @@ const UserProfile = () => {
   },)
 
   return (
-    <div color={themeData[theme].bg} className="gradient-custom-2">
+    <div style={{backgroundColor: themeData[theme].bg}} className="gradient-custom-2">
       <>
         <div className="dropdown mt-4 mb-6 p-6">
           <button
@@ -67,7 +76,7 @@ const UserProfile = () => {
           >
             <i className="fas fa-pen fa-sm"></i>
           </button>
-          <ul className="dropdown-menu" aria-expanded="false">
+          <ul className="dropdown-menu">
             <li>
               <button color="light" onClick={e => setTheme('light')}>
                 Light
@@ -127,25 +136,25 @@ const UserProfile = () => {
                   </MDBBtn>
                 </div>
               </div>
-              <div className="text-black" style={{ backgroundColor: '#f8f9fa' }}>
+              <div className="text-black" >
                 <div className="ms-4" style={{ marginTop: '100px' }}>
-                  <MDBTypography tag="h4">{currentUser.fname}</MDBTypography>
-                  <MDBTypography tag="h6">{currentUser.email}</MDBTypography>
-                  <MDBTypography tag="h6">{currentUser.contact}</MDBTypography>
+                  <MDBTypography tag="h4" color={themeData[theme].text} >{currentUser.fname}</MDBTypography>
+                  <MDBTypography tag="h6" color={themeData[theme].text} >{currentUser.email}</MDBTypography>
+                  <MDBTypography tag="h6" color={themeData[theme].text} >{currentUser.contact}</MDBTypography>
                 </div>
               </div>
               <MDBCardBody className="text-black p-4">
                 <div className="mb-3">
                   {/*User Description*/}
                   <p className="lead fw-normal mb-2">Description/Bio</p>
-                  <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
+                  <div className="p-4" style={{backgroundColor: themeData[theme].bg}}>
                     <MDBCardText className="font-italic mb-1">{currentUser.description}</MDBCardText>
                   </div>
                 </div>
                 <div className="mb-3">
                   {/*Reminders*/}
                   <p className="lead fw-normal mb-2">My Notifications</p>
-                  <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
+                  <div className="p-4" style={{backgroundColor: themeData[theme].bg}}>
                     <MDBCardText className="font-italic mb-1">Show Reminders Here...</MDBCardText>
                   </div>
                 </div>
@@ -176,11 +185,9 @@ const UserProfile = () => {
                           <MDBBtn className="ms-4" outline color={themeData[theme].btn} style={{ height: '36px', overflow: 'visible' }}>
                             Music Player
                           </MDBBtn>*/}
-                          <MDBBtn className="ms-4" outline color={themeData[theme].btn} style={{ height: '36px', overflow: 'visible' }}>
-                            Study Methods
-                          </MDBBtn>
-                          <Link color={themeData[theme].btn} className='btn btn2' to={'/main/musiclisting/' + currentUser._id}>Music Player</Link>
-                          <Link color={themeData[theme].btn} className='btn' to={'/main/studylisting/' + currentUser._id}>Study Methods</Link>
+                          <Link className={'ms-4 btn btn-'+themeData[theme].btn}>My ToDo</Link>
+                          <Link className={'ms-4 btn btn-'+themeData[theme].btn} to={'/main/musiclisting/' + currentUser._id}>Music Player</Link>
+                          <Link className={'ms-4 btn btn-'+themeData[theme].btn} to={'/main/studylisting/' + currentUser._id}>Study Methods</Link>
                         </div>
                       </div>
                     </MDBCol>
