@@ -21,7 +21,6 @@ import AddStudyMethods from "./components/admin/AddStudyMethods";
 import MusicListing from "./components/main/MusicListing";
 import ProfileForm from "./components/main/ProfileForm";
 import ManageUser from "./components/admin/ManageUser";
-import ManageUserProfile from "./components/admin/ManageUserProfile";
 import ManageToDo from "./components/admin/ManageToDo";
 import ManageStudyMethods from "./components/admin/ManageStudyMethods";
 import ManageMusic from "./components/admin/ManageMusic";
@@ -59,7 +58,6 @@ function App() {
               <Route element={<Login />} path="login" />
               <Route element={<Signup />} path="signup" />
               <Route element={<ManageUser />} path="manageuser" />
-              <Route element={<ManageUserProfile />} path="manageuserprofile" />
               <Route element={<ManageToDo />} path="managetodo" />
               <Route element={<ManageStudyMethods />} path="managestudymethods" />
               <Route element={<ManageMusic />} path="managemusic" />
