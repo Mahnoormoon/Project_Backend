@@ -4,7 +4,7 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCar
 import { LocalizationProvider, StaticDatePicker, StaticTimePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import app_config from '../../config';
-
+import "./ProfileForm.css";
 const UserProfile = () => {
 
   const [theme, setTheme] = useState('light');
@@ -75,61 +75,61 @@ const UserProfile = () => {
       <>
         <div className="container dropdown r-90 mt-4 mb-6 p-6">
           <button
-            className="btn btn-primary btn-floating dropdown-toggle hidden-arrow bg-danger"
+            className="btn dropdown-toggle hidden-arrow rounded-8"
             type="button"
             id="dropdownMenuButton2"
             data-mdb-toggle="dropdown"
-            aria-expanded="true"
           >
-            <i className="fas fa-pen fa-sm"></i> 
+            <i className="fas fa-pen fa-sm icon">&nbsp;&nbsp;&nbsp;C u s t o m i z e</i> 
           </button>
-          <ul className="dropdown-menu">
+          <ul className="p-3 dropdown-menu">
+          <p className="lead fw-normal heading2 p-2 mb-2">Choose desired theme/color : </p>
             <li>
-              <button color="light" onClick={e => setTheme('light')}>
+              <button style={{ backgroundColor: '#ecf3ec8e' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-black"onClick={e => setTheme('light')}>
                 Light
               </button>
             </li>
             <li>
-              <button color="dark" onClick={e => setTheme('dark')}>
+              <button style={{ backgroundColor: '#222' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white"  onClick={e => setTheme('dark')}>
                 Dark
               </button>
             </li>
             <li>
-              <button color="primary" onClick={e => setTheme('primary')}>
+              <button style={{ backgroundColor: '#9FA6B2' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('primary')}>
                 Primary
               </button>
             </li>
             <li>
-              <button color="secondary" onClick={e => setTheme('secondary')}>
+              <button style={{ backgroundColor: '#3B71CA' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white"  onClick={e => setTheme('secondary')}>
                 Secondary
               </button>
             </li>
             <li>
-              <button color="success" onClick={e => setTheme('success')}>
+              <button style={{ backgroundColor: '#14A44D' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white"  onClick={e => setTheme('success')}>
                 Success
               </button>
             </li>
             <li>
-              <button color="danger" onClick={e => setTheme('danger')}>
+              <button style={{ backgroundColor: '#DC4C64' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white"  onClick={e => setTheme('danger')}>
                 Danger
               </button>
             </li>
             <li>
-              <button color="warning" onClick={e => setTheme('warning')}>
+              <button style={{ backgroundColor: '#E4A11B' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('warning')}>
                 Warning
               </button>
             </li>
             <li>
-              <button color="info" onClick={e => setTheme('info')}>
+              <button style={{ backgroundColor: '#54B4D3' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('info')}>
                 Info
               </button>
             </li>
           </ul>
         </div>
       </>
-      <MDBContainer className="py-5 h-100">
+      <MDBContainer className="mb-6 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
-          <MDBCol lg="12" xl="7">
+          <MDBCol lg="12" xl="10">
             <MDBCard>
               {/*Profile Header*/}
               <div className="rounded-top text-white d-flex flex-row" style={{ backgroundImage: `url("${url}/${currentUser.header}")`, height: '200px' }}>
@@ -138,7 +138,7 @@ const UserProfile = () => {
                   <MDBCardImage src={url + '/' + currentUser.image}
                     alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '10' }} />
                   {/*Profile Editor*/}
-                  <Link style={{zIndex: 0}} className={'btn btn-' + themeData[theme].btn} to={'/user/profileform'}>Edit Profile</Link>
+                  <Link style={{zIndex: '10'}} className={'btn btn-' + themeData[theme].btn} to={'/user/profileform'}>Edit Profile</Link>
                 </div>
               </div>
                 <div className="p-4" style={{ marginTop: '65px', backgroundColor: '#ecf3ec8e' }}>
@@ -150,7 +150,7 @@ const UserProfile = () => {
                 <div className="mb-3">
                   {/*User Description*/}
                   <p className="lead fw-normal mb-2">Description/Bio</p>
-                  <div className="p-4" style={{ backgroundColor: '#ecf3ec8e' }}>
+                  <div className="p-4" style={{ backgroundColor: '#ecf3ec8e'}}>
                     <MDBCardText className="font-italic mb-1">{currentUser.description}</MDBCardText>
                   </div>
                 </div>
@@ -162,16 +162,17 @@ const UserProfile = () => {
                   </div>
                 </div>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <MDBRow className="mb-2 rounded-4" style={{ backgroundColor: '#ecf3ec8e' }}>
-                    <MDBCol className="mb-2 mt-3 w-10 rounded-3">
+                <p className="lead fw-normal mb-2">My Widgets</p>
+                  <MDBRow className="p-3 rounded-4">
+                    <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: '#ecf3ec8e' }}>
                       {/*Calendar Widget*/}
-                      <StaticDatePicker sx={{ width: '44%', height: '88%' }}/>
+                      <StaticDatePicker className="mb-2 mt-3 rounded-5" sx={{ width: '44%', height: '75%' }}/>
                     </MDBCol>
-                    <MDBCol className="mb-2 w-10 rounded-3">
+                    <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: '#ecf3ec8e' }}>
                       {/*Clock Widget*/}
-                      <StaticTimePicker sx={{ width: '36%', height: '8%' }}/>
+                      <StaticTimePicker className="mb-2 mt-3 rounded-5" sx={{ width: '36%', height: '75%' }}/>
                     </MDBCol>
-                    <MDBCol className="mb-2 w-10 rounded-3">
+                    <MDBCol className="mb-2 w-10 rounded-5">
                       {/*Weather Widget*/}
                     </MDBCol>
                   </MDBRow>
@@ -181,10 +182,10 @@ const UserProfile = () => {
                     <MDBCol className="mb-2 w-100 rounded-3">
                       <div className="mb-3">
                         <p className="lead fw-normal mb-2">Go To :</p>
-                        <div className="p-4" style={{ backgroundColor: '#e1e7e18e' }}>
-                          <Link className={'ms-3 btn btn-' + themeData[theme].btn}>My ToDo</Link>
-                          &nbsp;&nbsp;&nbsp;<Link className={'ms-4 btn btn-' + themeData[theme].btn} to={'/main/musiclisting/' + currentUser._id}>Music Player</Link>
-                          &nbsp;&nbsp;&nbsp;<Link className={'ms-4 btn btn-' + themeData[theme].btn} to={'/main/studylisting/' + currentUser._id}>Study Methods</Link>
+                        <div className="p-3 justify-content-center align-items-center" style={{ backgroundColor: '#e1e7e18e' }}>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Link className={'p-2 btn btn-' + themeData[theme].btn}>My ToDo</Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Link className={'p-2 btn btn-' + themeData[theme].btn} to={'/main/musiclisting/' + currentUser._id}>Music Player</Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Link className={'p-2 btn btn-' + themeData[theme].btn} to={'/main/studylisting/' + currentUser._id}>Study Methods</Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
                       </div>
                     </MDBCol>

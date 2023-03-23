@@ -32,7 +32,6 @@ const ProfileForm = () => {
       );
       const data = await res.json();
       sessionStorage.setItem('user', JSON.stringify(data.result))
-
       console.log("Added to Profile");
     } else {
       // fail alert
