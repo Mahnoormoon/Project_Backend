@@ -56,30 +56,61 @@ const UserProfile = () => {
 
   return (
     <div color={themeData[theme].bg} className="gradient-custom-2">
-      <button color="light" onClick={e => setTheme('light')}>
-        Light
-      </button>
-      <button color="dark" onClick={e => setTheme('dark')}>
-        Dark
-      </button>
-      <button color="primary" onClick={e => setTheme('primary')}>
-        Primary
-      </button>
-      <button color="secondary" onClick={e => setTheme('secondary')}>
-        Secondary
-      </button>
-      <button color="success" onClick={e => setTheme('success')}>
-        Success
-      </button>
-      <button color="danger" onClick={e => setTheme('danger')}>
-        Danger
-      </button>
-      <button color="warning" onClick={e => setTheme('warning')}>
-        Warning
-      </button>
-      <button color="info" onClick={e => setTheme('info')}>
-        Info
-      </button>
+      <>
+        <div className="dropdown mt-4 mb-6 p-6">
+          <button
+            className="btn btn-primary btn-floating dropdown-toggle hidden-arrow bg-danger"
+            type="button"
+            id="dropdownMenuButton2"
+            data-mdb-toggle="dropdown"
+            aria-expanded="true"
+          >
+            <i className="fas fa-pen fa-sm"></i>
+          </button>
+          <ul className="dropdown-menu" aria-expanded="false">
+            <li>
+              <button color="light" onClick={e => setTheme('light')}>
+                Light
+              </button>
+            </li>
+            <li>
+            <button color="dark" onClick={e => setTheme('dark')}>
+                Dark
+              </button>
+            </li>
+            <li>
+            <button color="primary" onClick={e => setTheme('primary')}>
+                Primary
+              </button>
+            </li>
+            <li>
+            <button color="secondary" onClick={e => setTheme('secondary')}>
+                Secondary
+              </button>
+            </li>
+            <li>
+            <button color="success" onClick={e => setTheme('success')}>
+                Success
+              </button>
+            </li>
+            <li>
+            <button color="danger" onClick={e => setTheme('danger')}>
+                Danger
+              </button>
+            </li>
+            <li>
+            <button color="warning" onClick={e => setTheme('warning')}>
+                Warning
+              </button>
+            </li>
+            <li>
+            <button color="info" onClick={e => setTheme('info')}>
+                Info
+              </button>
+            </li>
+          </ul>
+        </div>
+      </>
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
           <MDBCol lg="12" xl="7">
