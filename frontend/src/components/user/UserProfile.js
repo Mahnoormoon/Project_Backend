@@ -64,7 +64,7 @@ const UserProfile = () => {
   },)
 
   return (
-    <div style={{backgroundColor: themeData[theme].bg}} className="gradient-custom-2">
+    <div style={{ backgroundColor: themeData[theme].bg }} className="gradient-custom-2">
       <>
         <div className="dropdown mt-4 mb-6 p-6">
           <button
@@ -83,37 +83,37 @@ const UserProfile = () => {
               </button>
             </li>
             <li>
-            <button color="dark" onClick={e => setTheme('dark')}>
+              <button color="dark" onClick={e => setTheme('dark')}>
                 Dark
               </button>
             </li>
             <li>
-            <button color="primary" onClick={e => setTheme('primary')}>
+              <button color="primary" onClick={e => setTheme('primary')}>
                 Primary
               </button>
             </li>
             <li>
-            <button color="secondary" onClick={e => setTheme('secondary')}>
+              <button color="secondary" onClick={e => setTheme('secondary')}>
                 Secondary
               </button>
             </li>
             <li>
-            <button color="success" onClick={e => setTheme('success')}>
+              <button color="success" onClick={e => setTheme('success')}>
                 Success
               </button>
             </li>
             <li>
-            <button color="danger" onClick={e => setTheme('danger')}>
+              <button color="danger" onClick={e => setTheme('danger')}>
                 Danger
               </button>
             </li>
             <li>
-            <button color="warning" onClick={e => setTheme('warning')}>
+              <button color="warning" onClick={e => setTheme('warning')}>
                 Warning
               </button>
             </li>
             <li>
-            <button color="info" onClick={e => setTheme('info')}>
+              <button color="info" onClick={e => setTheme('info')}>
                 Info
               </button>
             </li>
@@ -131,12 +131,13 @@ const UserProfile = () => {
                   <MDBCardImage src={url + '/' + currentUser.image}
                     alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '10' }} />
                   {/*Profile Editor*/}
-                  <MDBBtn color={themeData[theme].btn} style={{ height: '36px', overflow: 'visible' }}>
+                  {/*<MDBBtn color={themeData[theme].btn} style={{ height: '36px', overflow: 'visible' }}>
                     Edit profile
-                  </MDBBtn>
+                  </MDBBtn>*/}
+                  <Link style={{zIndex: 0}} className={'btn btn-' + themeData[theme].btn} to={'/user/profileform'}>Edit Profile</Link>
                 </div>
               </div>
-              <div className="text-black" >
+              <div className="" >
                 <div className="ms-4" style={{ marginTop: '100px' }}>
                   <MDBTypography tag="h4" color={themeData[theme].text} >{currentUser.fname}</MDBTypography>
                   <MDBTypography tag="h6" color={themeData[theme].text} >{currentUser.email}</MDBTypography>
@@ -147,14 +148,14 @@ const UserProfile = () => {
                 <div className="mb-3">
                   {/*User Description*/}
                   <p className="lead fw-normal mb-2">Description/Bio</p>
-                  <div className="p-4" style={{backgroundColor: themeData[theme].bg}}>
+                  <div className="p-4" style={{ backgroundColor: themeData[theme].bg }}>
                     <MDBCardText className="font-italic mb-1">{currentUser.description}</MDBCardText>
                   </div>
                 </div>
                 <div className="mb-3">
                   {/*Reminders*/}
                   <p className="lead fw-normal mb-2">My Notifications</p>
-                  <div className="p-4" style={{backgroundColor: themeData[theme].bg}}>
+                  <div className="p-4" style={{ backgroundColor: themeData[theme].bg }}>
                     <MDBCardText className="font-italic mb-1">Show Reminders Here...</MDBCardText>
                   </div>
                 </div>
@@ -185,9 +186,9 @@ const UserProfile = () => {
                           <MDBBtn className="ms-4" outline color={themeData[theme].btn} style={{ height: '36px', overflow: 'visible' }}>
                             Music Player
                           </MDBBtn>*/}
-                          <Link className={'ms-4 btn btn-'+themeData[theme].btn}>My ToDo</Link>
-                          <Link className={'ms-4 btn btn-'+themeData[theme].btn} to={'/main/musiclisting/' + currentUser._id}>Music Player</Link>
-                          <Link className={'ms-4 btn btn-'+themeData[theme].btn} to={'/main/studylisting/' + currentUser._id}>Study Methods</Link>
+                          <Link className={'ms-4 btn btn-' + themeData[theme].btn}>My ToDo</Link>
+                          <Link className={'ms-4 btn btn-' + themeData[theme].btn} to={'/main/musiclisting/' + currentUser._id}>Music Player</Link>
+                          <Link className={'ms-4 btn btn-' + themeData[theme].btn} to={'/main/studylisting/' + currentUser._id}>Study Methods</Link>
                         </div>
                       </div>
                     </MDBCol>

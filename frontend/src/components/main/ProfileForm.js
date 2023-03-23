@@ -12,7 +12,7 @@ const ProfileForm = () => {
   console.log(currentUser);
 
   const userprofileSubmit = async (formdata) => {
-    formdata.header = selImage;
+    //formdata.header = selImage;
     formdata.image = selImage;
     console.log(formdata);
     const res = await fetch(url + "/user/update/"+currentUser._id, {
@@ -44,9 +44,23 @@ const ProfileForm = () => {
     }
   };
 
-  const uploadImage = (e) => {
+  const uploadProfileImage = (e) => {
     const file = e.target.files[0];
-    setSelImage(file.name);
+    setSelImage(file.image);
+    const fd = new FormData();
+    fd.append("myfile", file);
+    fetch(url + "/util/uploadfile", {
+      method: "POST",
+      body: fd,
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("file uploaded");
+      }
+    });
+  };
+  const uploadHeaderImage = (e) => {
+    const file = e.target.files[0];
+    setSelImage(file.header);
     const fd = new FormData();
     fd.append("myfile", file);
     fetch(url + "/util/uploadfile", {
@@ -110,13 +124,13 @@ const ProfileForm = () => {
                   <input
                     type="file"
                     className="form-control mt-2 mb-2"
-                    onChange={uploadImage}
+                    onChange={uploadHeaderImage}
                   />
                   <label>Add Profile Picture</label>
                   <input
                     type="file"
                     className="form-control mt-2 mb-2"
-                    onChange={uploadImage}
+                    onChange={uploadProfileImage}
                   />
                   {/* Submit button */}
                   <button
