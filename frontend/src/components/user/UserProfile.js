@@ -125,7 +125,7 @@ const UserProfile = () => {
           <MDBCol lg="12" xl="7">
             <MDBCard>
               {/*Profile Header*/}
-              <div className="rounded-top text-white d-flex flex-row" style={{ backgroundImage: `url("${url}/${currentUser.image}")`, height: '200px' }}>
+              <div className="rounded-top text-white d-flex flex-row" style={{ backgroundImage: `url("${url}/${currentUser.header}")`, height: '200px' }}>
                 <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
                   {/*Profile Picture*/}
                   <MDBCardImage src={url + '/' + currentUser.image}
