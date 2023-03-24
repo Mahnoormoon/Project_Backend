@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import "./ProfileForm.css";
 import { MDBInput } from "mdb-react-ui-kit";
@@ -7,6 +8,7 @@ import Swal from 'sweetalert2';
 
 const ProfileForm = () => {
   const url = app_config.apiurl;
+  const navigate = useNavigate();
   const [selImage, setSelImage] = useState("");
   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
   console.log(currentUser);
@@ -24,15 +26,25 @@ const ProfileForm = () => {
     });
     console.log(res.status);
     if (res.status === 200) {
+      const userprofiledata = (await res.json()).result;
       //success alert
       Swal.fire(
         'Hurray!',
         'Added to Profile!',
         'success'
       );
-      const data = await res.json();
+      {/*const data = await res.json();
       sessionStorage.setItem('user', JSON.stringify(data.result))
-      console.log("Added to Profile");
+      console.log("Added to Profile");*/}
+
+      console.log(userprofiledata);
+      if(userprofiledata.isAdmin){
+        sessionStorage.setItem("admin", JSON.stringify(userprofiledata));
+        navigate("/admin/profile");
+      }else{
+        sessionStorage.setItem("user", JSON.stringify(userprofiledata));
+        navigate("/user/profile");
+      }
     } else {
       // fail alert
       Swal.fire(
@@ -138,6 +150,7 @@ const ProfileForm = () => {
                   >
                     Click to Create
                   </button>
+                  {/*<button type ="submit" className="btn2 btn-block mt-1 btn-rounded btn-outline-white mt-2 justify-content-center align-items-center" onSubmit={'/user/profile/'}>Click to Create</button>*/}
                 </form>
               )}
             </Formik>

@@ -75,8 +75,11 @@ function App() {
               <Route element={<Services />} path="services" />
               <Route element={<Login />} path="login" />
               <Route element={<Signup />} path="signup" />
+              <Route element={<MusicListing />} path="musiclisting" />
               <Route element={<MusicListing />} path="musiclisting/:id" />
+              <Route element={<ListStudyMethods />} path="studylisting" />
               <Route element={<ListStudyMethods />} path="studylisting/:id" />
+              <Route element={<StudyMethodPage />} path="studymethod" />
               <Route element={<StudyMethodPage />} path="studymethod/:id" />
               <Route element={<ProfileForm />} path="profileform/:id" />
             </Route>

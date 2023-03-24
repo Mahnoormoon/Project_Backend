@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import "./AddMusic.css";
 import { MDBInput } from "mdb-react-ui-kit";
@@ -7,6 +8,7 @@ import Swal from 'sweetalert2';
 
 const AddMusic = () => {
   const url = app_config.apiurl;
+  const navigate = useNavigate();
   const [selImage, setSelImage] = useState("");
   const [selFile, setSelFile] = useState("");
 
@@ -23,19 +25,28 @@ const AddMusic = () => {
     });
     console.log(res.status);
     if (res.status === 201) {
+      const addmusicdata = (await res.json()).result;
       //success alert
       Swal.fire(
+        'Hurray!',
         'Music Added!',
         'success'
       )
-      console.log("Music Added");
+      console.log(addmusicdata);
+      if(addmusicdata.isAdmin){
+        sessionStorage.setItem("admin", JSON.stringify(addmusicdata));
+        navigate("/main/musiclisting");
+      }else{
+        sessionStorage.setItem("user", JSON.stringify(addmusicdata));
+        navigate("/main/musiclisting");
+      }
     } else {
       // fail alert
-      Swal.fire({
-        icon:'error',
-        title:'OOOPS',
-        text:'Try again'
-      })
+      Swal.fire(
+        'Oops...',
+        'Error Adding to Music!',
+        'error'
+      )
     }
   };
 
