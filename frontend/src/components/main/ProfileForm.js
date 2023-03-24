@@ -14,7 +14,7 @@ const ProfileForm = () => {
   console.log(currentUser);
 
   const userprofileSubmit = async (formdata) => {
-    //formdata.header = selImage;
+    formdata.header = selImage;
     formdata.image = selImage;
     console.log(formdata);
     const res = await fetch(url + "/user/update/"+currentUser._id, {
@@ -33,9 +33,6 @@ const ProfileForm = () => {
         'Added to Profile!',
         'success'
       );
-      {/*const data = await res.json();
-      sessionStorage.setItem('user', JSON.stringify(data.result))
-      console.log("Added to Profile");*/}
 
       console.log(userprofiledata);
       if(userprofiledata.isAdmin){
