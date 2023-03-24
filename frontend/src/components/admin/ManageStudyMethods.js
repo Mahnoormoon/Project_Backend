@@ -38,18 +38,17 @@ const ManageStudyMethods = () => {
 
   return (
     <div>
-        <header className='py-5'>
+        <header className='py-3'>
             <div className="container">
-                <h1 className='display-3 fw-bold  text-center' style={{color:"#5f8b5f"}}>Manage Study Methods Data</h1>
+                <h4 className='display-4 fw-thin  text-center' style={{color:"#5f8b5f"}}>Manage Study Methods Data</h4>
             </div>
         </header>
 
-        <div className='container mt-4'>
+        <div className='container mt-3'>
 
         <table class="table table-striped table-hover">
                 <thead >
                     <tr style={{backgroundColor:"#5f8b5f", color:"white"}}>
-                         <th></th>
                         <th>Study Method Name</th>
                         <th>Full Description</th>
                         <th>Study Method Credits</th>
@@ -61,7 +60,7 @@ const ManageStudyMethods = () => {
                     {
                         studymethodList.map( (study) => (
                             <tr >
-                        <td>{study.sname}</td>
+                        <td>{study.stitle}</td>
                         <td>{study.sdescription}</td>
                         <td>{study.scredits}</td>
                         <td>{new Date(study.created_at).toLocaleDateString()}</td>

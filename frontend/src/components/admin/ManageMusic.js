@@ -28,7 +28,7 @@ const ManageMusic = () => {
     
     const deleteMusic = async (id) => {
         console.log(id);
-        const res = await fetch(url+'/music/getall'+id, {
+        const res = await fetch(url+'/music/delete'+id, {
             method : 'DELETE'
         })
 
@@ -40,18 +40,17 @@ const ManageMusic = () => {
 
   return (
     <div>
-        <header className='py-5'>
+        <header className='py-3'>
             <div className="container">
-                <h1 className='display-3 fw-bold  text-center' style={{color:"#5f8b5f"}}>Manage Music Data</h1>
+                <h4 className='display-4 fw-thin  text-center' style={{color:"#5f8b5f"}}>Manage Music Data</h4>
             </div>
         </header>
 
-        <div className='container mt-4'>
+        <div className='container mt-3'>
 
         <table class="table table-striped table-hover">
                 <thead >
                     <tr style={{backgroundColor:"#5f8b5f", color:"white"}}>
-                         <th></th>
                         <th>Music Title</th>
                         <th>Artist Name</th>
                         <th>Music Credits</th>

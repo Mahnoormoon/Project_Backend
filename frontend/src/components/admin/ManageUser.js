@@ -40,21 +40,24 @@ const ManageUser = () => {
 
   return (
     <div>
-        <header className='py-5'>
+        <header className='py-3'>
             <div className="container">
-                <h1 className='display-3 fw-bold  text-center' style={{color:"#5f8b5f"}}>Manage User Data</h1>
+                <h4 className='display-4 fw-thin  text-center' style={{color:"#5f8b5f"}}>Manage User Data</h4>
             </div>
         </header>
 
-        <div className='container mt-4'>
+        <div className='container mt-3'>
 
         <table class="table table-striped table-hover">
                 <thead >
                     <tr style={{backgroundColor:"#5f8b5f", color:"white"}}>
-                         <th></th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
+                        <th>Contact</th>
+                        <th>Description</th>
+                        <th>Header Image</th>
+                        <th>Profile Image</th>
                         <th>Created_At</th>
                         <th>Updated_At</th>
                     </tr>
@@ -66,6 +69,10 @@ const ManageUser = () => {
                         <td>{user.fname}</td>
                         <td>{user.lname}</td>
                         <td>{user.email}</td>
+                        <td>{user.contact}</td>
+                        <td>{user.description}</td>
+                        <td>{user.header}</td>
+                        <td>{user.image}</td>
                         <td>{new Date(user.created_at).toLocaleDateString()}</td>
                         <td>{new Date(user.updated_at).toLocaleDateString()}</td>
                                 <td>
