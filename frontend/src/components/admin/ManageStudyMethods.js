@@ -26,7 +26,7 @@ const ManageStudyMethods = () => {
     
     const deleteStudy = async (id) => {
         console.log(id);
-        const res = await fetch(url+'/study/getall'+id, {
+        const res = await fetch(url+'/study/delete/'+id, {
             method : 'DELETE'
         })
 

@@ -28,7 +28,7 @@ const ManageMusic = () => {
     
     const deleteMusic = async (id) => {
         console.log(id);
-        const res = await fetch(url+'/music/delete'+id, {
+        const res = await fetch(url+'/music/delete/'+id, {
             method : 'DELETE'
         })
 
@@ -69,7 +69,7 @@ const ManageMusic = () => {
                         <td>{music.mcredits}</td>
                         <td>{music.maudio}</td>
                         <td>{music.mimage}</td>
-                        <td>{new Date(music.created_at).toLocaleDateString()}</td>
+                        <td>{new Date(music.added_at).toLocaleDateString()}</td>
                         <td>{new Date(music.updated_at).toLocaleDateString()}</td>
                                 <td>
                                     <button className='btn btn-dark' style={{backgroundColor:"#5f8b5f"}} onClick={() => deleteMusic(music._id)}> <i style={{color:"white"}} class="fas fa-trash"></i></button>

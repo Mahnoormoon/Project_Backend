@@ -27,7 +27,7 @@ const ManageToDo = () => {
     
     const deleteTodo = async (id) => {
         console.log(id);
-        const res = await fetch(url+'/todo/getall'+id, {
+        const res = await fetch(url+'/todo/delete/'+id, {
             method : 'DELETE'
         })
 

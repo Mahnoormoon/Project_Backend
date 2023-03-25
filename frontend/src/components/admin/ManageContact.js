@@ -26,7 +26,7 @@ const ManageContact = () => {
     
     const deleteContact = async (id) => {
         console.log(id);
-        const res = await fetch(url+'/contact/delete'+id, {
+        const res = await fetch(url+'/contact/delete/'+id, {
             method : 'DELETE'
         })
 

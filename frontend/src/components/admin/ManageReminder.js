@@ -26,7 +26,7 @@ const ManageReminder = () => {
     
     const deleteReminder = async (id) => {
         console.log(id);
-        const res = await fetch(url+'/reminder/getall'+id, {
+        const res = await fetch(url+'/reminder/delete/'+id, {
             method : 'DELETE'
         })
 
