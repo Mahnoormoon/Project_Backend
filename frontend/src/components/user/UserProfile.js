@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import { LocalizationProvider, StaticDatePicker, StaticTimePicker } from '@mui/x-date-pickers';
+import ProfileIcon from './ProfileIcon.png'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import app_config from '../../config';
 import "./ProfileForm.css";
@@ -198,10 +199,10 @@ const UserProfile = () => {
           <MDBCol lg="12" xl="10">
             <MDBCard>
               {/*Profile Header*/}
-              <div className="rounded-top text-white d-flex flex-row" style={{ backgroundImage: `url("${url}/${currentUser.header}")`, height: '200px' }}>
+              <div className="rounded-top text-white d-flex flex-row" style={{ backgroundImage: `url("${url}/${currentUser.image}")`, height: '200px' }}>
                 <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
                   {/*Profile Picture*/}
-                  <MDBCardImage src={url + '/' + currentUser.image}
+                  <MDBCardImage src={ProfileIcon}
                     alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '10' }} />
                   {/*Profile Editor*/}
                   <Link style={{zIndex: '10'}} className={'btn btn-' + themeData[theme].btn} to={'/user/profileform'}>Edit Profile</Link>
@@ -211,6 +212,7 @@ const UserProfile = () => {
                   <MDBTypography tag="h4" color={themeData[theme].text} >{currentUser.fname}</MDBTypography>
                   <MDBTypography tag="h6" color={themeData[theme].text} >{currentUser.email}</MDBTypography>
                   <MDBTypography tag="h6" color={themeData[theme].text} >{currentUser.contact}</MDBTypography>
+                  {/*<MDBCardImage src={url + '/' + currentUser.image}*/}
                 </div>
               <MDBCardBody className="text-black p-4">
                 <div className="mb-3">
