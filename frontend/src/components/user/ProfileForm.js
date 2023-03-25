@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import "./ProfileForm.css";
 import { MDBInput } from "mdb-react-ui-kit";
@@ -7,10 +8,11 @@ import Swal from 'sweetalert2';
 
 const ProfileForm = () => {
   const url = app_config.apiurl;
-  const [selImage, setSelImage] = useState("");
+  const navigate = useNavigate();
+  const [selImage, setSelImage] = useState("image");
   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
-  console.log(currentUser);
 
+  console.log(currentUser);
   const userprofileSubmit = async (formdata) => {
     formdata.header = selImage;
     formdata.image = selImage;
@@ -24,16 +26,21 @@ const ProfileForm = () => {
     });
     console.log(res.status);
     if (res.status === 200) {
+      const userprofiledata = (await res.json()).result;
       //success alert
       Swal.fire(
         'Hurray!',
         'Added to Profile!',
         'success'
       );
-      const data = await res.json();
-      sessionStorage.setItem('user', JSON.stringify(data.result))
-
-      console.log("Added to Profile");
+      console.log(userprofiledata);
+      if(userprofiledata.isAdmin){
+        sessionStorage.setItem("admin", JSON.stringify(userprofiledata));
+        navigate("/admin/profile");
+      }else{
+        sessionStorage.setItem("user", JSON.stringify(userprofiledata));
+        navigate("/user/profile");
+      }
     } else {
       // fail alert
       Swal.fire(
@@ -43,10 +50,9 @@ const ProfileForm = () => {
       )
     }
   };
-
   const uploadImage = (e) => {
     const file = e.target.files[0];
-    setSelImage(file.name);
+    setSelImage(file.image);
     const fd = new FormData();
     fd.append("myfile", file);
     fetch(url + "/util/uploadfile", {
@@ -58,10 +64,24 @@ const ProfileForm = () => {
       }
     });
   };
+  {/*const uploadHeaderImage = (e) => {
+    const file = e.target.files[0];
+    setSelImage(file.header);
+    const fd = new FormData();
+    fd.append("myfile", file);
+    fetch(url + "/util/uploadfile", {
+      method: "POST",
+      body: fd,
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("file uploaded");
+      }
+    });
+  };*/}
 
   return (
     <div className="containerr py-3">
-      <div className="container py-3 d-flex align-items-center">
+      <div className="container py-3 d-flex justify-content-center align-items-center">
         <div
           className="card py-3 align-items-center"
           style={{ width: "20rem" }}
@@ -109,13 +129,17 @@ const ProfileForm = () => {
                   <label>Add Profile Header</label>
                   <input
                     type="file"
+                    name="header"
                     className="form-control mt-2 mb-2"
+                    value={values.header}
                     onChange={uploadImage}
                   />
                   <label>Add Profile Picture</label>
                   <input
                     type="file"
+                    name="image"
                     className="form-control mt-2 mb-2"
+                    value={values.image}
                     onChange={uploadImage}
                   />
                   {/* Submit button */}

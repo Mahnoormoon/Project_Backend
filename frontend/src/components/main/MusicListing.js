@@ -36,8 +36,8 @@ const MusicListing = () => {
                                 className="square"
                             />
                             <div className="ms-3">
-                                <p className="fw-bold mb-1">{music.aname}</p>
-                                <p className="text-muted mb-0">Music Title</p>
+                                <p className="fw-bold mb-1">{music.mtitle}</p>
+                                <p className="text-muted mb-0">{music.aname}</p>
                             </div>
                         </div>
                             <audio style={{width: '60%'}} src={url+'/'+music.maudio} controls></audio>

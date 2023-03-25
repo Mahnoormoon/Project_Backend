@@ -81,7 +81,7 @@ const ProfileForm = () => {
 
   return (
     <div className="containerr py-3">
-      <div className="container py-3 d-flex align-items-center">
+      <div className="container py-3 d-flex justify-content-center align-items-center">
         <div
           className="card py-3 align-items-center"
           style={{ width: "20rem" }}

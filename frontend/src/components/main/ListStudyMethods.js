@@ -27,13 +27,13 @@ const ListStudyMethods = () => {
 
     const displayStudy = () => {
         return studymethodList.map((method) => (
-            <div className="container py-3 px-3 d-flex align-items-center">
+            <div className="container py-3 px-3 d-flex justify-content-center align-items-center">
                 <div
-                    className="card py-3 px-3 align-items-center"
+                    className="card py-3 px-3 justify-content-center align-items-center"
                     style={{ width: "20rem", height: "10rem"}}
                 >
                     <h4 className="heading1">{method.stitle}</h4>
-                    <Link className='btn btn2' to={'/main/studymethod/' + method._id}>View</Link>
+                    <Link className='btn btn2 mt-4' to={'/main/studymethod/' + method._id}>View</Link>
                 </div>
             </div>
         ))
