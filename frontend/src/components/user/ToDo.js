@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+//import { Link } from "react-router-dom";
+//import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
@@ -174,7 +174,19 @@ const ToDo = () => {
             getDataFromBackend();
             toast.success('ToDo Data Deleted Successfully!!');
         }
-    }*/}
+    }
+    onst updateodo = async (id) => {
+        console.log(id);
+        const res = await fetch(url+'/todo/getall'+id, {
+            method : 'UPDATE'
+        })
+
+        if(res.status===200){
+            getDataFromBackend();
+            toast.success('ToDo Data Updated Successfully!!');
+        }
+    }
+*/}
     return (
         <section style={{ backgroundColor: '#c3f1c38e' }}>
             <div className="container-md dropdown r-90 mt-4 mb-6 p-6">
