@@ -10,6 +10,7 @@ import Contact from "./components/main/Contact";
 import Services from "./components/main/Services";
 import User from "./components/user";
 import UserProfile from "./components/user/UserProfile";
+import ToDo from "./components/user/ToDo";
 import AdminProfile from "./components/admin/AdminProfile";
 import NotFound from "./components/NotFound";
 import UserProvider from "./context/UserProvider";
@@ -95,6 +96,7 @@ function App() {
               <Route path="profile" element={<UserProfile />} />
               <Route path="profileform" element={<ProfileForm />} />
               <Route path="profileform/:id" element={<ProfileForm />} />
+              <Route path="todo/:id" element={<ToDo />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

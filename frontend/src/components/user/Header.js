@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 import logo from './ToDoCafe_Logo.png';
 
@@ -51,26 +51,11 @@ const Header = () => {
               &nbsp;&nbsp;Contact Us
               </NavLink>
             </li>
-            <li class="nav-item dropdown">
-        <Link
-          class="nav-link dropdown-toggle"
-          href="#"
-          id="navbarDropdownMenuLink"
-          role="button"
-          data-mdb-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Services
-        </Link>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li>
-            <Link class="dropdown-item" to="/main/musiclisting">Music</Link>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Study Methods</a>
-          </li>
-        </ul>
-      </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/main/services">
+              &nbsp;&nbsp;Services
+              </NavLink>
+            </li>
           </ul>
           <ul className="navbar-nav mb-2 mb-lg-0">
             <li className="nav-item me-2">

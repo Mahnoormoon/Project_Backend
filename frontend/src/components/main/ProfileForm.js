@@ -147,7 +147,6 @@ const ProfileForm = () => {
                   >
                     Click to Create
                   </button>
-                  {/*<button type ="submit" className="btn2 btn-block mt-1 btn-rounded btn-outline-white mt-2 justify-content-center align-items-center" onSubmit={'/user/profile/'}>Click to Create</button>*/}
                 </form>
               )}
             </Formik>
