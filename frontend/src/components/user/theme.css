@@ -1,0 +1,26 @@
+.btn-yellow-1{
+    background-color: #fdb833;
+    color: black;
+    /* border: 1px solid black; */
+}
+.btn-yellow-2{
+    background-color: #ffca60;
+    color: black;
+    /* border: 1px solid black; */
+}
+.btn-yellow-1{
+    background-color: #ffe5b0;
+    color: black;
+    /* border: 1px solid black; */
+}
+
+.my-btn{
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}

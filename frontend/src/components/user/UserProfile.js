@@ -6,6 +6,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import app_config from '../../config';
 import "./ProfileForm.css";
 import WeatherWidget from './WeatherWidget';
+import './theme.css';
+
 const UserProfile = () => {
 
   const [theme, setTheme] = useState('light');
@@ -90,19 +92,19 @@ const UserProfile = () => {
       textColor:'white'
     },
     yellow1: {
-      btn: '#fdb833',
+      btn: 'btn-yellow-1',
       bg: '#fdb833',
       text: '#fdb833',
       textColor:'white'
     },
     yellow2: {
-      btn: '#fdc43f',
+      btn: 'btn-yellow-2',
       bg: '#fdc43f',
       text: '#fdc43f',
       textColor:'white'
     },
     yellow3: {
-      btn: '#ffda3d',
+      btn: 'btn-yellow-3',
       bg: '#ffda3d',
       text: '#ffda3d',
       textColor:'white'
@@ -255,7 +257,7 @@ const UserProfile = () => {
                       <div className="mb-3">
                         <p className="lead fw-normal mb-2">Go To :</p>
                         <div className="p-3 justify-content-center align-items-center" style={{ backgroundColor: '#e1e7e18e' }}>
-                          <Link className={'p-2 btn btn-' + themeData[theme].btn} to={'/user/todo/' + currentUser._id}>My ToDo</Link>
+                          <Link className={'my-btn '+themeData[theme].btn} to={'/user/todo/' + currentUser._id}>My ToDo</Link>
                           <Link className={'p-2 btn btn-' + themeData[theme].btn} to={'/main/musiclisting/' + currentUser._id}>Music Player</Link>
                           <Link className={'p-2 btn btn-' + themeData[theme].btn} to={'/main/studylisting/' + currentUser._id}>Study Methods</Link>
                         </div>
