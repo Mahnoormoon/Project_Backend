@@ -140,7 +140,7 @@ const ProfileForm = () => {
                   />
                   <MDBInput
                     label="Contact"
-                    type="text"
+                    type="contact"
                     id="contact"
                     className="form-control mt-2 mb-2"
                     value={values.contact}

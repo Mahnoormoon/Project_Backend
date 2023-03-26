@@ -62,31 +62,31 @@ const UserProfile = () => {
       textColor:'white'
     },
     pink1: {
-      btn: '#F08080',
+      btn: 'btn-pink-1',
       bg: '#F08080',
       text: '#F08080',
       textColor:'white'
     },
     pink2: {
-      btn: '#F4978E',
+      btn: 'btn-pink-2',
       bg: '#F4978E',
       text: '#F4978E',
       textColor:'white'
     },
     pink3: {
-      btn: '#F8AD9D',
+      btn: 'btn-pink-3',
       bg: '#F8AD9D',
       text: '#F8AD9D',
       textColor:'white'
     },
     pink4: {
-      btn: '#FBC4AB',
+      btn: 'btn-pink-4',
       bg: '#FBC4AB',
       text: '#FBC4AB',
       textColor:'white'
     },
     pink5: {
-      btn: '#FFDAB9',
+      btn: 'btn-pink-5',
       bg: '#FFDAB9',
       text: '#FFDAB9',
       textColor:'white'
@@ -110,13 +110,13 @@ const UserProfile = () => {
       textColor:'white'
     },
     yellow4: {
-      btn: '#ffe94e',
+      btn: 'btn-yellow-4',
       bg: '#ffe94e',
       text: '#ffe94e',
       textColor:'white'
     },
     yellow5: {
-      btn: '#fff75e',
+      btn: 'btn-yellow-5',
       bg: '#fff75e',
       text: '#fff75e',
       textColor:'white'
@@ -129,9 +129,6 @@ const UserProfile = () => {
   const [loading, setLoading] = useState(false);
   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
   
-  
-  
-
   const fetchUserProfile = async () => {
     setLoading(true);
     const res = await fetch(url + '/user/getbyid/' + currentUser._id);
@@ -140,8 +137,7 @@ const UserProfile = () => {
     setLoading(false);
   }
   useEffect(() => {
-    fetchUserProfile();
-    
+    fetchUserProfile(); 
   },)
 
   return (
@@ -209,13 +205,12 @@ const UserProfile = () => {
                   {/*Profile Picture*/}
                   <MDBCardImage src={url + '/' + currentUser.image}
                     alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '10' }} />
-                  {/*Profile Editor*/}
-                  
                 </div>
               </div>
                 <div className="p-4" style={{ marginTop: '65px', backgroundColor: '#ecf3ec8e' }}>
-                <Link style={{zIndex: '10'}} className={'btn btn-' + themeData[theme].btn} to={'/user/profileform'}>Edit Profile</Link>
-                  <MDBTypography tag="h4" color={themeData[theme].text} >{currentUser.fname}</MDBTypography>
+                  {/*Profile Editor*/}
+                <Link style={{zIndex: '10'}} className={'my-btn ' + themeData[theme].btn} to={'/user/profileform'}>Edit Profile</Link>
+                  <MDBTypography className="mt-4" tag="h4" color={themeData[theme].text} >{currentUser.fname}</MDBTypography>
                   <MDBTypography tag="h6" color={themeData[theme].text} >{currentUser.email}</MDBTypography>
                   <MDBTypography tag="h6" color={themeData[theme].text} >{currentUser.contact}</MDBTypography>
                 </div>
@@ -245,9 +240,9 @@ const UserProfile = () => {
                       {/*Clock Widget*/}
                       <StaticTimePicker className="mb-2 mt-3 rounded-5" sx={{ width: '36%', height: '100%' }}/>
                     </MDBCol>
-                    <MDBCol className="mb-2 w-10 rounded-5">
+                    <MDBCol className="mb-2 w-10 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Weather Widget*/}
-                      <WeatherWidget/>
+                      <WeatherWidget  className="mb-2 mt-3 rounded-5"/>
                     </MDBCol>
                   </MDBRow>
                 </LocalizationProvider>
@@ -258,8 +253,8 @@ const UserProfile = () => {
                         <p className="lead fw-normal mb-2">Go To :</p>
                         <div className="p-3 justify-content-center align-items-center" style={{ backgroundColor: '#e1e7e18e' }}>
                           <Link className={'my-btn '+themeData[theme].btn} to={'/user/todo/' + currentUser._id}>My ToDo</Link>
-                          <Link className={'p-2 btn btn-' + themeData[theme].btn} to={'/main/musiclisting/' + currentUser._id}>Music Player</Link>
-                          <Link className={'p-2 btn btn-' + themeData[theme].btn} to={'/main/studylisting/' + currentUser._id}>Study Methods</Link>
+                          <Link className={'my-btn ' + themeData[theme].btn} to={'/main/musiclisting/' + currentUser._id}>Music Player</Link>
+                          <Link className={'my-btn ' + themeData[theme].btn} to={'/main/studylisting/' + currentUser._id}>Study Methods</Link>
                         </div>
                       </div>
                     </MDBCol>

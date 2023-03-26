@@ -67,7 +67,7 @@ const Contact = () => {
                         <MDBInput
                           label="Full Name"
                           type="text"
-                          id="cname"
+                          id="name"
                           className="form-control mb-2"
                           value={values.cname}
                           onChange={handleChange}
@@ -76,7 +76,7 @@ const Contact = () => {
                         <MDBInput
                           label="Email Address"
                           type="email"
-                          id="cemail"
+                          id="email"
                           className="form-control mt-2 mb-2"
                           value={values.cemail}
                           onChange={handleChange}
@@ -85,7 +85,7 @@ const Contact = () => {
                         <label className="heading2 fw-bold">Type your message...</label>
                         <textarea
                           type="textarea"
-                          id="cmessage"
+                          id="message"
                           className="form-control mt-2 mb-2"
                           value={values.cmessage}
                           onChange={handleChange}

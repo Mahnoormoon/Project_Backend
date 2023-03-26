@@ -1,25 +1,50 @@
+.btn-pink-1{
+    background-color: #F08080;
+    color: white;
+}
+.btn-pink-2{
+    background-color: #F4978E;
+    color: white;
+}
+.btn-pink-3{
+    background-color: #F8AD9D;
+    color: white;
+}
+.btn-pink-4{
+    background-color: #FBC4AB;
+    color: white;
+}
+.btn-pink-5{
+    background-color: #FFDAB9;
+    color: white;
+}
 .btn-yellow-1{
     background-color: #fdb833;
-    color: black;
-    /* border: 1px solid black; */
+    color: white;
 }
 .btn-yellow-2{
-    background-color: #ffca60;
+    background-color: #fdc43f;
     color: black;
-    /* border: 1px solid black; */
 }
-.btn-yellow-1{
-    background-color: #ffe5b0;
+.btn-yellow-3{
+    background-color: #ffda3d;
     color: black;
-    /* border: 1px solid black; */
+}
+.btn-yellow-4{
+    background-color: #ffe94e;
+    color: black;
+}
+.btn-yellow-5{
+    background-color: #fff75e;
+    color: black;
 }
 
 .my-btn{
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 12px;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 15px;
     font-weight: 600;
-    text-transform: uppercase;
+    text-transform: capitalize;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
