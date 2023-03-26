@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography } from 'mdb-react-ui-kit';
 import { LocalizationProvider, StaticDatePicker, StaticTimePicker } from '@mui/x-date-pickers';
-//import ProfileIcon from './ProfileIcon.png'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import app_config from '../../config';
 import "./ProfileForm.css";
@@ -233,11 +232,11 @@ const UserProfile = () => {
                   <MDBRow className="p-3 rounded-4">
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Calendar Widget*/}
-                      <StaticDatePicker className="mb-2 mt-3 rounded-5" sx={{ width: '44%', height: '75%' }}/>
+                      <StaticDatePicker className="mb-2 mt-3 rounded-5" sx={{ width: '44%', height: '100%' }}/>
                     </MDBCol>
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Clock Widget*/}
-                      <StaticTimePicker className="mb-2 mt-3 rounded-5" sx={{ width: '36%', height: '75%' }}/>
+                      <StaticTimePicker className="mb-2 mt-3 rounded-5" sx={{ width: '36%', height: '100%' }}/>
                     </MDBCol>
                     <MDBCol className="mb-2 w-10 rounded-5">
                       {/*Weather Widget*/}

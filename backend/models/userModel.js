@@ -10,7 +10,7 @@ const userSchema = new Schema({
   contact: { type: String },
   description: { type: String },
   header: { type: String},
-  image: { type: String, required: true },
+  image: { type: String},
   isAdmin: { type: Boolean, default: false },
   created_at: Date,
   updated_at: Date,
