@@ -133,7 +133,6 @@ const UserProfile = () => {
     setUserprofileData(data);
     setLoading(false);
   }
-
   useEffect(() => {
     fetchUserProfile();
   },)
@@ -155,7 +154,7 @@ const UserProfile = () => {
             <MDBRow className="p-3">
             <MDBCard className="p-2">
               <MDBCol>
-          <p className="lead fw-normal heading2 p-2 mb-2">Basic options : </p>
+              <p className="lead fw-normal heading2 p-2 mb-2">Basic options : </p>
               <button style={{ backgroundColor: '#ecf3ec8e' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-black"onClick={e => setTheme('light')}>Light</button>
               <button style={{ backgroundColor: '#222' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white"  onClick={e => setTheme('dark')}>Dark</button>
               <button style={{ backgroundColor: '#9FA6B2' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('primary')}>Primary</button>

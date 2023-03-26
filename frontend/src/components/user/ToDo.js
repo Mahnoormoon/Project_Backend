@@ -127,66 +127,6 @@ const ToDo = () => {
             textColor: 'white'
         },
     }
-    {/*const { id } = useParams();
-    const url = app_config.apiurl;
-    const [userProfileData, setUserprofileData] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
-
-    const fetchUserProfile = async () => {
-        setLoading(true);
-        const res = await fetch(url + '/user/getbyid/' + currentUser._id);
-        const data = (await res.json()).result;
-        setUserprofileData(data);
-        setLoading(false);
-    }
-
-    useEffect(() => {
-        fetchUserProfile();
-    },)
-    const [todoList, setTodoList] = useState([]);
-    const url = app_config.apiurl;
-    const getDataFromBackend = async () => {
-        // send request 
-        const res= await fetch(url+'/todo/getall');
-
-        // accessing data from response
-        const data = await res.json();
-
-        console.log(data);
-        setTodoList(data.result);
-
-    };
-
-    useEffect(() => {
-     
-        getDataFromBackend();
-
-    }, []);
-    
-    const deleteTodo = async (id) => {
-        console.log(id);
-        const res = await fetch(url+'/todo/getall'+id, {
-            method : 'DELETE'
-        })
-
-        if(res.status===200){
-            getDataFromBackend();
-            toast.success('ToDo Data Deleted Successfully!!');
-        }
-    }
-    onst updateodo = async (id) => {
-        console.log(id);
-        const res = await fetch(url+'/todo/getall'+id, {
-            method : 'UPDATE'
-        })
-
-        if(res.status===200){
-            getDataFromBackend();
-            toast.success('ToDo Data Updated Successfully!!');
-        }
-    }
-*/}
     return (
         <section style={{ backgroundColor: '#c3f1c38e' }}>
             <div className="container-md dropdown r-90 mt-4 mb-6 p-6">
