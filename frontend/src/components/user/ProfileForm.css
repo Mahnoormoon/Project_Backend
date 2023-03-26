@@ -1,7 +1,19 @@
 .containerr{
-    background-color: rgba(195, 241, 195, 0.555);;
+    background-color: rgba(195, 241, 195, 0.555);
 }
 
 .heading1{
     color: rgb(95, 139, 95);
+}
+
+#dropdownMenuButton2{
+    background-color: rgb(111, 160, 111);
+}
+
+#dropdownMenuButton3{
+    background-color: rgb(111, 160, 111);
+}
+
+.icon{
+    color:white;
 }

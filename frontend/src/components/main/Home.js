@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Home.css';
 //imported assets
 import homeimage from '../../assets/Homeimg.jpg';
@@ -17,11 +18,10 @@ const Home = () => {
         <img src={todoicon} className="todoicon" />
         <img src={musicicon} className="musicicon" />
       </div>
-        <button
-          type="submit"
-          className="btnn btn-rounded btn-outline-white mb-4">
-          Get Started <i class="fas fa-arrow-right" aria-hidden="true"></i>
-        </button>
+      <Link type="link" className="btnn btn-rounded btn-outline-white align-items-center" to={'/main/signup/'}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get Started&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
   )
 }

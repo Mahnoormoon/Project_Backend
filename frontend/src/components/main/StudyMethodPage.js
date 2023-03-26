@@ -30,6 +30,15 @@ const StudyMethodPage = () => {
             <h1>Loading ... </h1>
         }
     }
+    const showStudyMethodCredits = () => {
+      if(!loading && studyMethodData){
+          return <div className='container'>
+              {studyMethodData.scredits}
+          </div>
+      }else{
+          <h1>Loading ... </h1>
+      }
+  }
     const showStudyMethodDescription = () => {
         if(!loading && studyMethodData){
             return <div className='container'>
@@ -42,23 +51,13 @@ const StudyMethodPage = () => {
 
   return (
     <div className="containerr py-3">
-    <div className="container py-3 d-flex align-items-center">
+    <div className="container py-3 d-flex justify-content-center align-items-center">
       <div
-        className="card py-3 align-items-center"
+        className="card py-3 justify-content-center align-items-center"
         style={{ width: "200rem" }}
       >
         <h4 className="heading1">{showStudyMethod()}</h4>
-        <div className="form-outline px-4 py-4 mb-2">
-          {showStudyMethodDescription()}
-        </div>
-      </div>
-    </div>
-    <div className="container py-3 d-flex align-items-center">
-      <div
-        className="card py-3 align-items-center"
-        style={{ width: "200rem" }}
-      >
-        <h4 className="heading1">{showStudyMethod()}</h4>
+        <h6 className="heading1 mt-2">{showStudyMethodCredits()}</h6>
         <div className="form-outline px-4 py-4 mb-2">
           {showStudyMethodDescription()}
         </div>

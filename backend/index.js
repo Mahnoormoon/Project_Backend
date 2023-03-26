@@ -3,8 +3,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const userRouter = require('./routers/userRouter');
-const userprofileRouter = require('./routers/userprofileRouter');
-const edituserprofileRouter = require('./routers/edituserprofileRouter');
 const musicRouter = require('./routers/musicRouter');
 const reminderRouter = require('./routers/reminderRouter');
 const todoRouter = require('./routers/todoRouter');
@@ -25,10 +23,7 @@ app.use(cors(
 ));
 
 app.use(express.json());
-// app.use(express.urlencoded({extended : true}));
 app.use('/user', userRouter);
-app.use('/userprofile', userprofileRouter);
-app.use('/edituserprofile', edituserprofileRouter);
 app.use('/music', musicRouter);
 app.use('/reminder', reminderRouter);
 app.use('/todo', todoRouter);

@@ -26,7 +26,7 @@ const ManageReminder = () => {
     
     const deleteReminder = async (id) => {
         console.log(id);
-        const res = await fetch(url+'/reminder/getall'+id, {
+        const res = await fetch(url+'/reminder/delete/'+id, {
             method : 'DELETE'
         })
 
@@ -38,19 +38,18 @@ const ManageReminder = () => {
 
   return (
     <div>
-        <header className='py-5'>
+        <header className='py-3'>
             <div className="container">
-                <h1 className='display-3 fw-bold  text-center' style={{color:"#5f8b5f"}}>Manage Reminders Data</h1>
+                <h4 className='display-4 fw-thin  text-center' style={{color:"#5f8b5f"}}>Manage Reminders Data</h4>
             </div>
         </header>
 
-        <div className='container mt-4'>
+        <div className='container mt-3'>
 
         <table class="table table-striped table-hover">
                 <thead >
                     <tr style={{backgroundColor:"#5f8b5f", color:"white"}}>
-                         <th></th>
-                         {/*change according to the reminderpage*/}
+                        {/*change according to the reminderpage*/}
                         <th>Reminder Name</th>
                         <th>Reminder Time</th>
                         <th>Reminder Date</th>

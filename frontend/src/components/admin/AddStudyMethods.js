@@ -1,5 +1,6 @@
 import { Formik } from "formik";
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import "./AddStudyMethods.css";
 import app_config from "../../config";
 import { MDBInput } from 'mdb-react-ui-kit';
@@ -8,7 +9,7 @@ import Swal from 'sweetalert2';
 const AddStudyMethods = () => {
 
     const url = app_config.apiurl;
-
+    const navigate = useNavigate();
     const studySubmit = async (formdata) => {
         console.log(formdata);
         const res = await fetch(url + '/study/add', {
@@ -20,13 +21,21 @@ const AddStudyMethods = () => {
         })
         console.log(res.status);
         if (res.status === 201) {
+            const addstudymethoddata = (await res.json()).result;
             //success alert
             Swal.fire(
                 'Hurray!',
                 'Study Method Added',
                 'success'
             )
-            console.log('signup success');
+            console.log(addstudymethoddata);
+            if (addstudymethoddata.isAdmin) {
+                sessionStorage.setItem("admin", JSON.stringify(addstudymethoddata));
+                navigate("/main/studylisting");
+            } else {
+                sessionStorage.setItem("user", JSON.stringify(addstudymethoddata));
+                navigate("/main/studylisting");
+            }
         } else {
             // fail alert
             Swal.fire(
@@ -38,9 +47,9 @@ const AddStudyMethods = () => {
     }
     return (
         <div className="containerr py-3">
-            <div className="container py-3 d-flex align-items-center">
+            <div className="container py-3 d-flex justify-content-center align-items-center">
                 <div
-                    className="card py-3 align-items-center"
+                    className="card py-3 justify-content-center align-items-center"
                     style={{ width: "20rem" }}
                 >
                     <h4 className="heading1">Add Study Method Here</h4>
