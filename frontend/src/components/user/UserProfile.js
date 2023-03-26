@@ -3,56 +3,132 @@ import { useParams, Link } from 'react-router-dom'
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography } from 'mdb-react-ui-kit';
 import { LocalizationProvider, StaticDatePicker, StaticTimePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import ReactWeather, { useOpenWeather, useWeatherBit } from 'react-open-weather';
 import app_config from '../../config';
 import "./ProfileForm.css";
+import WeatherWidget from './WeatherWidget';
 const UserProfile = () => {
 
-  // let { data, isLoading, errorMessage } = useWeatherBit({
-  //   // key: '842c8cc564a613435cd7c464948dca54',
-  //   key: '0ceed5dde14f90394e94171fd6991fec',
-  //   lat: '48.137154',
-  //   lon: '11.576124',
-  //   lang: 'en',
-  //   unit: 'M ', // values are (metric, standard, imperial)
-  // });
+  const [theme, setTheme] = useState('light');
 
-  const data = {
-    forecast: [
-        {
-          date: 'Fri 27 November',
-          description: 'Clear',
-          icon:'SVG PATH',
-          temperature: { min: '-0', max: '6' },
-          wind: '2',
-          humidity: 60,
-        },
-        {
-          date: 'Sat 28 November',
-          description: 'Clouds',
-          icon:'SVG PATH',
-          temperature: { min: '-1', max: '6' },
-          wind: '3',
-          humidity: 67,
-        }
-    ],
-    current: {
-        date: 'Fri 27 November',
-        description: 'Clear',
-        icon:'SVG PATH',
-        temperature: { current: '-2', min: -3, max: 1 },
-        wind: '2',
-        humidity: 90,
-      },
-  };
-
-  console.log(data);
+  const themeData = {
+    light: {
+      btn: 'dark',
+      bg: '#fff',
+      text: 'dark',
+      textColor:'black'
+    },
+    dark: {
+      btn: 'light',
+      bg: '#222',
+      text: 'light',
+      textColor:'white'
+    },
+    primary: {
+      btn: 'primary',
+      bg: 'primary',
+      text: 'primary',
+      textColor:'white'
+    },
+    secondary: {
+      btn: 'secondary',
+      bg: '#3B71CA',
+      text: 'secondary',
+      textColor:'white'
+    },
+    success: {
+      btn: 'success',
+      bg: '#14A44D',
+      text: 'success',
+      textColor:'white'
+    },
+    danger: {
+      btn: 'danger',
+      bg: '#DC4C64',
+      text: 'danger',
+      textColor:'white'
+    },
+    warning: {
+      btn: 'warning',
+      bg: '#E4A11B',
+      text: 'warning',
+      textColor:'white'
+    },
+    info: {
+      btn: 'info',
+      bg: '#54B4D3',
+      text: 'info',
+      textColor:'white'
+    },
+    pink1: {
+      btn: '#F08080',
+      bg: '#F08080',
+      text: '#F08080',
+      textColor:'white'
+    },
+    pink2: {
+      btn: '#F4978E',
+      bg: '#F4978E',
+      text: '#F4978E',
+      textColor:'white'
+    },
+    pink3: {
+      btn: '#F8AD9D',
+      bg: '#F8AD9D',
+      text: '#F8AD9D',
+      textColor:'white'
+    },
+    pink4: {
+      btn: '#FBC4AB',
+      bg: '#FBC4AB',
+      text: '#FBC4AB',
+      textColor:'white'
+    },
+    pink5: {
+      btn: '#FFDAB9',
+      bg: '#FFDAB9',
+      text: '#FFDAB9',
+      textColor:'white'
+    },
+    yellow1: {
+      btn: '#fdb833',
+      bg: '#fdb833',
+      text: '#fdb833',
+      textColor:'white'
+    },
+    yellow2: {
+      btn: '#fdc43f',
+      bg: '#fdc43f',
+      text: '#fdc43f',
+      textColor:'white'
+    },
+    yellow3: {
+      btn: '#ffda3d',
+      bg: '#ffda3d',
+      text: '#ffda3d',
+      textColor:'white'
+    },
+    yellow4: {
+      btn: '#ffe94e',
+      bg: '#ffe94e',
+      text: '#ffe94e',
+      textColor:'white'
+    },
+    yellow5: {
+      btn: '#fff75e',
+      bg: '#fff75e',
+      text: '#fff75e',
+      textColor:'white'
+    },
+  }
 
   const { id } = useParams();
   const url = app_config.apiurl;
   const [userProfileData, setUserprofileData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+  
+  
+  
 
   const fetchUserProfile = async () => {
     setLoading(true);
@@ -63,6 +139,7 @@ const UserProfile = () => {
   }
   useEffect(() => {
     fetchUserProfile();
+    
   },)
 
   return (
@@ -131,10 +208,11 @@ const UserProfile = () => {
                   <MDBCardImage src={url + '/' + currentUser.image}
                     alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '10' }} />
                   {/*Profile Editor*/}
-                  <Link style={{zIndex: '10'}} className={'btn btn-' + themeData[theme].btn} to={'/user/profileform'}>Edit Profile</Link>
+                  
                 </div>
               </div>
                 <div className="p-4" style={{ marginTop: '65px', backgroundColor: '#ecf3ec8e' }}>
+                <Link style={{zIndex: '10'}} className={'btn btn-' + themeData[theme].btn} to={'/user/profileform'}>Edit Profile</Link>
                   <MDBTypography tag="h4" color={themeData[theme].text} >{currentUser.fname}</MDBTypography>
                   <MDBTypography tag="h6" color={themeData[theme].text} >{currentUser.email}</MDBTypography>
                   <MDBTypography tag="h6" color={themeData[theme].text} >{currentUser.contact}</MDBTypography>
@@ -167,15 +245,7 @@ const UserProfile = () => {
                     </MDBCol>
                     <MDBCol className="mb-2 w-10 rounded-5">
                       {/*Weather Widget*/}
-                      <ReactWeather
-                        isLoading={false}
-                        errorMessage={'errorMessage'}
-                        data={data}
-                        lang="en"
-                        locationLabel="Lucknow"
-                        unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
-                        showForecast
-                      />
+                      <WeatherWidget/>
                     </MDBCol>
                   </MDBRow>
                 </LocalizationProvider>
