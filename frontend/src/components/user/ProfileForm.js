@@ -50,6 +50,23 @@ const ProfileForm = () => {
       )
     }
   };
+
+  const updateProfile = async (data) => {
+    console.log('nice');
+    const res = await fetch(url + "/user/update/"+currentUser._id, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(res.status);
+    const userdata = (await res.json()).result;
+    console.log(userdata);
+    sessionStorage.setItem('user', JSON.stringify(userdata));
+
+  }
+
   const uploadImage = (e) => {
     const file = e.target.files[0];
     setSelImage(file.image);
@@ -64,9 +81,10 @@ const ProfileForm = () => {
       }
     });
   };
-  {/*const uploadHeaderImage = (e) => {
+
+  const uploadHeaderImage = (e) => {
     const file = e.target.files[0];
-    setSelImage(file.header);
+    // setSelImage(file.name);
     const fd = new FormData();
     fd.append("myfile", file);
     fetch(url + "/util/uploadfile", {
@@ -75,9 +93,10 @@ const ProfileForm = () => {
     }).then((res) => {
       if (res.status === 200) {
         console.log("file uploaded");
+        updateProfile({header : file.name})
       }
     });
-  };*/}
+  };
 
   return (
     <div className="containerr py-3">
@@ -87,6 +106,7 @@ const ProfileForm = () => {
           style={{ width: "20rem" }}
         >
           <h4 className="heading1">Create Your Profile</h4>
+ 
           <div className="form-outline px-4 py-4 mb-2">
             <Formik
               initialValues={currentUser}
@@ -129,17 +149,14 @@ const ProfileForm = () => {
                   <label>Add Profile Header</label>
                   <input
                     type="file"
-                    name="header"
                     className="form-control mt-2 mb-2"
-                    value={values.header}
-                    onChange={uploadImage}
+                    onChange={uploadHeaderImage}
                   />
                   <label>Add Profile Picture</label>
                   <input
                     type="file"
                     name="image"
                     className="form-control mt-2 mb-2"
-                    value={values.image}
                     onChange={uploadImage}
                   />
                   {/* Submit button */}

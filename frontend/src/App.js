@@ -20,7 +20,7 @@ import { useState } from "react";
 import AddMusic from "./components/admin/AddMusic";
 import AddStudyMethods from "./components/admin/AddStudyMethods";
 import MusicListing from "./components/main/MusicListing";
-import ProfileForm from "./components/main/ProfileForm";
+import ProfileForm from "./components/user/ProfileForm";
 import ManageUser from "./components/admin/ManageUser";
 import ManageToDo from "./components/admin/ManageToDo";
 import ManageStudyMethods from "./components/admin/ManageStudyMethods";
@@ -95,7 +95,7 @@ function App() {
             >
               <Route path="profile" element={<UserProfile />} />
               <Route path="profileform" element={<ProfileForm />} />
-              <Route path="profileform/:id" element={<ProfileForm />} />
+              {/* <Route path="profileform/:id" element={<ProfileForm />} /> */}
               <Route path="todo/:id" element={<ToDo />} />
             </Route>
             <Route path="*" element={<NotFound />} />

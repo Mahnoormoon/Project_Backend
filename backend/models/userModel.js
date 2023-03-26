@@ -9,7 +9,7 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   contact: { type: String },
   description: { type: String },
-  header: { type: String, required: true},
+  header: { type: String},
   image: { type: String, required: true },
   isAdmin: { type: Boolean, default: false },
   created_at: Date,
