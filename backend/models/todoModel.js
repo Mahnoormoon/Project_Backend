@@ -2,7 +2,7 @@ const { Schema, model } = require("../connection");
 
 const todoSchema = new Schema({
   title: { type: String, required: true },
-  description: { type: String },
+  task: { type: String, required: true },
   created_at: Date,
 });
 
