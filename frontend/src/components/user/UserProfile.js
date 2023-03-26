@@ -4,19 +4,51 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCar
 import ProfileIcon from './ProfileIcon.png';
 import { LocalizationProvider, StaticDatePicker, StaticTimePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import ReactWeather, { useOpenWeather } from 'react-open-weather';
+import ReactWeather, { useOpenWeather, useWeatherBit } from 'react-open-weather';
 import app_config from '../../config';
 
 
 const UserProfile = () => {
 
-  const { data, isLoading, errorMessage } = useOpenWeather({
-    key: '842c8cc564a613435cd7c464948dca54',
-    lat: '48.137154',
-    lon: '11.576124',
-    lang: 'en',
-    unit: 'metric', // values are (metric, standard, imperial)
-  });
+  // let { data, isLoading, errorMessage } = useWeatherBit({
+  //   // key: '842c8cc564a613435cd7c464948dca54',
+  //   key: '0ceed5dde14f90394e94171fd6991fec',
+  //   lat: '48.137154',
+  //   lon: '11.576124',
+  //   lang: 'en',
+  //   unit: 'M ', // values are (metric, standard, imperial)
+  // });
+
+  const data = {
+    forecast: [
+        {
+          date: 'Fri 27 November',
+          description: 'Clear',
+          icon:'SVG PATH',
+          temperature: { min: '-0', max: '6' },
+          wind: '2',
+          humidity: 60,
+        },
+        {
+          date: 'Sat 28 November',
+          description: 'Clouds',
+          icon:'SVG PATH',
+          temperature: { min: '-1', max: '6' },
+          wind: '3',
+          humidity: 67,
+        }
+    ],
+    current: {
+        date: 'Fri 27 November',
+        description: 'Clear',
+        icon:'SVG PATH',
+        temperature: { current: '-2', min: -3, max: 1 },
+        wind: '2',
+        humidity: 90,
+      },
+  };
+
+  console.log(data);
 
   const { id } = useParams();
   const url = app_config.apiurl;
@@ -125,8 +157,8 @@ const UserProfile = () => {
                     <MDBCol className="mb-2 w-10 rounded-3">
                       {/*Weather Widget*/}
                       <ReactWeather
-                        isLoading={isLoading}
-                        errorMessage={errorMessage}
+                        isLoading={false}
+                        errorMessage={'errorMessage'}
                         data={data}
                         lang="en"
                         locationLabel="Lucknow"
