@@ -30,7 +30,6 @@ const Footer = () => {
         {/* Right */}
       </section>
       {/* Section: Social media */}
-      {/* Section: Links  */}
       <section className="">
         <div className="container text-center text-md-start mt-5">
           {/* Grid row */}
@@ -54,7 +53,6 @@ const Footer = () => {
               </p>
             </div>
             {/* Grid column */}
-            {/* Grid column */}
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               {/* Links */}
               <h6 className="text-uppercase fw-bold mb-4">Products</h6>
@@ -73,29 +71,18 @@ const Footer = () => {
                   Study Methods
                 </a>
               </p>
-              {/*<p>
-                <a href="#!" className="text-reset">
-                  Vue
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Laravel
-                </a>
-              </p>*/}
             </div>
-            {/* Grid column */}
             {/* Grid column */}
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
               {/* Links */}
               <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
               <p>
-                <a href="#!" className="text-reset">
+                <a href="/main/aboutus" className="text-reset">
                   About Us
                 </a>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <a href="/main/contact" className="text-reset">
                   Contact Us
                 </a>
               </p>
@@ -111,7 +98,6 @@ const Footer = () => {
               </p>
             </div>
             {/* Grid column */}
-            {/* Grid column */}
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               {/* Links */}
               <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
@@ -126,16 +112,10 @@ const Footer = () => {
               <p>
                 <i className="fas fa-phone me-3" /> + 91 8957316901
               </p>
-              {/*<p>
-                <i className="fas fa-print me-3" /> + 01 234 567 89
-              </p>*/}
             </div>
-            {/* Grid column */}
           </div>
-          {/* Grid row */}
         </div>
       </section>
-      {/* Section: Links  */}
       {/* Copyright */}
       <div
         className="text-center p-4"
@@ -146,7 +126,6 @@ const Footer = () => {
           &nbsp;&nbsp;ToDoCafe.com
         </a>
       </div>
-      {/* Copyright */}
     </footer>
   );
 };

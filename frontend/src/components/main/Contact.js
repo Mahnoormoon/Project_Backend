@@ -7,7 +7,6 @@ import { MDBInput } from 'mdb-react-ui-kit';
 import Swal from 'sweetalert2';
 
 const Contact = () => {
-
   const url = app_config.apiurl;
   const contactSubmit = async (formdata) => {
     console.log(formdata);
