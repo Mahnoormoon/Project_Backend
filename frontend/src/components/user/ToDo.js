@@ -283,53 +283,35 @@ const ToDo = () => {
             textColor: 'white'
         },
         purple1: {
-            btn: 'btn-purple-1',
-            bg: '#10002b',
-            text: '#10002b',
-            textColor: 'white'
-        },
-        purple2: {
-            btn: 'btn-purple-2',
-            bg: '#3c096c',
-            text: '#3c096c',
-            textColor: 'white'
-        },
-        purple3: {
-            btn: 'btn-purple-3',
-            bg: '#0077b6',
-            text: '#0077b6',
-            textColor: 'white'
-        },
-        purple4: {
-            btn: 'btn-purple-4',
-            bg: '#5a189a',
-            text: '#5a189a',
-            textColor: 'white'
-        },
-        purple5: {
             btn: 'btn-purple-5',
             bg: '#7b2cbf',
             text: '#7b2cbf',
-            textColor: 'white'
-        },
-        purple6: {
-            btn: 'btn-purple-6',
-            bg: '#9d4edd',
-            text: '#9d4edd',
-            textColor: 'white'
-        },
-        purple7: {
-            btn: 'btn-purple-7',
-            bg: '#c77dff',
-            text: '#c77dff',
-            textColor: 'white'
-        },
-        purple8: {
-            btn: 'btn-purple-8',
-            bg: '#e0aaff',
-            text: '#e0aaff',
-            textColor: 'white'
-        },
+            textColor:'white'
+          },
+          purple2: {
+            btn: 'btn-purple-1',
+            bg: '#735D78',
+            text: '#735D78',
+            textColor:'white'
+          },
+          purple3: {
+            btn: 'btn-purple-2',
+            bg: '#B392AC',
+            text: '#B392AC',
+            textColor:'white'
+          },
+          purple4: {
+            btn: 'btn-purple-3',
+            bg: '#D1B3C4',
+            text: '#D1B3C4',
+            textColor:'white'
+          },
+          purple5: {
+            btn: 'btn-purple-4',
+            bg: '#E8C2CA',
+            text: '#E8C2CA',
+            textColor:'white'
+          },
     }
 
     return (
@@ -467,14 +449,11 @@ const ToDo = () => {
                                     </MDBCol>
                                     <MDBCol>
                                         <p className="lead fw-normal heading2 p-2 mb-2">Purple Palette : </p>
-                                        <button style={{ backgroundColor: '#10002b' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('purple1')}>#1</button>
-                                        <button style={{ backgroundColor: '#240046' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('purple2')}>#2</button>
-                                        <button style={{ backgroundColor: '#3c096c' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('purple3')}>#3</button>
-                                        <button style={{ backgroundColor: '#5a189a' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('purple4')}>#4</button>
-                                        <button style={{ backgroundColor: '#7b2cbf' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('purple5')}>#5</button>
-                                        <button style={{ backgroundColor: '#9d4edd' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('purple6')}>#6</button>
-                                        <button style={{ backgroundColor: '#c77dff' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('purple7')}>#8</button>
-                                        <button style={{ backgroundColor: '#e0aaff' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('purple8')}>#5</button>
+                                        <button style={{ backgroundColor: '#7b2cbf' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('purple1')}>#1</button>
+                                        <button style={{ backgroundColor: '#735D78' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('purple2')}>#2</button>
+                                        <button style={{ backgroundColor: '#B392AC' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('purple3')}>#3</button>
+                                        <button style={{ backgroundColor: '#D1B3C4' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('purple4')}>#4</button>
+                                        <button style={{ backgroundColor: '#E8C2CA' }} className="p-2 mb-2 md btn-rounded btn-outline-white text-white" onClick={e => setTheme('purple5')}>#5</button>
                                     </MDBCol>
                                 </MDBCard>
                             </MDBCol>

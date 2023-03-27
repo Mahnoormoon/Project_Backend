@@ -119,35 +119,23 @@
     color: white;
 }
 .btn-purple-1{
-    background-color: #10002b;
-    color: white;
-}
-.btn-purple-2{
-    background-color: #240046;
-    color: white;
-}
-.btn-purple-3{
-    background-color: #3c096c;
-    color: white;
-}
-.btn-purple-4{
-    background-color: #5a189a;
-    color: white;
-}
-.btn-purple-5{
     background-color: #7b2cbf;
     color: white;
 }
-.btn-purple-6{
-    background-color: #9d4edd;
+.btn-purple-2{
+    background-color: #735D78;
     color: white;
 }
-.btn-purple-7{
-    background-color: #c77dff;
+.btn-purple-3{
+    background-color: #B392AC;
     color: white;
 }
-.btn-purple-8{
-    background-color: #e0aaff;
+.btn-purple-4{
+    background-color: #D1B3C4;
+    color: white;
+}
+.btn-purple-5{
+    background-color: #E8C2CA;
     color: white;
 }
 
