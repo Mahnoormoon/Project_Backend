@@ -283,31 +283,31 @@ const ToDo = () => {
             textColor: 'white'
         },
         purple1: {
-            btn: 'btn-purple-5',
+            btn: 'btn-purple-1',
             bg: '#7b2cbf',
             text: '#7b2cbf',
             textColor:'white'
           },
           purple2: {
-            btn: 'btn-purple-1',
+            btn: 'btn-purple-2',
             bg: '#735D78',
             text: '#735D78',
             textColor:'white'
           },
           purple3: {
-            btn: 'btn-purple-2',
+            btn: 'btn-purple-3',
             bg: '#B392AC',
             text: '#B392AC',
             textColor:'white'
           },
           purple4: {
-            btn: 'btn-purple-3',
+            btn: 'btn-purple-4',
             bg: '#D1B3C4',
             text: '#D1B3C4',
             textColor:'white'
           },
           purple5: {
-            btn: 'btn-purple-4',
+            btn: 'btn-purple-5',
             bg: '#E8C2CA',
             text: '#E8C2CA',
             textColor:'white'
