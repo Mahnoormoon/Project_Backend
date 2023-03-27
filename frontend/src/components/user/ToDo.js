@@ -18,13 +18,16 @@ const ToDo = () => {
     const [todoList, setTodoList] = useState([]);
     const [text, setText] = useState("");
     const url = app_config.apiurl;
+    const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+    const [selTodo, setSelTodo] = useState(null);
 
 
-    const fetchTodo = async () => {
+    const fetchTodo = async (cb) => {
         const res = await fetch(url + "/todo/getall");
         const data = await res.json();
         console.log(data);
         setTodoList(data.result);
+        cb(data.result);
     };
 
 
@@ -34,7 +37,8 @@ const ToDo = () => {
                 method: "POST",
                 body: JSON.stringify({
                     title: text,
-                    description: "",
+                    task: [],
+                    user: currentUser._id,
                     created_at: new Date(),
                 }),
                 headers: {
@@ -43,14 +47,79 @@ const ToDo = () => {
             });
             console.log(res.status);
             if (res.status === 201) {
-                await fetchTodo();
+                await fetchTodo((list) => {
+                    setSelTodo(list.length - 1);
+                });
             }
             setText("");
         }
     };
 
+    const addTask = async (id, task) => {
+        const res = await fetch(url + "/todo/addtask/" + id, {
+            method: "PUT",
+            body: JSON.stringify({
+
+                task: task
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        console.log(res.status);
+        if (res.status === 201) {
+            await fetchTodo((list) => {
+                // setSelTodo(list.length - 1);
+            });
+        }
+    };
+
+    const saveTask = async () => {
+        if (text) {
+            const res = await fetch(url + "/todo/add", {
+                method: "POST",
+                body: JSON.stringify({
+                    task: text,
+                    user: currentUser._id,
+                    created_at: new Date(),
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            console.log(res.status);
+            if (res.status === 201) {
+                await fetchTodo((list) => {
+                    setSelTodo(list.length - 1);
+                });
+            }
+            setText("");
+        }
+    };
+
+    const removeTask = async (id, taskindex) => {
+        let taskToUpdate = todoList[selTodo].task;
+        taskToUpdate.splice(taskindex, 1)
+        const res = await fetch(url + "/todo/update/" + id, {
+            method: "PUT",
+            body: JSON.stringify({
+
+                task: taskToUpdate
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        console.log(res.status);
+        if (res.status === 201) {
+            await fetchTodo((list) => {
+                // setSelTodo(list.length - 1);
+            });
+        }
+    };
+
     useEffect(() => {
-        fetchTodo();
+        fetchTodo(() => { });
     }, [])
 
     const themeData = {
@@ -286,32 +355,32 @@ const ToDo = () => {
             btn: 'btn-purple-1',
             bg: '#7b2cbf',
             text: '#7b2cbf',
-            textColor:'white'
-          },
-          purple2: {
+            textColor: 'white'
+        },
+        purple2: {
             btn: 'btn-purple-2',
             bg: '#735D78',
             text: '#735D78',
-            textColor:'white'
-          },
-          purple3: {
+            textColor: 'white'
+        },
+        purple3: {
             btn: 'btn-purple-3',
             bg: '#B392AC',
             text: '#B392AC',
-            textColor:'white'
-          },
-          purple4: {
+            textColor: 'white'
+        },
+        purple4: {
             btn: 'btn-purple-4',
             bg: '#D1B3C4',
             text: '#D1B3C4',
-            textColor:'white'
-          },
-          purple5: {
+            textColor: 'white'
+        },
+        purple5: {
             btn: 'btn-purple-5',
             bg: '#E8C2CA',
             text: '#E8C2CA',
-            textColor:'white'
-          },
+            textColor: 'white'
+        },
     }
 
     return (
@@ -492,107 +561,104 @@ const ToDo = () => {
                                     Add
                                 </button>
                             </MDBCard>
+                            <MDBCard className="mb-4 mt-3 p-2">
+                                <MDBCardBody className="text-center">
+                            <ul className="list-group list-group-light">
+                                {
+                                    todoList.map((todo, index) => (
+                                        <li className="list-group-item d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <div className="fw-bold">{todo.title}</div>
+                                                <div className="text-muted">{new Date(todo.created_at).toLocaleDateString()}</div>
+                                            </div>
+                                            <button onClick={() => setSelTodo(index)}>View</button>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                            </MDBCardBody>
+                            </MDBCard>
                         </MDBCol>
                         {/*Add ToDo*/}
                         <MDBCol className="lg-8">
-                            <MDBCard className="mb-2 mt-4 p-2">
-                                <div className="form-floating mb-3">
-                                    <input
-                                        type="email"
-                                        className="form-control"
-                                        id="floatingInput"
-                                    />
-                                    <label htmlFor="floatingInput">Your Todo Title</label>
-                                </div>
-                                <MDBCardBody className="text-center">
-                                    <div class="input-group mb-2">
-                                        <MDBInput
-                                            type="text"
-                                            className="form-control"
-                                            id="todo"
-                                            label="Enter Task"
-                                        />
-                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                            <DateTimePicker
-                                                label="Date/Time"
-                                                sx={{ width: "50%", height: "50%" }}
-                                                onChange={(v) => { console.log(v.$d); }}
-                                            />
-                                        </LocalizationProvider>
-                                        <button
-                                            className="btn btn-outline-primary"
-                                            type="button"
-                                            id=" "
-                                            data-mdb-ripple-color="dark"
-                                        >
-                                            Add
-                                        </button>
-                                    </div>
-                                </MDBCardBody>
-                            </MDBCard>
-                            {/*ToDo List*/}
-                            <MDBCard className="mb-4 mt-3 p-2">
-                                <MDBCardBody className="text-center">
-                                    {
-                                        todoList.map((todo) => (
-                                            <div className="input-group mb-2">
-                                                <input className="form-control" value={todo.title} />
-                                                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;{new Date(todo.created_at).toLocaleDateString() + "  "}
-                                                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;{new Date(todo.created_at).toLocaleTimeString()}
-                                                <button className="btn btn-info">
-                                                    {" "}
-                                                    <i style={{ color: "white" }} class="fas fa-pen"></i>
-                                                </button>
-                                                <button className="btn btn-danger">
-                                                    {" "}
-                                                    <i style={{ color: "white" }} class="fas fa-trash"></i>
-                                                </button>
+                            {
+                                (selTodo !== null) && (
+                                    <>
+                                        <MDBCard className="mb-2 mt-4 p-2">
+                                            <div className="form-floating mb-3">
+                                                <input
+                                                    type="email"
+                                                    className="form-control"
+                                                    id="floatingInput"
+                                                    value={todoList[selTodo].title}
+                                                />
+                                                <label htmlFor="floatingInput">Your Todo Title</label>
                                             </div>
-                                        ))
+                                            <MDBCardBody className="text-center">
+                                                <div class="input-group mb-2">
+                                                    <MDBInput
+                                                        type="text"
+                                                        className="form-control"
+                                                        id="todo"
+                                                        label="Enter Task"
+                                                    />
+                                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                                        <DateTimePicker
+                                                            label="Date/Time"
+                                                            sx={{ width: "50%", height: "50%" }}
+                                                            onChange={(v) => { console.log(v.$d); }}
+                                                        />
+                                                    </LocalizationProvider>
+                                                    <button
+                                                        className="btn btn-outline-primary"
+                                                        type="button"
+                                                        id=" "
+                                                        data-mdb-ripple-color="dark"
+                                                        onClick={e => {
+                                                            addTask(todoList[selTodo]._id, {
+                                                                title: 'new task',
+                                                                created_at: new Date()
+                                                            })
+                                                        }}
+                                                    >
+                                                        Add
+                                                    </button>
+                                                </div>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                        {/*ToDo List*/}
+                                        <MDBCard className="mb-4 mt-3 p-2">
+                                            <MDBCardBody className="text-center">
+                                                {
+                                                    todoList[selTodo].task.map((task, index) => (
+                                                        <div className="input-group mb-2">
+                                                            <input className="form-control" value={todoList[selTodo].task} />
+                                                            &nbsp;&nbsp;&nbsp;{new Date(task.created_at).toLocaleDateString() + "  "}
+                                                            &nbsp;&nbsp;&nbsp;{new Date(task.created_at).toLocaleTimeString()}
+                                                            &nbsp;&nbsp;&nbsp;<button className="btn btn-info">
+                                                                {" "}
+                                                                <i style={{ color: "white" }} class="fas fa-pen"></i>
+                                                            </button>
+                                                            <button className="btn btn-danger" onClick={() => {
+                                                                removeTask(todoList[selTodo]._id, index)
+                                                            }}>
+                                                                {" "}
+                                                                <i style={{ color: "white" }} class="fas fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    ))
 
-                                    }
+                                                }
 
-                                </MDBCardBody>
-                            </MDBCard>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </>
+                                )
+                            }
+
+
                         </MDBCol>
                     </MDBRow>
-                    <MDBCol className="lg-4">
-                        <MDBCard className="mb-4 mt-3 p-2">
-                            <MDBCardBody className="text-center">
-                                <div className="dropdown">
-                                    <button
-                                        className="btn btn-primary dropdown-toggle w-100"
-                                        type="button"
-                                        id="dropdownMenuButton"
-                                        data-mdb-toggle="dropdown"
-                                        aria-expanded="false"
-                                    >
-                                        Show All ToDo Lists
-                                    </button>
-                                    <ul
-                                        className="dropdown-menu w-100"
-                                        aria-labelledby="dropdownMenuButton"
-                                    >
-                                        <li>
-                                            <a className="dropdown-item" href="#">
-                                                list1
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a className="dropdown-item" href="#">
-                                                list2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a className="dropdown-item" href="#">
-                                                list3
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </MDBCardBody>
-                        </MDBCard>
-                    </MDBCol>
                 </MDBCard>
             </MDBContainer>
         </section>

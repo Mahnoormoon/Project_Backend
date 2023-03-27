@@ -1,9 +1,10 @@
-const { Schema, model } = require("../connection");
+const { Schema, model, Types } = require("../connection");
 
 const todoSchema = new Schema({
   title: { type: String, required: true },
-  task: { type: String, required: true },
+  task: [{ type: Object, required: true }],
+  user: { type: Types.ObjectId, required: true },
   created_at: Date,
 });
 
-module.exports = model("todo", todoSchema);
+module.exports = model("todolist", todoSchema);

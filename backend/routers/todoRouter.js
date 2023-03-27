@@ -90,6 +90,18 @@ router.put("/update/:id", (req, res) => {
     });
 });
 
+router.put("/addtask/:id", (req, res) => {
+  Model.findByIdAndUpdate(req.params.id, {$push : req.body}, { new: true })
+    .then((result) => {
+      console.log("Todo Data Updated");
+      res.status(200).json({ status: "success", result });
+    })
+    .catch((err) => {
+      console.error("Error updating todo data", err);
+      res.status(500).send("Error updating todo data");
+    });
+});
+
 router.delete("/delete/:id", (req, res) => {
   Model.findByIdAndDelete(req.params.id)
     .then((result) => {
