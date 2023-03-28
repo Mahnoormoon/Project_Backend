@@ -97,7 +97,7 @@ const ToDo = () => {
 
     useEffect(() => {
         fetchTodo(() => { });
-    }, [])
+    }, )
 
     const themeData = {
         light: {
