@@ -7,6 +7,7 @@ import app_config from '../../config';
 import "./ProfileForm.css";
 import WeatherWidget from './WeatherWidget';
 import './theme.css';
+import dayjs from 'dayjs';
 
 const UserProfile = () => {
 
@@ -424,7 +425,7 @@ const UserProfile = () => {
                   <MDBRow className="p-3 rounded-4">
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Calendar Widget*/}
-                      <StaticDatePicker className="mb-2 mt-3 rounded-5" sx={{ width: '44%', height: '100%' }}/>
+                      <StaticDatePicker defaultValue={dayjs('2022-04-17')} className="mb-2 mt-3 rounded-5" sx={{ width: '44%', height: '100%' }}/>
                     </MDBCol>
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Clock Widget*/}
