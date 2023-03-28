@@ -21,7 +21,6 @@ const ToDo = () => {
     const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
     const [selTodo, setSelTodo] = useState(null);
 
-
     const fetchTodo = async (cb) => {
         const res = await fetch(url + "/todo/getall");
         const data = await res.json();
@@ -29,7 +28,6 @@ const ToDo = () => {
         setTodoList(data.result);
         cb(data.result);
     };
-
 
     const saveTodo = async () => {
         if (text) {
