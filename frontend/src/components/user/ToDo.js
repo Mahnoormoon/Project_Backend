@@ -74,29 +74,6 @@ const ToDo = () => {
         }
     };
 
-    const saveTask = async () => {
-        if (text) {
-            const res = await fetch(url + "/todo/add", {
-                method: "POST",
-                body: JSON.stringify({
-                    task: text,
-                    user: currentUser._id,
-                    created_at: new Date(),
-                }),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            console.log(res.status);
-            if (res.status === 201) {
-                await fetchTodo((list) => {
-                    setSelTodo(list.length - 1);
-                });
-            }
-            setText("");
-        }
-    };
-
     const removeTask = async (id, taskindex) => {
         let taskToUpdate = todoList[selTodo].task;
         taskToUpdate.splice(taskindex, 1)
@@ -537,10 +514,10 @@ const ToDo = () => {
                 >
                     My ToDo List
                 </h3>
-                <MDBCard className="mb-4" style={{ width: "100%" }}>
+                <MDBCard className="mb-4 p-4" style={{ width: "100%" }}>
                     <MDBRow>
                         <MDBCol className="lg-4">
-                            <MDBCard className="mb-4 mt-3 p-2">
+                            <MDBCard className="mb-4 mt-3 p-2" >
                                 <MDBCardBody className="text-center">
                                     <MDBInput
                                         label="ToDo Title"
@@ -552,7 +529,7 @@ const ToDo = () => {
                                     />
                                 </MDBCardBody>
                                 <button
-                                    className="btn2 btn-outline-primary"
+                                    className="btn2 btn-outline-white"
                                     type="button"
                                     id=" "
                                     data-mdb-ripple-color="dark"
@@ -563,20 +540,20 @@ const ToDo = () => {
                             </MDBCard>
                             <MDBCard className="mb-4 mt-3 p-2">
                                 <MDBCardBody className="text-center">
-                            <ul className="list-group list-group-light">
-                                {
-                                    todoList.map((todo, index) => (
-                                        <li className="list-group-item d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <div className="fw-bold">{todo.title}</div>
-                                                <div className="text-muted">{new Date(todo.created_at).toLocaleDateString()}</div>
-                                            </div>
-                                            <button onClick={() => setSelTodo(index)}>View</button>
-                                        </li>
-                                    ))
-                                }
-                            </ul>
-                            </MDBCardBody>
+                                    <ul className="list-group list-group-light">
+                                        {
+                                            todoList.map((todo, index) => (
+                                                <li className="list-group-item d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <div className="fw-bold">{todo.title}</div>
+                                                        <div className="text-muted">{new Date(todo.created_at).toLocaleDateString()}</div>
+                                                    </div>
+                                                    <button className="btn2 btn-outline-white" onClick={() => setSelTodo(index)}>View</button>
+                                                </li>
+                                            ))
+                                        }
+                                    </ul>
+                                </MDBCardBody>
                             </MDBCard>
                         </MDBCol>
                         {/*Add ToDo*/}
@@ -592,7 +569,7 @@ const ToDo = () => {
                                                     id="floatingInput"
                                                     value={todoList[selTodo].title}
                                                 />
-                                                <label htmlFor="floatingInput">Your Todo Title</label>
+                                                <label htmlFor="floatingInput">Your ToDo Title</label>
                                             </div>
                                             <MDBCardBody className="text-center">
                                                 <div class="input-group mb-2">
@@ -610,7 +587,7 @@ const ToDo = () => {
                                                         />
                                                     </LocalizationProvider>
                                                     <button
-                                                        className="btn btn-outline-primary"
+                                                        className="btn2 btn-outline-white"
                                                         type="button"
                                                         id=" "
                                                         data-mdb-ripple-color="dark"
@@ -647,16 +624,23 @@ const ToDo = () => {
                                                             </button>
                                                         </div>
                                                     ))
-
                                                 }
-
+                                                <div>
+                                                                <button
+                                                                    className="btn2 btn-outline-white"
+                                                                    type="button"
+                                                                    id=" "
+                                                                    data-mdb-ripple-color="dark"
+                                                                    //onClick={}
+                                                                >
+                                                                    Delete All ?
+                                                                </button>
+                                                            </div>
                                             </MDBCardBody>
                                         </MDBCard>
                                     </>
                                 )
                             }
-
-
                         </MDBCol>
                     </MDBRow>
                 </MDBCard>
