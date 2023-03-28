@@ -607,7 +607,7 @@ const ToDo = () => {
                                                 {
                                                     todoList[selTodo].task.map((task, index) => (
                                                         <div className="input-group mb-2">
-                                                            <input className="form-control" value={todoList[selTodo].task} />
+                                                            <input className="form-control" value={task.title} />
                                                             &nbsp;&nbsp;&nbsp;{new Date(task.created_at).toLocaleDateString() + "  "}
                                                             &nbsp;&nbsp;&nbsp;{new Date(task.created_at).toLocaleTimeString()}
                                                             &nbsp;&nbsp;&nbsp;<button className="btn btn-info">
