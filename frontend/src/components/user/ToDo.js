@@ -21,6 +21,8 @@ const ToDo = () => {
     const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
     const [selTodo, setSelTodo] = useState(null);
 
+    const [taskTitle, setTaskTitle] = useState('');
+
     const fetchTodo = async (cb) => {
         const res = await fetch(url + "/todo/getall");
         const data = await res.json();
@@ -65,11 +67,12 @@ const ToDo = () => {
             },
         });
         console.log(res.status);
-        if (res.status === 201) {
+        if (res.status === 200) {
             await fetchTodo((list) => {
                 // setSelTodo(list.length - 1);
             });
         }
+        setTaskTitle('');
     };
 
     const removeTask = async (id, taskindex) => {
@@ -86,16 +89,58 @@ const ToDo = () => {
             },
         });
         console.log(res.status);
-        if (res.status === 201) {
+        if (res.status === 200) {
             await fetchTodo((list) => {
                 // setSelTodo(list.length - 1);
             });
         }
     };
+    const removeAllTask = async (id) => {
+        // let taskToUpdate = todoList[selTodo].task;
+        // taskToUpdate.splice(taskindex, 1)
+        const res = await fetch(url + "/todo/update/" + id, {
+            method: "PUT",
+            body: JSON.stringify({
+
+                task: []
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        console.log(res.status);
+        if (res.status === 200) {
+            await fetchTodo((list) => {
+                // setSelTodo(list.length - 1);
+            });
+        }
+    };
+    
+    // const updateTask = async (id, taskindex) => {
+    //     let taskToUpdate = todoList[selTodo].task;
+    //     // taskToUpdate.splice(taskindex, 1)
+    //     taskToUpdate[taskindex] = 
+    //     const res = await fetch(url + "/todo/update/" + id, {
+    //         method: "PUT",
+    //         body: JSON.stringify({
+
+    //             task: taskToUpdate
+    //         }),
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //     });
+    //     console.log(res.status);
+    //     if (res.status === 201) {
+    //         await fetchTodo((list) => {
+    //             // setSelTodo(list.length - 1);
+    //         });
+    //     }
+    // };
 
     useEffect(() => {
         fetchTodo(() => { });
-    }, )
+    },[] )
 
     const themeData = {
         light: {
@@ -575,6 +620,8 @@ const ToDo = () => {
                                                         type="text"
                                                         className="form-control"
                                                         id="todo"
+                                                        value={taskTitle}
+                                                        onChange={e => setTaskTitle(e.target.value)}
                                                         label="Enter Task"
                                                     />
                                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -591,7 +638,7 @@ const ToDo = () => {
                                                         data-mdb-ripple-color="dark"
                                                         onClick={e => {
                                                             addTask(todoList[selTodo]._id, {
-                                                                title: 'new task',
+                                                                title: taskTitle,
                                                                 created_at: new Date()
                                                             })
                                                         }}
@@ -629,7 +676,7 @@ const ToDo = () => {
                                                                     type="button"
                                                                     id=" "
                                                                     data-mdb-ripple-color="dark"
-                                                                    //onClick={}
+                                                                    onClick={e => removeAllTask(todoList[selTodo]._id)}
                                                                 >
                                                                     Delete All ?
                                                                 </button>
