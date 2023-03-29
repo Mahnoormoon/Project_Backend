@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import AdminIcon from './AdminIcon.jpg';
+import UserChart from './UserChart.js';
+import ToDoChart from './ToDoChart.js';
+import MusicChart from './MusicChart.js';
+import StudyChart from './StudyChart.js';
 import {MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBProgress, MDBProgressBar} from 'mdb-react-ui-kit';
 const AdminProfile = () => {
   return (
@@ -98,48 +102,13 @@ const AdminProfile = () => {
                 </MDBRow>
               </MDBCardBody>
             </MDBCard>
-
-            <MDBRow>
-              <MDBCol md="12">
-                <MDBCard className="mb-4 mb-md-0">
-                  <MDBCardBody>
-                    <MDBCardText className="mb-4"><span className="text-primary font-italic me-1">ToDoCafe'</span> Manage Status</MDBCardText>
-                    <MDBCardText className="mb-1" style={{ fontSize: '.77rem' }}>User Data</MDBCardText>
-                    <MDBProgress className="rounded">
-                      <MDBProgressBar width={80} valuemin={0} valuemax={100} />
-                    </MDBProgress>
-
-                    <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Contact Form Data</MDBCardText>
-                    <MDBProgress className="rounded">
-                      <MDBProgressBar width={35} valuemin={0} valuemax={100} />
-                    </MDBProgress>
-
-                    <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>ToDo Data</MDBCardText>
-                    <MDBProgress className="rounded">
-                      <MDBProgressBar width={72} valuemin={0} valuemax={100} />
-                    </MDBProgress>
-
-                    <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Reminder Data</MDBCardText>
-                    <MDBProgress className="rounded">
-                      <MDBProgressBar width={80} valuemin={0} valuemax={100} />
-                    </MDBProgress>
-
-                    <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Music Data</MDBCardText>
-                    <MDBProgress className="rounded">
-                      <MDBProgressBar width={79} valuemin={0} valuemax={100} />
-                    </MDBProgress>
-
-                    <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Study Methods Data</MDBCardText>
-                    <MDBProgress className="rounded">
-                      <MDBProgressBar width={55} valuemin={0} valuemax={100} />
-                    </MDBProgress>
-                  </MDBCardBody>
-                </MDBCard>
-              </MDBCol>
-            </MDBRow>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
+      <UserChart />
+      <ToDoChart />
+      <MusicChart />
+      <StudyChart />
     </section>
   )
 }

@@ -104,7 +104,7 @@ const Login = () => {
                         >
                           Login
                         </button>
-                        {/* Register buttons */}
+                        {/* Register buttons
                         <div className="text-center">
                           <p>or sign up using:</p>
                           <button
@@ -132,8 +132,12 @@ const Login = () => {
                             <i className="fab fa-github" />
                           </button><br></br>
                           <br></br>
-                          <a>Forgot Password</a>
-                        </div>
+                    <a>Forgot Password</a>
+                        </div>*/}
+                        <div className="text-center">
+                          <p>Don't have an account?</p>
+                          <a className="d-flex mt-2 justify-content-center align-items-center" href={'/main/signup'}>Signup...</a>
+                          </div>
                       </form>
                     ) }
                   </Formik>

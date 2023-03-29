@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography } from 'mdb-react-ui-kit';
+import ProfileIcon from './ProfileImg.jpg';
 import { LocalizationProvider, StaticDatePicker, StaticTimePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import app_config from '../../config';
@@ -8,7 +9,6 @@ import "./ProfileForm.css";
 import WeatherWidget from './WeatherWidget';
 import './theme.css';
 import dayjs from 'dayjs';
-
 const UserProfile = () => {
 
   const [theme, setTheme] = useState('light');
@@ -394,7 +394,7 @@ const UserProfile = () => {
               <div className="rounded-top text-white d-flex flex-row" style={{ backgroundImage: `url("${url}/${currentUser.header}")`, height: '150px' }}>
                 <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
                   {/*Profile Picture*/}
-                  <MDBCardImage src={url + '/' + currentUser.image}
+                  <MDBCardImage src={ProfileIcon}
                     alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '10' }} />
                 </div>
               </div>
@@ -425,11 +425,11 @@ const UserProfile = () => {
                   <MDBRow className="p-3 rounded-4">
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Calendar Widget*/}
-                      <StaticDatePicker defaultValue={dayjs('2023-03-28')} className="mb-2 mt-3 rounded-5" sx={{ width: '44%', height: '78%' }}/>
+                      <StaticDatePicker defaultValue={dayjs('2023-03-29')} className="mb-2 mt-3 rounded-5" sx={{ width: '44%', height: '78%' }}/>
                     </MDBCol>
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Clock Widget*/}
-                      <StaticTimePicker defaultValue={dayjs('2023-03-28T05:15')} className="mb-2 mt-3 rounded-5" sx={{ width: '36%', height: '75%' }}/>
+                      <StaticTimePicker defaultValue={dayjs('2023-03-29T11:00')} className="mb-2 mt-3 rounded-5" sx={{ width: '36%', height: '75%' }}/>
                     </MDBCol>
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Weather Widget*/}
