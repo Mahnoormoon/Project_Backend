@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Formik } from "formik";
 import "./ProfileForm.css";
 import { MDBInput } from "mdb-react-ui-kit";
@@ -161,10 +161,11 @@ const ProfileForm = () => {
                   {/* Submit button */}
                   <button
                     type="submit"
-                    className="btn2 btn-block mt-1 btn-rounded btn-outline-white mt-2"
+                    className="btn2 btn-block btn-rounded btn-outline-white mt-3"
                   >
                     Click to Create
                   </button>
+                  <a className="d-flex mt-4 justify-content-center align-items-center" href={'/user/profile/'}>Click here if already created...</a>
                 </form>
               )}
             </Formik>

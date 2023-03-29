@@ -15,15 +15,15 @@ const UserProfile = () => {
 
   const themeData = {
     light: {
-      btn: 'dark',
+      btn: 'light',
       bg: '#fff',
       text: 'dark',
       textColor:'black'
     },
     dark: {
-      btn: 'light',
+      btn: 'dark',
       bg: '#222',
-      text: 'light',
+      text: 'dark',
       textColor:'white'
     },
     primary: {
@@ -425,15 +425,15 @@ const UserProfile = () => {
                   <MDBRow className="p-3 rounded-4">
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Calendar Widget*/}
-                      <StaticDatePicker defaultValue={dayjs('2023-03-28')} className="mb-2 mt-3 rounded-5" sx={{ width: '44%', height: '100%' }}/>
+                      <StaticDatePicker defaultValue={dayjs('2023-03-28')} className="mb-2 mt-3 rounded-5" sx={{ width: '44%', height: '78%' }}/>
                     </MDBCol>
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Clock Widget*/}
-                      <StaticTimePicker className="mb-2 mt-3 rounded-5" sx={{ width: '36%', height: '100%' }}/>
+                      <StaticTimePicker defaultValue={dayjs('2023-03-28T05:15')} className="mb-2 mt-3 rounded-5" sx={{ width: '36%', height: '75%' }}/>
                     </MDBCol>
-                    <MDBCol className="mb-2 w-10 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
+                    <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Weather Widget*/}
-                      <WeatherWidget  className="mb-2 mt-3 rounded-5"/>
+                      <WeatherWidget  className="mb-2 rounded-5"/>
                     </MDBCol>
                   </MDBRow>
                 </LocalizationProvider>

@@ -75,6 +75,27 @@ const ToDo = () => {
         setTaskTitle('');
     };
 
+    const editTask = async (id, taskindex) => {
+        let taskToEdit = todoList[selTodo].task;
+        taskToEdit.splice(taskindex, 1)
+        const res = await fetch(url + "/todo/update/" + id, {
+            method: "PUT",
+            body: JSON.stringify({
+
+                task: taskToEdit
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        console.log(res.status);
+        if (res.status === 200) {
+            await fetchTodo((list) => {
+                
+            });
+        }
+    };
+
     const removeTask = async (id, taskindex) => {
         let taskToUpdate = todoList[selTodo].task;
         taskToUpdate.splice(taskindex, 1)
@@ -91,13 +112,12 @@ const ToDo = () => {
         console.log(res.status);
         if (res.status === 200) {
             await fetchTodo((list) => {
-                // setSelTodo(list.length - 1);
+                
             });
         }
     };
+
     const removeAllTask = async (id) => {
-        // let taskToUpdate = todoList[selTodo].task;
-        // taskToUpdate.splice(taskindex, 1)
         const res = await fetch(url + "/todo/update/" + id, {
             method: "PUT",
             body: JSON.stringify({
@@ -111,32 +131,10 @@ const ToDo = () => {
         console.log(res.status);
         if (res.status === 200) {
             await fetchTodo((list) => {
-                // setSelTodo(list.length - 1);
+                
             });
         }
     };
-    
-    // const updateTask = async (id, taskindex) => {
-    //     let taskToUpdate = todoList[selTodo].task;
-    //     // taskToUpdate.splice(taskindex, 1)
-    //     taskToUpdate[taskindex] = 
-    //     const res = await fetch(url + "/todo/update/" + id, {
-    //         method: "PUT",
-    //         body: JSON.stringify({
-
-    //             task: taskToUpdate
-    //         }),
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //     });
-    //     console.log(res.status);
-    //     if (res.status === 201) {
-    //         await fetchTodo((list) => {
-    //             // setSelTodo(list.length - 1);
-    //         });
-    //     }
-    // };
 
     useEffect(() => {
         fetchTodo(() => { });
@@ -159,7 +157,7 @@ const ToDo = () => {
             btn: 'primary',
             bg: 'primary',
             text: 'primary',
-            textColor: 'white'
+            textColor: 'grey'
         },
         secondary: {
             btn: 'secondary',
@@ -404,8 +402,8 @@ const ToDo = () => {
     }
 
     return (
-        <section style={{ backgroundColor: "#c3f1c38e" }}>
-            <div className="container-md dropdown r-90 mt-4 mb-6 p-6">
+        <section style={{ backgroundColor: themeData[theme].bg }}>
+            <div className="container-md dropdown r-90 mt-4 mb-2 p-6">
                 <button
                     className="btn dropdown-toggle hidden-arrow rounded-8"
                     type="button"
@@ -552,15 +550,16 @@ const ToDo = () => {
             </div>
             <MDBContainer className="">
                 <h3
-                    className="display-4 fw-thin  text-center"
-                    style={{ color: "#5f8b5f" }}
+                    className="display-4 fw-thin text-center mb-4"
+                    //style={{ color: "#5f8b5f" }}
+                    style={{ color: themeData[theme].textColor }}
                 >
                     My ToDo List
                 </h3>
                 <MDBCard className="mb-4 p-4" style={{ width: "100%" }}>
                     <MDBRow>
                         <MDBCol className="lg-4">
-                            <MDBCard className="mb-4 mt-3 p-2" >
+                            <MDBCard className="mb-4 mt-2 p-2" >
                                 <MDBCardBody className="text-center">
                                     <MDBInput
                                         label="ToDo Title"
@@ -572,7 +571,8 @@ const ToDo = () => {
                                     />
                                 </MDBCardBody>
                                 <button
-                                    className="btn2 btn-outline-white"
+                                    //className="btn2 btn-outline-white"
+                                    className={'my-btn ' + themeData[theme].btn}
                                     type="button"
                                     id=" "
                                     data-mdb-ripple-color="dark"
@@ -588,10 +588,12 @@ const ToDo = () => {
                                             todoList.map((todo, index) => (
                                                 <li className="list-group-item d-flex justify-content-between align-items-center">
                                                     <div>
-                                                        <div className="fw-bold">{todo.title}</div>
-                                                        <div className="text-muted">{new Date(todo.created_at).toLocaleDateString()}</div>
+                                                        <div className="fw-bold" style={{ color: themeData[theme].textColor }}>{todo.title}</div>
+                                                        <div className="text-muted" style={{ color: themeData[theme].textColor }}>{new Date(todo.created_at).toLocaleDateString()}</div>
                                                     </div>
-                                                    <button className="btn2 btn-outline-white" onClick={() => setSelTodo(index)}>View</button>
+                                                    <button //className="btn2 btn-outline-white" 
+                                                    className={'my-btn ' + themeData[theme].btn}
+                                                    onClick={() => setSelTodo(index)}>View</button>
                                                 </li>
                                             ))
                                         }
@@ -612,7 +614,7 @@ const ToDo = () => {
                                                     id="floatingInput"
                                                     value={todoList[selTodo].title}
                                                 />
-                                                <label htmlFor="floatingInput">Your ToDo Title</label>
+                                                <label htmlFor="floatingInput" style={{ color: themeData[theme].textColor }}>Your ToDo Title</label>
                                             </div>
                                             <MDBCardBody className="text-center">
                                                 <div class="input-group mb-2">
@@ -632,7 +634,8 @@ const ToDo = () => {
                                                         />
                                                     </LocalizationProvider>
                                                     <button
-                                                        className="btn2 btn-outline-white"
+                                                        //className="btn2 btn-outline-white"
+                                                        className={'my-btn ' + themeData[theme].btn}
                                                         type="button"
                                                         id=" "
                                                         data-mdb-ripple-color="dark"
@@ -657,7 +660,9 @@ const ToDo = () => {
                                                             <input className="form-control" value={task.title} />
                                                             &nbsp;&nbsp;&nbsp;{new Date(task.created_at).toLocaleDateString() + "  "}
                                                             &nbsp;&nbsp;&nbsp;{new Date(task.created_at).toLocaleTimeString()}
-                                                            &nbsp;&nbsp;&nbsp;<button className="btn btn-info">
+                                                            &nbsp;&nbsp;&nbsp;<button className="btn btn-info" onClick={() => {
+                                                                editTask(todoList[selTodo]._id, index)
+                                                            }}>
                                                                 {" "}
                                                                 <i style={{ color: "white" }} class="fas fa-edit"></i>
                                                             </button>
@@ -672,7 +677,8 @@ const ToDo = () => {
                                                 }
                                                 <div>
                                                                 <button
-                                                                    className="btn2 btn-outline-white"
+                                                                    //className="btn2 btn-outline-white"
+                                                                    className={'my-btn ' + themeData[theme].btn}
                                                                     type="button"
                                                                     id=" "
                                                                     data-mdb-ripple-color="dark"
