@@ -28,11 +28,11 @@ const Header = () => {
           <a className="navbar-brand mt-2 mt-lg-0" href="#">
             <img
               src={logo}
-              height={40}
+              height={55}
               alt="ToDoCafe' Logo"
               loading="lazy"
             />
-            <h6 className="mt-2"> ToDoCafe'</h6>
+            <h5 className="mt-2"> ToDoCafe'</h5>
           </a>
           {/* Left links */}
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
