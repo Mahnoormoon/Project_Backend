@@ -289,7 +289,7 @@ const UserProfile = () => {
   }
   useEffect(() => {
     fetchUserProfile(); 
-  },)
+  }, [])
 
   return (
     <div style={{ backgroundColor: themeData[theme].bg }} className="gradient-custom-2">
