@@ -14,8 +14,8 @@ const ProfileForm = () => {
 
   console.log(currentUser);
   const userprofileSubmit = async (formdata) => {
-    formdata.header = selImage;
-    formdata.image = selImage;
+    //formdata.header = selImage;
+    //formdata.image = selImage;
     console.log(formdata);
     const res = await fetch(url + "/user/update/"+currentUser._id, {
       method: "PUT",
