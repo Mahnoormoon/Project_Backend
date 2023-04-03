@@ -425,11 +425,11 @@ const UserProfile = () => {
                   <MDBRow className="p-3 rounded-4">
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Calendar Widget*/}
-                      <StaticDatePicker defaultValue={dayjs('2023-03-29')} className="mb-2 mt-3 rounded-5" sx={{ width: '44%', height: '78%' }}/>
+                      <StaticDatePicker defaultValue={dayjs('2023-03-29')} className="mb-2 mt-3 rounded-5" sx={{ width: '44%', height: '100%' }}/>
                     </MDBCol>
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Clock Widget*/}
-                      <StaticTimePicker defaultValue={dayjs('2023-03-29T11:00')} className="mb-2 mt-3 rounded-5" sx={{ width: '36%', height: '75%' }}/>
+                      <StaticTimePicker defaultValue={dayjs('2023-03-29T11:00')} className="mb-2 mt-3 rounded-5" sx={{ width: '36%', height: '100%' }}/>
                     </MDBCol>
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Weather Widget*/}
