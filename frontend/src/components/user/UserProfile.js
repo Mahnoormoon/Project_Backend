@@ -394,7 +394,7 @@ const UserProfile = () => {
               <div className="rounded-top text-white d-flex flex-row" style={{ backgroundImage: `url("${url}/${currentUser.header}")`, height: '150px' }}>
                 <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
                   {/*Profile Picture*/}
-                  <MDBCardImage src={ProfileIcon}
+                  <MDBCardImage src=""
                     alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '10' }} />
                 </div>
               </div>
