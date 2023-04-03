@@ -52,7 +52,7 @@ const ProfileForm = () => {
   };
 
   const updateProfile = async (data) => {
-    console.log('nice');
+    console.log(data);
     const res = await fetch(url + "/user/update/"+currentUser._id, {
       method: "PUT",
       body: JSON.stringify(data),

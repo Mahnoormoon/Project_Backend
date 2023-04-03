@@ -75,27 +75,6 @@ const ToDo = () => {
         setTaskTitle('');
     };
 
-    const editTask = async (id, taskindex) => {
-        let taskToEdit = todoList[selTodo].task;
-        taskToEdit.splice(taskindex, 1)
-        const res = await fetch(url + "/todo/update/" + id, {
-            method: "PUT",
-            body: JSON.stringify({
-
-                task: taskToEdit
-            }),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        console.log(res.status);
-        if (res.status === 200) {
-            await fetchTodo((list) => {
-                
-            });
-        }
-    };
-
     const removeTask = async (id, taskindex) => {
         let taskToUpdate = todoList[selTodo].task;
         taskToUpdate.splice(taskindex, 1)
@@ -112,7 +91,7 @@ const ToDo = () => {
         console.log(res.status);
         if (res.status === 200) {
             await fetchTodo((list) => {
-                
+
             });
         }
     };
@@ -131,14 +110,14 @@ const ToDo = () => {
         console.log(res.status);
         if (res.status === 200) {
             await fetchTodo((list) => {
-                
+
             });
         }
     };
 
     useEffect(() => {
         fetchTodo(() => { });
-    },[] )
+    }, [])
 
     const themeData = {
         light: {
@@ -592,8 +571,8 @@ const ToDo = () => {
                                                         <div className="text-muted" style={{ color: themeData[theme].textColor }}>{new Date(todo.created_at).toLocaleDateString()}</div>
                                                     </div>
                                                     <button //className="btn2 btn-outline-white" 
-                                                    className={'my-btn ' + themeData[theme].btn}
-                                                    onClick={() => setSelTodo(index)}>View</button>
+                                                        className={'my-btn ' + themeData[theme].btn}
+                                                        onClick={() => setSelTodo(index)}>View</button>
                                                 </li>
                                             ))
                                         }
@@ -609,7 +588,7 @@ const ToDo = () => {
                                         <MDBCard className="mb-2 mt-4 p-2">
                                             <div className="form-floating mb-3">
                                                 <input
-                                                    type="email"
+                                                    type="text"
                                                     className="form-control"
                                                     id="floatingInput"
                                                     value={todoList[selTodo].title}
@@ -660,12 +639,56 @@ const ToDo = () => {
                                                             <input className="form-control" value={task.title} />
                                                             &nbsp;&nbsp;&nbsp;{new Date(task.created_at).toLocaleDateString() + "  "}
                                                             &nbsp;&nbsp;&nbsp;{new Date(task.created_at).toLocaleTimeString()}
-                                                            &nbsp;&nbsp;&nbsp;<button className="btn btn-info" onClick={() => {
-                                                                editTask(todoList[selTodo]._id, index)
-                                                            }}>
-                                                                {" "}
-                                                                <i style={{ color: "white" }} class="fas fa-edit"></i>
-                                                            </button>
+                                                            &nbsp;&nbsp;&nbsp;
+                                                            <>
+                                                                {/* Button trigger modal */}
+                                                                <button
+                                                                    type="button"
+                                                                    className="btn btn-info"
+                                                                    data-mdb-toggle="modal"
+                                                                    data-mdb-target="#exampleModal"
+                                                                >
+                                                                    <i style={{ color: "white" }} class="fas fa-edit"></i>
+                                                                </button>
+                                                                {/* Modal */}
+                                                                <div
+                                                                    className="modal fade"
+                                                                    id="exampleModal"
+                                                                    tabIndex={-1}
+                                                                    aria-labelledby="exampleModalLabel"
+                                                                    aria-hidden="true"
+                                                                >
+                                                                    <div className="modal-dialog">
+                                                                        <div className="modal-content">
+                                                                            <div className="modal-header">
+                                                                                <h5 className="modal-title" id="exampleModalLabel">
+                                                                                    Edit ToDo
+                                                                                </h5>
+                                                                                <button
+                                                                                    type="button"
+                                                                                    className="btn-close"
+                                                                                    data-mdb-dismiss="modal"
+                                                                                    aria-label="Close"
+                                                                                />
+                                                                            </div>
+                                                                            <div className="modal-body">...</div>
+                                                                            <div className="modal-footer">
+                                                                                <button
+                                                                                    type="button"
+                                                                                    className="btn btn2"
+                                                                                    data-mdb-dismiss="modal"
+                                                                                >
+                                                                                    Close
+                                                                                </button>
+                                                                                <button type="button" className="btn btn2">
+                                                                                    Save changes
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </>
+
                                                             <button className="btn btn-danger" onClick={() => {
                                                                 removeTask(todoList[selTodo]._id, index)
                                                             }}>
@@ -676,17 +699,17 @@ const ToDo = () => {
                                                     ))
                                                 }
                                                 <div>
-                                                                <button
-                                                                    //className="btn2 btn-outline-white"
-                                                                    className={'my-btn ' + themeData[theme].btn}
-                                                                    type="button"
-                                                                    id=" "
-                                                                    data-mdb-ripple-color="dark"
-                                                                    onClick={e => removeAllTask(todoList[selTodo]._id)}
-                                                                >
-                                                                    Delete All ?
-                                                                </button>
-                                                            </div>
+                                                    <button
+                                                        //className="btn2 btn-outline-white"
+                                                        className={'my-btn ' + themeData[theme].btn}
+                                                        type="button"
+                                                        id=" "
+                                                        data-mdb-ripple-color="dark"
+                                                        onClick={e => removeAllTask(todoList[selTodo]._id)}
+                                                    >
+                                                        Delete All ?
+                                                    </button>
+                                                </div>
                                             </MDBCardBody>
                                         </MDBCard>
                                     </>

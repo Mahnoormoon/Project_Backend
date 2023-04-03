@@ -394,7 +394,7 @@ const UserProfile = () => {
               <div className="rounded-top text-white d-flex flex-row" style={{ backgroundImage: `url("${url}/${currentUser.header}")`, height: '150px' }}>
                 <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
                   {/*Profile Picture*/}
-                  <MDBCardImage src=""
+                  <MDBCardImage src={url+'/'+currentUser.image}
                     alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '10' }} />
                 </div>
               </div>
@@ -425,11 +425,11 @@ const UserProfile = () => {
                   <MDBRow className="p-3 rounded-4">
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Calendar Widget*/}
-                      <StaticDatePicker defaultValue={dayjs('2023-03-29')} className="mb-2 mt-3 rounded-5" sx={{ width: '44%', height: '100%' }}/>
+                      <StaticDatePicker defaultValue={dayjs(new Date().toLocaleDateString())} className="mb-2 mt-3 rounded-5" sx={{ width: '44%', height: '78%' }}/>
                     </MDBCol>
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Clock Widget*/}
-                      <StaticTimePicker defaultValue={dayjs('2023-03-29T11:00')} className="mb-2 mt-3 rounded-5" sx={{ width: '36%', height: '100%' }}/>
+                      <StaticTimePicker defaultValue={dayjs(new Date().toLocaleTimeString())} className="mb-2 mt-3 rounded-5" sx={{ width: '36%', height: '100%' }}/>
                     </MDBCol>
                     <MDBCol className="mb-2 rounded-5" style={{ backgroundColor: themeData[theme].bg }}>
                       {/*Weather Widget*/}
