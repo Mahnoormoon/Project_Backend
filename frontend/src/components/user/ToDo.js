@@ -14,6 +14,7 @@ import {
 import app_config from "../../config";
 const ToDo = () => {
     const [theme, setTheme] = useState("light");
+    const [selTask, setSelTask] = useState(null);
 
     const [todoList, setTodoList] = useState([]);
     const [text, setText] = useState("");
@@ -646,14 +647,15 @@ const ToDo = () => {
                                                                     type="button"
                                                                     className="btn btn-info"
                                                                     data-mdb-toggle="modal"
-                                                                    data-mdb-target="#exampleModal"
+                                                                    data-mdb-target="#mymodal"
+                                                                    onClick={e => setSelTask(index)}
                                                                 >
                                                                     <i style={{ color: "white" }} class="fas fa-edit"></i>
                                                                 </button>
                                                                 {/* Modal */}
                                                                 <div
                                                                     className="modal fade"
-                                                                    id="exampleModal"
+                                                                    id="mymodal"
                                                                     tabIndex={-1}
                                                                     aria-labelledby="exampleModalLabel"
                                                                     aria-hidden="true"
@@ -671,7 +673,15 @@ const ToDo = () => {
                                                                                     aria-label="Close"
                                                                                 />
                                                                             </div>
-                                                                            <div className="modal-body">...</div>
+                                                                            <div className="modal-body">
+                                                                            {todoList[selTodo].task[selTask].title}
+                                                                                <form>
+                                                                                    <input className="form-control" placeholder="title"/>
+                                                                                    <input type="date" className="form-control" placeholder="time"/>
+                                                                                    <input type="time" className="form-control" placeholder="time"/>
+                                                                                    <button className="btn btn-primary">Submit</button>
+                                                                                </form>
+                                                                                </div>
                                                                             <div className="modal-footer">
                                                                                 <button
                                                                                     type="button"
