@@ -29,6 +29,8 @@ const ToDo = () => {
   const [taskDate, setTaskDate] = useState(null);
   const [taskTime, setTaskTime] = useState(null);
 
+  const [search, setSearch] = useState('');
+
   const fetchTodo = async (cb) => {
     const res = await fetch(url + "/todo/getall");
     const data = await res.json();
@@ -379,11 +381,25 @@ const ToDo = () => {
     },
   };
 
+  const makeSearch1 = (val) => {
+    fetchTodo((data) => {
+      // console.log(data);
+      setTodoList(data.filter(todo => todo.title.toLowerCase().includes(search.toLowerCase())))
+    })
+  }
+
+  const makeSearch2 = (val) => {
+    fetchTodo((data) => {
+      // console.log(data);
+      setTodoList(data.filter(todo => todo.title.toLowerCase().includes(search.toLowerCase())))
+    })
+  }
+
   const taskUpdate = async (data) => {
       // return;
       let temp = todoList[selTodo].task;
       temp[selTask] = data;
-    //   console.log(temp);
+    // console.log(temp);
     // console.log(data);
     const res = await fetch(url + "/todo/update/" + todoList[selTodo]._id, {
         method: "PUT",
@@ -808,6 +824,17 @@ const ToDo = () => {
               </MDBCard>
               <MDBCard className="mb-4 mt-3 p-2">
                 <MDBCardBody className="text-center">
+                  <input onChange={e => setSearch(e.target.value)} value={search} placeholder="search by title" />
+                  &nbsp;&nbsp;&nbsp;<button
+                            className="btn btn-warning"
+                            onClick={makeSearch1}
+                          >
+                            
+                            <i
+                              style={{ color: "white" }}
+                              class="fas fa-search"
+                            ></i>
+                          </button>
                   <ul className="list-group list-group-light">
                     {todoList.map((todo, index) => (
                       <li className="list-group-item d-flex justify-content-between align-items-center">
