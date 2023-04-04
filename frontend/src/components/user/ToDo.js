@@ -1033,6 +1033,11 @@ const ToDo = () => {
                       </div>
                     </MDBCardBody>
                   </MDBCard>
+                  <MDBCard className="mb-4 mt-3 p-2">
+                    <MDBCardBody className="text-center">
+
+                    </MDBCardBody>
+                    </MDBCard>
                 </>
               )}
             </MDBCol>
