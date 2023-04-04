@@ -37,6 +37,7 @@ const ToDo = () => {
     console.log(data);
     setTodoList(data.result);
     cb(data.result);
+    cb(data.result);
   };
 
   const saveTodo = async () => {
@@ -381,19 +382,17 @@ const ToDo = () => {
     },
   };
 
-  const makeSearch1 = (val) => {
+  const makeSearch = (val) => {
     fetchTodo((data) => {
-      // console.log(data);
       setTodoList(data.filter(todo => todo.title.toLowerCase().includes(search.toLowerCase())))
     })
   }
 
-  const makeSearch2 = (val) => {
+  {/*const makeSearch2 = (val) => {
     fetchTodo((data) => {
-      // console.log(data);
-      setTodoList(data.filter(todo => todo.title.toLowerCase().includes(search.toLowerCase())))
+      setTodoList(data.filter(todo => todo.created_at.getDay(search)))
     })
-  }
+  }*/}
 
   const taskUpdate = async (data) => {
       // return;
@@ -827,7 +826,19 @@ const ToDo = () => {
                   <input onChange={e => setSearch(e.target.value)} value={search} placeholder="search by title" />
                   &nbsp;&nbsp;&nbsp;<button
                             className="btn btn-warning"
-                            onClick={makeSearch1}
+                            onClick={makeSearch}
+                          >
+                            
+                            <i
+                              style={{ color: "white" }}
+                              class="fas fa-search"
+                            ></i>
+                          </button>
+                          <br></br>
+                          <input onChange={e => setSearch(e.target.value)} value={search} placeholder="search by date" />
+                  &nbsp;&nbsp;&nbsp;<button
+                            className="btn btn-warning mt-3"
+                            //onClick={makeSearch2}
                           >
                             
                             <i
