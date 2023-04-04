@@ -991,27 +991,16 @@ const ToDo = () => {
                                               type="time"
                                               className="form-control"
                                             />
-                                            
-                                            <button className="btn btn-primary" type="submit" data-mdb-dismiss="modal">
+                                            <div className="modal-footer justify-content-center align-items-center">
+                                            <button className="btn btn2" type="submit" data-mdb-dismiss="modal">
                                               Submit
                                             </button>
+                                            </div>
                                           </form>
                                         )}
                                       </Formik>
                                     </div>
                                   )}
-                                  <div className="modal-footer">
-                                    <button
-                                      type="button"
-                                      className="btn btn2"
-                                      data-mdb-dismiss="modal"
-                                    >
-                                      Close
-                                    </button>
-                                    <button type="button" className="btn btn2">
-                                      Save changes
-                                    </button>
-                                  </div>
                                 </div>
                               </div>
                             </div>
