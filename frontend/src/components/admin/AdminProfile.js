@@ -24,8 +24,7 @@ const AdminProfile = () => {
                 <p className="text-muted mb-1">BCA-VI</p>
                 <p className="text-muted mb-1">National P.G College, Lucknow</p>
                 <div className="d-flex justify-content-center mb-2 mt-3">
-
-                  <Link id="dropdownMenuButton2" className="btn-outline-white btn justify-content-center btn-rounded" to="/main/contact">Contact</Link>
+                <Link id="dropdownMenuButton2" className="btn-outline-white btn justify-content-center btn-rounded" to="/main/contact">Contact</Link>
                 </div>
               </MDBCardBody>
             </MDBCard>

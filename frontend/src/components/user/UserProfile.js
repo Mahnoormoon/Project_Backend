@@ -27,10 +27,10 @@ const UserProfile = () => {
 
   const themeData = {
     light: {
-      btn: "light",
-      bg: "#fff",
-      text: "dark",
-      textColor: "black",
+      btn:  "btn-light",
+      bg: "#74b4748e",
+      text: "#375e37",
+      textColor: " #375e37",
     },
     dark: {
       btn: "dark",
@@ -751,8 +751,8 @@ const UserProfile = () => {
                     </MDBCardText>
                   </div>
                 </div>
-                <div className="mb-3">
-                  {/*Reminders*/}
+                {/*<div className="mb-3">
+                  {/*Reminders
                   <p className="lead fw-normal mb-2">My Notifications</p>
                   <div
                     className="p-4"
@@ -765,7 +765,7 @@ const UserProfile = () => {
                       Show Reminders Here...
                     </MDBCardText>
                   </div>
-                </div>
+                </div>*/}
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <p className="lead fw-normal mb-2">My Widgets</p>
                   <MDBRow className="p-3 rounded-4">
@@ -788,7 +788,7 @@ const UserProfile = () => {
                       <StaticTimePicker
                         defaultValue={dayjs(new Date())}
                         className="mb-2 mt-3 rounded-5"
-                        sx={{ width: "36%", height: "100%" }}
+                        sx={{ width: "36%", height: "75%" }}
                       />
                     </MDBCol>
                     <MDBCol

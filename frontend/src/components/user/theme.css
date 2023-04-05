@@ -1,142 +1,147 @@
+
+.btn-light{
+    background-color: white;
+    color:  #5f8b5f;
+}
 .btn-pink-1{
-    background-color: #F08080;
-    color: white;
+    background-color: white;
+    color: #F08080;
 }
 .btn-pink-2{
-    background-color: #F4978E;
-    color: white;
+    background-color: white;
+    color: #F4978E;
 }
 .btn-pink-3{
-    background-color: #F8AD9D;
-    color: white;
+    background-color: white;
+    color: #F8AD9D;
 }
 .btn-pink-4{
-    background-color: #FBC4AB;
-    color: white;
+    background-color: white;
+    color: #FBC4AB;
 }
 .btn-pink-5{
-    background-color: #FFDAB9;
-    color: white;
+    background-color: white;
+    color: #FFDAB9;
 }
 .btn-yellow-1{
-    background-color: #fdb833;
-    color: white;
+    background-color: white;
+    color: #fdb833;
 }
 .btn-yellow-2{
-    background-color: #fdc43f;
-    color: black;
+    background-color: white;
+    color: #fdc43f;
 }
 .btn-yellow-3{
-    background-color: #ffda3d;
-    color: black;
+    background-color: white;
+    color: #ffda3d;
 }
 .btn-yellow-4{
-    background-color: #ffe94e;
-    color: black;
+    background-color: white;
+    color:  #ffe94e;
 }
 .btn-yellow-5{
-    background-color: #fff75e;
-    color: black;
+    background-color: white;
+    color: #fff75e;
 }
 .btn-blue-1{
-    background-color: #03045e;
-    color: white;
+    background-color:  white;
+    color: #03045e;
 }
 .btn-blue-2{
-    background-color: #023e8a;
-    color: white;
+    background-color:  white;
+    color: #023e8a;
 }
 .btn-blue-3{
-    background-color: #0077b6;
-    color: white;
+    background-color:  white;
+    color: #0077b6;
 }
 .btn-blue-4{
-    background-color: #00b4d8;
-    color: white;
+    background-color: black;
+    color: #00b4d8;
 }
 .btn-blue-5{
-    background-color: #90e0ef;
-    color: white;
+    background-color:black;
+    color: #90e0ef;
 }
 .btn-maroon-1{
-    background-color: #641220;
-    color: white;
+    background-color: white;
+    color: #641220;
 }
 .btn-maroon-2{
-    background-color: #85182A;
-    color: white;
+    background-color:  white;
+    color:  #85182A;
 }
 .btn-maroon-3{
-    background-color: #A71E34;
-    color: white;
+    background-color:  white;
+    color:  #A71E34;
 }
 .btn-maroon-4{
-    background-color: #BD1F36;
-    color: white;
+    background-color:  white;
+    color:  #BD1F36;
 }
 .btn-maroon-5{
-    background-color: #DA1E37;
-    color: white;
+    background-color:  white;
+    color: #DA1E37;
 }
 .btn-green-1{
-    background-color: #1b4332;
-    color: white;
+    background-color: white;
+    color:  #1b4332;
 }
 .btn-green-2{
-    background-color: #2d6a4f;
-    color: white;
+    background-color: white;
+    color: #2d6a4f;
 }
 .btn-green-3{
-    background-color: #40916c;
-    color: white;
+    background-color: white;
+    color: #40916c;
 }
 .btn-green-4{
-    background-color: #52b788;
-    color: white;
+    background-color:white;
+    color: #52b788;
 }
 .btn-green-5{
-    background-color: #74c69d;
-    color: white;
+    background-color:white;
+    color:  #74c69d;
 }
 .btn-brown-1{
-    background-color: #7f5539;
-    color: white;
+    background-color: white;
+    color: #7f5539;
 }
 .btn-brown-2{
-    background-color: #9c6644;
-    color: white;
+    background-color: white;
+    color:#9c6644;
 }
 .btn-brown-3{
-    background-color: #b08968;
-    color: white;
+    background-color:white;
+    color:  #b08968;
 }
 .btn-brown-4{
-    background-color: #ddb892;
-    color: white;
+    background-color:white;
+    color: #ddb892;
 }
 .btn-brown-5{
-    background-color: #e6ccb2;
-    color: white;
+    background-color: white;
+    color: #e6ccb2;
 }
 .btn-purple-1{
-    background-color: #7b2cbf;
-    color: white;
+    background-color: white;
+    color:  #7b2cbf;
 }
 .btn-purple-2{
-    background-color: #735D78;
-    color: white;
+    background-color: white;
+    color: #735D78;
 }
 .btn-purple-3{
-    background-color: #B392AC;
-    color: white;
+    background-color: white;
+    color:  #B392AC;
 }
 .btn-purple-4{
-    background-color: #D1B3C4;
-    color: white;
+    background-color: white;
+    color:  #D1B3C4;
 }
 .btn-purple-5{
-    background-color: #E8C2CA;
-    color: white;
+    background-color: white;
+    color: #E8C2CA;
 }
 
 .my-btn{
