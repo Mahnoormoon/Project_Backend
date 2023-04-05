@@ -13,10 +13,11 @@ import AboutImg3 from './AboutImg3.png';
 import AboutImg4 from './AboutImg4.png';
 import AboutImg5 from './AboutImg5.png';
 import AboutImg6 from './AboutImg6.png';
+import Question from './Question.png';
 function AboutUs() {
   return (
     <div className="mainlogin">
-      <div className="containerrrr">
+      <div className="containerrrr mb-8">
         <p className="p9 heading2 justify-content-center align-items-center">Welcome to ToDoCafe'</p>
         <div className="row1">
           <div className="col-md-6">
@@ -76,9 +77,9 @@ function AboutUs() {
         </MDBRow>
         </div>
         <div className="col-md-6">
-            <img className="img9 rounded-4" src={AboutImg3} alt="about us" />
+            <img className="img12 rounded-4" src={Question} alt="about us" />
           </div>
-          <div className="col-md-6 ">
+          <div className="col-md-6">
             <h1 className="h11 bgcolor">Curious?</h1>
             <p className="p4">Contact or Write to us if you want to know more...</p>
             <Link id="dropdownMenuButton2" className="btn-outline-white btn w-50 h-20 justify-content-center btn-rounded" to="/main/contact">Click&nbsp;&nbsp;Here</Link>

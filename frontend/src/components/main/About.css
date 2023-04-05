@@ -58,7 +58,19 @@
   }
 
   .img11 {
-    max-width: 65%;
+    max-width: 85%;
+    height: auto;
+    margin-top: 0px;
+  }
+
+  .img12 {
+    max-width: 60%;
+    height: auto;
+    margin-top: 0px;
+  }
+
+  .img13 {
+    max-width: 350%;
     height: auto;
     margin-top: 0px;
   }

@@ -10,7 +10,6 @@ import {
   MDBCardImage,
   MDBTypography,
 } from "mdb-react-ui-kit";
-import ProfileIcon from "./ProfileImg.jpg";
 import {
   LocalizationProvider,
   StaticDatePicker,
