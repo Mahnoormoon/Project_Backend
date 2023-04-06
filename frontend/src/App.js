@@ -31,6 +31,9 @@ import UserAuth from "./auth/UserAuth";
 import AdminAuth from "./auth/AdminAuth";
 import ListStudyMethods from "./components/main/ListStudyMethods";
 import StudyMethodPage from "./components/main/StudyMethodPage";
+import Product1 from "./components/main/Product1";
+import Product2 from "./components/main/Product2";
+import Product3 from "./components/main/Product3";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -74,6 +77,9 @@ function App() {
               <Route element={<About />} path="aboutus" />
               <Route element={<Contact />} path="contact" />
               <Route element={<Services />} path="services" />
+              <Route element={<Product1 />} path="product1" />
+              <Route element={<Product2 />} path="product2" />
+              <Route element={<Product3 />} path="product3" />
               <Route element={<Login />} path="login" />
               <Route element={<Signup />} path="signup" />
               <Route element={<MusicListing />} path="musiclisting" />

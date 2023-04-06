@@ -170,7 +170,7 @@ const ToDo = () => {
       btn: "info",
       bg: "#54B4D3",
       text: "info",
-      textColor: "white",
+      textColor: "black",
     },
     pink1: {
       btn: "btn-pink-1",
@@ -374,7 +374,7 @@ const ToDo = () => {
       btn: "btn-purple-4",
       bg: "#D1B3C4",
       text: "#D1B3C4",
-      textColor: "white",
+      textColor: "#D1B3C4",
     },
     purple5: {
       btn: "btn-purple-5",

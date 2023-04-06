@@ -51,7 +51,7 @@ function Services() {
             <MDBCard className="mt-2 p-2">
               <MDBCardBody className="text-center">
                 <img className="img11 rounded-4" src={AboutImg6} alt="Team Member" />
-                <h4 className="mt-2">Blog Section</h4>
+                <h4 className="mt-2">Blog: Study Methods</h4>
                 <p>get access to the various study methods and techniques like pomodoro from all over the internet at just one place...</p>
               </MDBCardBody>
             </MDBCard>

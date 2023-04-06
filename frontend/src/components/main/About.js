@@ -69,7 +69,7 @@ function AboutUs() {
             <MDBCard className="mt-2 p-2">
               <MDBCardBody className="text-center">
                 <img className="img11 rounded-4" src={AboutImg6} alt="Team Member" />
-                <h4 className="mt-2">Blog Section</h4>
+                <h4 className="mt-2">Blog: Study Methods</h4>
                 <p>Study Methods and Techniques</p>
               </MDBCardBody>
             </MDBCard>
