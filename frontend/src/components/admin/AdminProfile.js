@@ -49,9 +49,6 @@ const AdminProfile = () => {
                           <Link class="dropdown-item" to="/admin/managetodo">Manage Todo</Link>
                         </li>
                         <li>
-                          <Link class="dropdown-item" to="/admin/managereminder">Manage Reminder</Link>
-                        </li>
-                        <li>
                           <Link class="dropdown-item" to="/admin/managemusic">Manage Music</Link>
                         </li>
                         <li>

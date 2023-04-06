@@ -9,7 +9,7 @@ const ManageToDo = () => {
     const url = app_config.apiurl;
     const getDataFromBackend = async () => {
         // send request 
-        const res= await fetch(url+'/todo/getall');
+        const res= await fetch(url+'/todolist/getall');
 
         // accessing data from response
         const data = await res.json();
@@ -27,7 +27,7 @@ const ManageToDo = () => {
     
     const deleteTodo = async (id) => {
         console.log(id);
-        const res = await fetch(url+'/todo/delete/'+id, {
+        const res = await fetch(url+'/todolist/delete/'+id, {
             method : 'DELETE'
         })
 
@@ -51,13 +51,10 @@ const ManageToDo = () => {
                 <thead >
                     <tr style={{backgroundColor:"#5f8b5f", color:"white"}}>
                         {/*change according to the todopage*/}
-                        <th>UserName</th>
-                        <th>ToDo Category</th>
                         <th>ToDo Title</th>
-                        <th>Todo Description</th>
-                        <th>ToDo Date</th>
+                        <th>Todo Task</th>
+                        <th>User Object</th>
                         <th>Created_At</th>
-                        <th>Added_At</th>
                         <th>Updated_At</th>
                     </tr>
                 </thead>
@@ -65,11 +62,9 @@ const ManageToDo = () => {
                     {
                         todoList.map( (todo) => (
                             <tr >
-                        {/*change according to the todopage*/}
-                        <td>{todo.name}</td>
-                        <td>{todo.category}</td>
                         <td>{todo.title}</td>
-                        <td>{todo.description}</td>
+                        <td>{todo.task}</td>
+                        <td>{todo.user}</td>
                         <td>{new Date(todo.created_at).toLocaleDateString()}</td>
                         <td>{new Date(todo.updated_at).toLocaleDateString()}</td>
                                 <td>
@@ -80,12 +75,8 @@ const ManageToDo = () => {
                     }
                 </tbody>
             </table>
-
         </div>
-
-
     </div>
   )
 }
-
 export default ManageToDo;

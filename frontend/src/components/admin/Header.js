@@ -64,10 +64,10 @@ const Header = () => {
         </Link>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <li>
-            <Link class="dropdown-item" to="/admin/addmusic">Music</Link>
+            <Link class="dropdown-item" to="/admin/addmusic">Add Music</Link>
           </li>
           <li>
-            <a class="dropdown-item" href="/admin/addstudymethods">Study Methods</a>
+            <a class="dropdown-item" href="/admin/addstudymethods">Add Study Methods</a>
           </li>
         </ul>
       </li>
