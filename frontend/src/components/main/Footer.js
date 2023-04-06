@@ -86,6 +86,11 @@ const Footer = () => {
                   Contact Us
                 </a>
               </p>
+              <p>
+                <a href="/main/services" className="text-reset">
+                  Services
+                </a>
+              </p>
             </div>
             {/* Grid column */}
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
@@ -111,9 +116,10 @@ const Footer = () => {
         className="text-center p-4"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
       >
-        © 2023 Copyright:
-        <a className="text-reset fw-bold" href=" ">
-          &nbsp;&nbsp;ToDoCafe.com
+         @ {new Date().getFullYear()} ToDoCafe' All Rights Reserved
+         <br></br>
+        <a className="text-reset fw-bold mt-2" href=" ">
+          &nbsp;&nbsp;www.ToDoCafe.com
         </a>
       </div>
     </footer>
