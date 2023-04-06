@@ -57,17 +57,17 @@ const Footer = () => {
               {/* Links */}
               <h6 className="text-uppercase fw-bold mb-4">Products</h6>
               <p>
-                <a href="#!" className="text-reset">
+                <a href="/main/product1" className="text-reset">
                   To-Do List
                 </a>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <a href="/main/product2" className="text-reset">
                   Music Player
                 </a>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <a href="/main/product3" className="text-reset">
                   Study Methods
                 </a>
               </p>
