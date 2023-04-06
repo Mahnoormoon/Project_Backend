@@ -751,21 +751,6 @@ const UserProfile = () => {
                     </MDBCardText>
                   </div>
                 </div>
-                {/*<div className="mb-3">
-                  {/*Reminders
-                  <p className="lead fw-normal mb-2">My Notifications</p>
-                  <div
-                    className="p-4"
-                    style={{ backgroundColor: themeData[theme].bg }}
-                  >
-                    <MDBCardText
-                      className="font-italic mb-1"
-                      style={{ color: themeData[theme].textColor }}
-                    >
-                      Show Reminders Here...
-                    </MDBCardText>
-                  </div>
-                </div>*/}
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <p className="lead fw-normal mb-2">My Widgets</p>
                   <MDBRow className="p-3 rounded-4">
@@ -800,7 +785,7 @@ const UserProfile = () => {
                     </MDBCol>
                     <MDBCol
                       className="mb-2 rounded-5"
-                      style={{ backgroundColor: themeData[theme].bg }}
+                      style={{ backgroundColor: themeData[theme].bg , height:'400px'}}
                     >
                       <Reminders />
                     </MDBCol>
