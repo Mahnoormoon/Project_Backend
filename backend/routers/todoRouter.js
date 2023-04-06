@@ -78,6 +78,18 @@ router.get("/getbyid/:id", (req, res) => {
     });
 });
 
+router.get("/getbyuser/:id", (req, res) => {
+  Model.find({user : req.params.id})
+    .then((result) => {
+      console.log("Todo Data Retrieved");
+      res.status(200).json({ status: "success", result });
+    })
+    .catch((err) => {
+      console.error("Error retrieving todo data", err);
+      res.status(500).send("Error retrieving todo data");
+    });
+});
+
 router.put("/update/:id", (req, res) => {
   Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((result) => {

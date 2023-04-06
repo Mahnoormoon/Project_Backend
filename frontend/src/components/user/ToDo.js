@@ -29,17 +29,17 @@ const ToDo = () => {
   const [search, setSearch] = useState('');
   const [dateSearch, setDateSearch] = useState('');
 
-  const fetchTodo = async (cb1, cb2) => {
+  const fetchTodo = async (cb1) => {
     const res = await fetch(url + "/todo/getall");
     const data1 = await res.json();
     console.log(data1);
     setTodoList(data1.result);
     cb1(data1.result);
-    const data2 = await res.json();
-    console.log(data2);
-    setTodoList(data2.result);
-    cb1(data1.result);
-    cb2(data2.result);
+    // const data2 = await res.json();
+    // console.log(data2);
+    // setTodoList(data2.result);
+    // cb1(data1.result);
+    // cb2(data2.result);
   };
 
   const saveTodo = async () => {

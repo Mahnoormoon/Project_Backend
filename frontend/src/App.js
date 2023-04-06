@@ -34,6 +34,7 @@ import StudyMethodPage from "./components/main/StudyMethodPage";
 import Product1 from "./components/main/Product1";
 import Product2 from "./components/main/Product2";
 import Product3 from "./components/main/Product3";
+import Reminders from "./components/user/Reminders";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -103,6 +104,7 @@ function App() {
               <Route path="profileform" element={<ProfileForm />} />
               {/* <Route path="profileform/:id" element={<ProfileForm />} /> */}
               <Route path="todo/:id" element={<ToDo />} />
+              {/* <Route path="reminders" element={<Reminders />} /> */}
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

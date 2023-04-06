@@ -21,6 +21,7 @@ import "./ProfileForm.css";
 import WeatherWidget from "./WeatherWidget";
 import "./theme.css";
 import dayjs from "dayjs";
+import Reminders from "./Reminders";
 const UserProfile = () => {
   const [theme, setTheme] = useState("light");
 
@@ -796,6 +797,12 @@ const UserProfile = () => {
                     >
                       {/*Weather Widget*/}
                       <WeatherWidget className="mb-2 rounded-5" />
+                    </MDBCol>
+                    <MDBCol
+                      className="mb-2 rounded-5"
+                      style={{ backgroundColor: themeData[theme].bg }}
+                    >
+                      <Reminders />
                     </MDBCol>
                   </MDBRow>
                 </LocalizationProvider>
