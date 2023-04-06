@@ -4,7 +4,6 @@ dotenv.config();
 
 const userRouter = require('./routers/userRouter');
 const musicRouter = require('./routers/musicRouter');
-const reminderRouter = require('./routers/reminderRouter');
 const todoRouter = require('./routers/todoRouter');
 const studyRouter = require('./routers/studyRouter');
 const contactRouter = require('./routers/contactRouter');
@@ -24,7 +23,6 @@ app.use(cors(
 app.use(express.json());
 app.use('/user', userRouter);
 app.use('/music', musicRouter);
-app.use('/reminder', reminderRouter);
 app.use('/todo', todoRouter);
 app.use('/study', studyRouter);
 app.use('/contact', contactRouter);
