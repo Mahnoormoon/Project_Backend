@@ -30,7 +30,7 @@ const ToDo = () => {
   const [dateSearch, setDateSearch] = useState('');
 
   const fetchTodo = async (cb1) => {
-    const res = await fetch(url + "/todo/getall");
+    const res = await fetch(url + "/todolist/getall");
     const data1 = await res.json();
     console.log(data1);
     setTodoList(data1.result);
@@ -44,7 +44,7 @@ const ToDo = () => {
 
   const saveTodo = async () => {
     if (text) {
-      const res = await fetch(url + "/todo/add", {
+      const res = await fetch(url + "/todolist/add", {
         method: "POST",
         body: JSON.stringify({
           title: text,
@@ -67,7 +67,7 @@ const ToDo = () => {
   };
 
   const addTask = async (id, task) => {
-    const res = await fetch(url + "/todo/addtask/" + id, {
+    const res = await fetch(url + "/todolist/addtask/" + id, {
       method: "PUT",
       body: JSON.stringify({
         task: task,
@@ -88,7 +88,7 @@ const ToDo = () => {
   const removeTask = async (id, taskindex) => {
     let taskToUpdate = todoList[selTodo].task;
     taskToUpdate.splice(taskindex, 1);
-    const res = await fetch(url + "/todo/update/" + id, {
+    const res = await fetch(url + "/todolist/update/" + id, {
       method: "PUT",
       body: JSON.stringify({
         task: taskToUpdate,
@@ -104,7 +104,7 @@ const ToDo = () => {
   };
 
   const removeAllTask = async (id) => {
-    const res = await fetch(url + "/todo/update/" + id, {
+    const res = await fetch(url + "/todolist/update/" + id, {
       method: "PUT",
       body: JSON.stringify({
         task: [],
@@ -399,7 +399,7 @@ const ToDo = () => {
   const taskUpdate = async (data) => {
       let temp = todoList[selTodo].task;
       temp[selTask] = data;
-    const res = await fetch(url + "/todo/update/" + todoList[selTodo]._id, {
+    const res = await fetch(url + "/todolist/update/" + todoList[selTodo]._id, {
         method: "PUT",
         body: JSON.stringify({
           task: temp,
