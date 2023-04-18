@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UserChart = () => {
+const MusicChart = () => {
   return (
     <iframe
   style={{
@@ -18,4 +18,4 @@ const UserChart = () => {
   )
 }
 
-export default UserChart
+export default MusicChart

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import AdminIcon from './AdminIcon.jpg';
-import {MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBProgress, MDBProgressBar} from 'mdb-react-ui-kit';
+import {MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage} from 'mdb-react-ui-kit';
 const AdminProfile = () => {
   return (
     <section style={{ backgroundColor: '#c3f1c38e' }}>
