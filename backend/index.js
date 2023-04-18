@@ -23,7 +23,7 @@ app.use(cors(
 app.use(express.json());
 app.use('/user', userRouter);
 app.use('/music', musicRouter);
-app.use('/todo', todoRouter);
+app.use('/todolist', todoRouter);
 app.use('/study', studyRouter);
 app.use('/contact', contactRouter);
 app.use('/util', utilRouter);

@@ -48,7 +48,7 @@ function AboutUs() {
           <MDBCol className="lg-4 mb-8">
             <MDBCard className="mt-2 p-2">
               <MDBCardBody className="text-center">
-                <img className="img11 rounded-4" src={AboutImg1} alt="Team Member" />
+                <img className="img11 rounded-4" src={AboutImg1} />
                 <h4 className="mt-2">To-Do List</h4>
                 <p>Customizable and Compact</p>
               </MDBCardBody>
@@ -58,7 +58,7 @@ function AboutUs() {
           <MDBCol className="lg-4 mb-8">
             <MDBCard className="mt-2 p-2">
               <MDBCardBody className="text-center">
-                <img className="img11 rounded-4" src={AboutImg5} alt="Team Member" />
+                <img className="img11 rounded-4" src={AboutImg5} />
                 <h4 className="mt-2">Music Player</h4>
                 <p>Play Study Music</p>
               </MDBCardBody>
@@ -68,8 +68,8 @@ function AboutUs() {
           <MDBCol className="lg-4 mb-8">
             <MDBCard className="mt-2 p-2">
               <MDBCardBody className="text-center">
-                <img className="img11 rounded-4" src={AboutImg6} alt="Team Member" />
-                <h4 className="mt-2">Blog: Study Methods</h4>
+                <img className="img11 rounded-4" src={AboutImg6} />
+                <h4 className="mt-2">Study Methods</h4>
                 <p>Study Methods and Techniques</p>
               </MDBCardBody>
             </MDBCard>

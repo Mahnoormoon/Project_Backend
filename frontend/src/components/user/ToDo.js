@@ -35,6 +35,11 @@ const ToDo = () => {
     console.log(data1);
     setTodoList(data1.result);
     cb1(data1.result);
+    // const data2 = await res.json();
+    // console.log(data2);
+    // setTodoList(data2.result);
+    // cb1(data1.result);
+    // cb2(data2.result);
   };
 
   const saveTodo = async () => {

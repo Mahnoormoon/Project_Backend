@@ -52,8 +52,6 @@ const ManageToDo = () => {
                     <tr style={{backgroundColor:"#5f8b5f", color:"white"}}>
                         {/*change according to the todopage*/}
                         <th>ToDo Title</th>
-                        <th>Todo Task</th>
-                        <th>User Object</th>
                         <th>Created_At</th>
                         <th>Updated_At</th>
                     </tr>
@@ -63,8 +61,6 @@ const ManageToDo = () => {
                         todoList.map( (todo) => (
                             <tr >
                         <td>{todo.title}</td>
-                        <td>{todo.task}</td>
-                        <td>{todo.user}</td>
                         <td>{new Date(todo.created_at).toLocaleDateString()}</td>
                         <td>{new Date(todo.updated_at).toLocaleDateString()}</td>
                                 <td>

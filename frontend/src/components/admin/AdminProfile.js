@@ -1,10 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import AdminIcon from './AdminIcon.jpg';
-import UserChart from './UserChart.js';
-import ToDoChart from './ToDoChart.js';
-import MusicChart from './MusicChart.js';
-import StudyChart from './StudyChart.js';
 import {MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBProgress, MDBProgressBar} from 'mdb-react-ui-kit';
 const AdminProfile = () => {
   return (
@@ -98,13 +94,16 @@ const AdminProfile = () => {
                 </MDBRow>
               </MDBCardBody>
             </MDBCard>
+            <MDBCard className="mb-4">
+              <MDBCardBody>
+                <MDBRow>
+                <Link id="dropdownMenuButton2" className="btn-outline-white btn justify-content-center btn-rounded" to="/admin/chartreporting">Chart Reporting</Link>
+                </MDBRow>
+                </MDBCardBody>
+            </MDBCard>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-      <UserChart />
-      <ToDoChart />
-      <MusicChart />
-      <StudyChart />
     </section>
   )
 }
