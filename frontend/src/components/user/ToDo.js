@@ -820,7 +820,7 @@ const ToDo = () => {
               </MDBCard>
               <MDBCard className="mb-4 mt-3 p-2" style={{ backgroundColor: themeData[theme].bg }}>
                 <MDBCardBody className="text-center">
-                  <input onChange={e => setSearch(e.target.value)} value={search} placeholder="search by title" />
+                  <input onChange={e => setSearch(e.target.value)} value={search} placeholder="search" />
                   &nbsp;&nbsp;&nbsp;<button
                             className="btn btn-warning"
                             onClick={makeSearch1}
@@ -832,7 +832,7 @@ const ToDo = () => {
                             ></i>
                           </button>
                           <br></br>
-                          <input onChange={e => setDateSearch(e.target.value)} value={dateSearch} placeholder="search by date" />
+                          {/*<input onChange={e => setDateSearch(e.target.value)} value={dateSearch} placeholder="search by date" />
                   &nbsp;&nbsp;&nbsp;<button
                             className="btn btn-warning mt-1"
                             onClick={makeSearch2}
@@ -842,7 +842,7 @@ const ToDo = () => {
                               style={{ color: "white" }}
                               class="fas fa-search"
                             ></i>
-                          </button>
+  </button>*/}
                   <ul className="list-group list-group-light mt-3">
                     {todoList.map((todo, index) => (
                       <li className="list-group-item d-flex justify-content-between align-items-center p-3">
